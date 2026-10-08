@@ -22,9 +22,9 @@ import {
  * (see the comment on `.hero__title` there).
  */
 export const homeHero = {
-  headlineThin: 'Your headline.',
-  headlineBold: 'Make it yours.',
-  subhead: 'PLACEHOLDER - tell me what to put here: one sentence on who you help and the result you get them.',
+  headlineThin: 'Organize the work.',
+  headlineBold: 'Document the process.',
+  subhead: 'Operations and documentation support for teams that need clearer workflows, reliable follow-through, and knowledge that does not live in one person's head.',
   cta: { label: 'Get in touch', to: '/#contact' },
 }
 
@@ -38,22 +38,22 @@ export type ManifestoPart = string | { key: string }
 export const homeManifesto = {
   eyebrow: method.eyebrow,
   parts: [
-    'This is your',
-    { key: 'statement.' },
-    'Say who you',
-    { key: 'help,' },
-    'what you',
-    { key: 'make' },
-    'for them, and how you',
+    'Good work needs',
+    { key: 'clarity.' },
+    'Give teams',
+    { key: 'ownership,' },
+    'keep processes',
+    { key: 'usable' },
+    'and help everyone',
     { key: 'deliver' },
-    'the result they came for.',
+    'with confidence.',
   ] satisfies ManifestoPart[],
 }
 
 export const homeSections = {
   work: {
     eyebrow: 'Selected work',
-    title: 'Builds you can open right now.',
+    title: 'Documentation that makes work easier.',
   },
   proof: {
     eyebrow: 'Proof',
@@ -66,8 +66,8 @@ export const homeSections = {
 }
 
 export const ctaBand = {
-  title: 'Tell me what is eating your week.',
-  body: 'PLACEHOLDER - tell me what to put here: one or two sentences on what the visitor gets when they write to you.',
+  title: 'What keeps getting stuck?',
+  body: 'Tell me what is scattered, repeated, or unclear. I can help organize the workflow and document the next steps.',
   button: 'Email me your question',
 }
 
@@ -127,8 +127,8 @@ const experimentItems = groupItems(experiments)
 export const workSection = {
   ...homeSections.work,
   /** The title as one display line in the hero's thin + bold pairing. */
-  titleThin: 'Builds you can',
-  titleBold: 'open right now.',
+  titleThin: 'Work that keeps',
+  titleBold: 'teams moving.',
   all: { label: `See all ${workCount} builds`, to: '/work' },
 }
 
