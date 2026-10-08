@@ -1,26 +1,25 @@
 import type { Faq } from './schema'
 
-/** The questions people ask before they write. Pages pick the ones that answer their own objection. */
 export const faqs = {
   whatYouBuild: {
-    question: 'What do you actually build?',
-    answer: 'PLACEHOLDER - tell me what to put here: the kinds of work you take on and who it is usually for, in two sentences.',
+    question: 'What can you help with?',
+    answer: 'I work across SOPs, process documentation, knowledge bases, technical documentation, document management, and operations or virtual-assistance support. The best fit is work that needs both clarity and reliable follow-through.',
   },
   startSpeed: {
-    question: 'How fast can you start?',
-    answer: 'PLACEHOLDER - tell me what to put here: how soon you can begin small and large jobs, and the hours or time zones you overlap.',
+    question: 'Can you work with distributed teams?',
+    answer: 'Yes. I am based in the Philippines (UTC+8) and can arrange overlap for distributed teams depending on the project and communication needs.',
   },
   needStack: {
-    question: 'Do I need a specific platform?',
-    answer: 'PLACEHOLDER - tell me what to put here: which tools you work in, and what you do when a client stack is a poor fit.',
+    question: 'Do I need to use a specific tool?',
+    answer: 'No. I have worked across Confluence, Notion, Help Scout, Airtable, Jira, Monday.com, Asana, Trello, Google Workspace, Microsoft 365, and similar systems. I am comfortable learning an unfamiliar tool when the workflow calls for it.',
   },
   pricing: {
-    question: 'How much do you charge?',
-    answer: 'PLACEHOLDER - tell me what to put here: how you price (fixed, hourly, retainer), what comes before a quote, and what is included.',
+    question: 'How do you price projects?',
+    answer: 'I use hourly, fixed-price, and retainer arrangements depending on scope. For larger documentation sets or ongoing support, I prefer to understand volume, complexity, review rounds, and turnaround expectations before quoting.',
   },
   afterWrite: {
-    question: 'What happens after I write?',
-    answer: 'PLACEHOLDER - tell me what to put here: how fast you reply and what the visitor gets back (a plan, a call, a straight no).',
+    question: 'What happens after I get in touch?',
+    answer: 'I will review the context, ask for any missing information that affects scope, and suggest a practical next step. For documentation work, that usually means confirming the audience, source material, deliverables, and review process first.',
   },
 } satisfies Record<string, Faq>
 
