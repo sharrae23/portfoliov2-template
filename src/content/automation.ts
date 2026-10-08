@@ -1,14 +1,5 @@
 import { method } from './method'
 
-/**
- * The live automation diagram on Home: a client's
- * journey through a booking pipeline, drawn stage by stage as the page scrolls (enquiry -> booking ->
- * reminders -> intro call -> outcomes). Replace the stage names and lines with your own journey.
- *
- * Coordinates are in the diagram's own 1200 x 600 units: the main path is the top row, the call's
- * outcomes the bottom row. `plane` is who moves it: `lead` = the lead / you, `auto` = the system sends
- * it. `step` is the method step (0, 1 or 2: the three steps in method.ts). Nodes are listed in build order.
- */
 export type FlowPlane = 'lead' | 'auto'
 export type FlowIcon = 'form' | 'email' | 'booked' | 'reminder' | 'alarm' | 'call' | 'proposal' | 'won' | 'later' | 'nurture' | 'lost'
 
@@ -23,39 +14,40 @@ export type FlowNode = {
   w: number
   h: number
   step: number
-  /** One line for the inspector. */
   about: string
 }
 
-/** `solid` links are the lead path (arrows a packet runs); `dashed` links reroute it: a reschedule loops back, the call branches out. */
 export type FlowLink = { from: string; to: string; style: 'solid' | 'dashed'; label?: string }
 
 const ROWS = [64, 376]
 const box = (col: number, row: number) => ({ x: 24 + col * 200, y: ROWS[row]!, w: 156, h: 136 })
 
-
+/**
+ * The original template's automation graphic is repurposed here as a documentation workflow:
+ * request -> discovery -> draft -> review -> approval -> maintenance.
+ */
 export const liveAutomation = {
-  eyebrow: 'Live automation',
-  titleThin: 'Attract. Nurture.',
-  titleBold: 'Convert.',
+  eyebrow: 'Documentation workflow',
+  titleThin: 'Discover. Document.',
+  titleBold: 'Maintain.',
   steps: method.steps.map((step) => ({ name: step.name, body: step.body })),
-  panel: { lead: 'Lead to', rest: 'Closed Deal' },
-  legend: { auto: 'Automation', lead: 'Lead path' },
-  zones: { booking: 'Your Tool', pipeline: 'Pipeline' },
-  connected: 'System live',
+  panel: { lead: 'Request to', rest: 'Published Documentation' },
+  legend: { auto: 'System / process', lead: 'Team action' },
+  zones: { booking: 'Intake & review', pipeline: 'Documentation lifecycle' },
+  connected: 'Workflow active',
   hint: { hover: 'Hover a stage to inspect', tap: 'Tap a stage to inspect' },
   nodes: [
-    { id: 'form', title: 'New Enquiry', tag: 'New lead trigger', plane: 'lead', icon: 'form', ...box(0, 0), step: 0, about: 'PLACEHOLDER - tell me what to put here: one line on how a lead first reaches you.' },
-    { id: 'email', title: 'Welcome Email', tag: 'Send booking link', plane: 'auto', icon: 'email', ...box(1, 0), step: 1, about: 'PLACEHOLDER - tell me what to put here: one line on what goes out automatically.' },
-    { id: 'booked', title: 'Call Booked', tag: 'Slot confirmed', plane: 'lead', icon: 'booked', ...box(2, 0), step: 1, about: 'PLACEHOLDER - tell me what to put here: one line on what the client does next.' },
-    { id: 'day', title: 'Reminder One', tag: 'Pre-call message', plane: 'auto', icon: 'reminder', ...box(3, 0), step: 1, about: 'PLACEHOLDER - tell me what to put here: one line on the first reminder.' },
-    { id: 'hour', title: 'Reminder Two', tag: 'Pre-call message', plane: 'auto', icon: 'alarm', ...box(4, 0), step: 1, about: 'PLACEHOLDER - tell me what to put here: one line on the last nudge and how to rebook.' },
-    { id: 'call', title: 'Intro Call', tag: 'Qualify the lead', plane: 'lead', icon: 'call', ...box(5, 0), step: 2, about: 'PLACEHOLDER - tell me what to put here: one line on what happens on the call.' },
-    { id: 'proposal', title: 'Quote Sent', tag: 'Scope + price', plane: 'lead', icon: 'proposal', ...box(0, 1), step: 2, about: 'PLACEHOLDER - tell me what to put here: one line on what a ready client receives.' },
-    { id: 'later', title: 'Maybe / Later', tag: 'Not ready yet', plane: 'lead', icon: 'later', ...box(3, 1), step: 2, about: 'PLACEHOLDER - tell me what to put here: one line on what happens when they are not ready.' },
-    { id: 'lost', title: 'Not a Fit', tag: 'Closed out', plane: 'lead', icon: 'lost', ...box(5, 1), step: 2, about: 'PLACEHOLDER - tell me what to put here: one line on how a no is closed out.' },
-    { id: 'won', title: 'Signed', tag: 'Deal closed', plane: 'lead', icon: 'won', ...box(1, 1), step: 2, about: 'PLACEHOLDER - tell me what to put here: one line on what a yes triggers.' },
-    { id: 'nurture', title: 'Stay in Touch', tag: 'Long-term drip', plane: 'auto', icon: 'nurture', ...box(4, 1), step: 2, about: 'PLACEHOLDER - tell me what to put here: one line on how you keep in touch.' },
+    { id: 'form', title: 'New Request', tag: 'Gap or need identified', plane: 'lead', icon: 'form', ...box(0, 0), step: 0, about: 'A request, process gap, update, or new documentation need is captured.' },
+    { id: 'email', title: 'Collect Inputs', tag: 'Gather source material', plane: 'auto', icon: 'email', ...box(1, 0), step: 0, about: 'Existing documents, screenshots, tickets, and stakeholder notes are gathered in one place.' },
+    { id: 'booked', title: 'Clarify Process', tag: 'Confirm the real workflow', plane: 'lead', icon: 'booked', ...box(2, 0), step: 0, about: 'The current process is checked with the people who actually perform or own the work.' },
+    { id: 'day', title: 'Draft', tag: 'Structure + write', plane: 'auto', icon: 'reminder', ...box(3, 0), step: 1, about: 'The information is turned into a clear SOP, guide, knowledge-base article, or checklist.' },
+    { id: 'hour', title: 'SME Review', tag: 'Validate accuracy', plane: 'lead', icon: 'alarm', ...box(4, 0), step: 1, about: 'Subject-matter experts review the draft for accuracy, missing steps, and practical usability.' },
+    { id: 'call', title: 'Finalize', tag: 'Resolve feedback', plane: 'lead', icon: 'call', ...box(5, 0), step: 1, about: 'Feedback is incorporated and the content is prepared for approval or publication.' },
+    { id: 'proposal', title: 'Approval', tag: 'Ready to publish', plane: 'lead', icon: 'proposal', ...box(0, 1), step: 2, about: 'The final version is approved according to the team or document-control workflow.' },
+    { id: 'won', title: 'Published', tag: 'Available to the team', plane: 'lead', icon: 'won', ...box(1, 1), step: 2, about: 'The document is published in the right repository and made easy for its audience to find.' },
+    { id: 'later', title: 'Pending Input', tag: 'Waiting on an answer', plane: 'lead', icon: 'later', ...box(3, 1), step: 1, about: 'Open questions are tracked instead of being buried in a draft or chat thread.' },
+    { id: 'nurture', title: 'Maintain', tag: 'Keep content current', plane: 'auto', icon: 'nurture', ...box(4, 1), step: 2, about: 'Updates, releases, and process changes are reflected so documentation remains useful.' },
+    { id: 'lost', title: 'Archive', tag: 'Retire old content', plane: 'lead', icon: 'lost', ...box(5, 1), step: 2, about: 'Outdated or replaced content is retired cleanly so teams do not follow the wrong version.' },
   ] satisfies FlowNode[],
   links: [
     { from: 'form', to: 'email', style: 'solid' },
@@ -63,11 +55,11 @@ export const liveAutomation = {
     { from: 'booked', to: 'day', style: 'solid' },
     { from: 'day', to: 'hour', style: 'solid' },
     { from: 'hour', to: 'call', style: 'solid' },
-    { from: 'hour', to: 'booked', style: 'dashed', label: 'Booking rescheduled' },
+    { from: 'hour', to: 'day', style: 'dashed', label: 'Revision needed' },
     { from: 'call', to: 'proposal', style: 'dashed' },
     { from: 'call', to: 'later', style: 'dashed' },
-    { from: 'call', to: 'lost', style: 'dashed' },
     { from: 'proposal', to: 'won', style: 'solid' },
-    { from: 'later', to: 'nurture', style: 'solid' },
+    { from: 'won', to: 'nurture', style: 'solid' },
+    { from: 'nurture', to: 'lost', style: 'dashed', label: 'Retire when obsolete' },
   ] satisfies FlowLink[],
 }
