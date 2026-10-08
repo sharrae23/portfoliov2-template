@@ -1,6 +1,6 @@
 import { ArrowUpRight, MapPin } from '@phosphor-icons/react'
 import { aboutSection, capabilities, credentials, type AboutCredential } from '@/content/about'
-import { certification, socials } from '@/content/site'
+import { certification, site, socials } from '@/content/site'
 import { personJsonLd } from '@/lib/seo'
 import './about.css'
 
@@ -11,6 +11,7 @@ const personLd = personJsonLd({
   skills: capabilities.map((c) => c.title),
   credential: { name: certification.title, id: certification.detail.replace(/^(Member|Credential) ID /, ''), url: certification.href },
   sameAs: [...socials.filter((s) => !s.partner).map((s) => s.href), ...(certification.href ? [certification.href] : [])],
+  companyUrl: site.url,
 })
 
 function Credential({ c }: { c: AboutCredential }) {
