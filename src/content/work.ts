@@ -1,196 +1,114 @@
-import type { AiGroup, AppBuild, Demo, Image, LinkRef } from './schema'
+import type { AiGroup, AppBuild, Demo, LinkRef } from './schema'
 
 export const workPage = {
   eyebrow: 'Work',
-  title: 'Real builds you can open.',
-  lede: 'PLACEHOLDER - tell me what to put here: one sentence on what the visitor can open in this section.',
+  title: 'Documentation built around real work.',
+  lede: 'A selection of documentation, knowledge-management, workflow, and operations work across corporate and freelance roles.',
 }
 
 /* ---------- Featured project ---------- */
 
-const shot = (file: string, alt: string, width: number, height: number): Image => ({
-  src: `/images/work/${file}`,
-  alt,
-  width,
-  height,
-})
-
 export const featuredProject = {
   kicker: 'Featured project',
-  title: 'Featured Project',
-  summary: 'PLACEHOLDER - tell me what to put here: two sentences on the project you are proudest of and the result it got.',
-  link: { label: 'Open the live project', href: '#', external: true } satisfies LinkRef,
-  gallery: [
-    shot('gallery-1.webp', 'Featured project, screen 1', 1600, 900),
-    shot('gallery-2.webp', 'Featured project, screen 2', 1600, 900),
-    shot('gallery-3.webp', 'Featured project, screen 3', 1600, 900),
-    shot('gallery-4.webp', 'Featured project, screen 4', 1600, 900),
-    shot('gallery-5.webp', 'Featured project, screen 5', 1600, 900),
-    shot('gallery-6.webp', 'Featured project, screen 6', 1600, 900),
-  ],
+  title: 'Construction SOP System',
+  summary: 'Turned an owner-led construction workflow into practical SOPs and checklists designed to move critical knowledge out of one person’s head and into a repeatable system.',
+  link: { label: 'Ask about this project', href: '/#contact' } satisfies LinkRef,
+  gallery: [],
 }
 
-/* ---------- Case studies and the process doc ---------- */
+/* ---------- Case studies and process work ---------- */
 
 export const caseStudies: { id: string; title: string; summary: string; link: LinkRef }[] = [
   {
-    id: 'case-study-1',
-    title: 'Case Study 1',
-    summary: 'PLACEHOLDER - tell me what to put here: two sentences on the problem, what you built and the result.',
-    link: { label: 'Read the case study', href: '#', external: true },
+    id: 'saas-knowledge-base',
+    title: 'SaaS Knowledge Base & Document Library',
+    summary: 'Created and updated internal and client-facing SaaS documentation using Notion and Help Scout, with an Airtable library for tracking and monthly release notes for product updates.',
+    link: { label: 'Ask about this work', href: '/#contact' },
   },
   {
-    id: 'case-study-2',
-    title: 'Case Study 2',
-    summary: 'PLACEHOLDER - tell me what to put here: two sentences on the problem, what you built and the result.',
-    link: { label: 'Read the case study', href: '#', external: true },
+    id: 'enterprise-knowledge-base',
+    title: 'Enterprise Knowledge Base Management',
+    summary: 'Managed and maintained a large internal knowledge base, including 100+ articles in one role, while coordinating reviews and approvals with stakeholders.',
+    link: { label: 'Ask about this work', href: '/#contact' },
   },
 ]
 
 export const processDoc = {
-  title: 'Process Doc',
-  summary: 'PLACEHOLDER - tell me what to put here: two sentences on the document you show, such as a plan or a spec, and why it earns trust.',
-  link: { label: 'Open the sample doc', href: '/demos/plans/sample-plan.html', external: true } satisfies LinkRef,
+  title: 'Documentation Request Workflow',
+  summary: 'Tracked documentation requests through project-management tools and coordinated with developers, QA, team leads, and stakeholders so drafts, reviews, and approvals kept moving.',
+  link: { label: 'Ask about this workflow', href: '/#contact' } satisfies LinkRef,
 }
 
-/* ---------- Screens ---------- */
+/* ---------- Systems and workflow examples ---------- */
 
 export const screens: { id: string; name: string; kicker: string; summary: string }[] = [
-  { id: 'screen-1', name: 'Screen One', kicker: 'Screen', summary: 'PLACEHOLDER - tell me what to put here: one sentence on what this screen shows.' },
-  { id: 'screen-2', name: 'Screen Two', kicker: 'Screen', summary: 'PLACEHOLDER - tell me what to put here: one sentence on what this screen shows.' },
-  { id: 'screen-3', name: 'Screen Three', kicker: 'Screen', summary: 'PLACEHOLDER - tell me what to put here: one sentence on what this screen shows.' },
-  { id: 'screen-4', name: 'Screen Four', kicker: 'Screen', summary: 'PLACEHOLDER - tell me what to put here: one sentence on what this screen shows.' },
-  { id: 'screen-5', name: 'Screen Five', kicker: 'Screen', summary: 'PLACEHOLDER - tell me what to put here: one sentence on what this screen shows.' },
-  { id: 'screen-6', name: 'Screen Six', kicker: 'Screen', summary: 'PLACEHOLDER - tell me what to put here: one sentence on what this screen shows.' },
-]
-
-/* ---------- Websites (self-contained demo pages in public/demos) ---------- */
-
-const demo = (dir: string, file: string, label: string, tag: string, summary: string): Demo => ({
-  id: file,
-  label,
-  tag,
-  summary,
-  href: `/demos/${dir}/${file}.html`,
-})
-
-const SITE_SUMMARY = 'PLACEHOLDER - tell me what to put here: one sentence on the site and who it is for.'
-const FUNNEL_SUMMARY = 'PLACEHOLDER - tell me what to put here: one sentence on what this funnel page does.'
-const BOOKING_SUMMARY = 'PLACEHOLDER - tell me what to put here: one sentence on the booking page and its audience.'
-
-export const sampleSites: Demo[] = [
-  demo('sites', 'site-1', 'Sample Site 1', 'Website', SITE_SUMMARY),
-  demo('sites', 'site-2', 'Sample Site 2', 'Website', SITE_SUMMARY),
-  demo('sites', 'site-3', 'Sample Site 3', 'Website', SITE_SUMMARY),
-  demo('sites', 'site-4', 'Sample Site 4', 'Website', SITE_SUMMARY),
-]
-
-export const funnelPages: Demo[] = [
-  demo('funnels', 'funnel-1', 'Funnel Page 1', 'Funnel', FUNNEL_SUMMARY),
-  demo('funnels', 'funnel-2', 'Funnel Page 2', 'Funnel', FUNNEL_SUMMARY),
-  demo('funnels', 'funnel-3', 'Funnel Page 3', 'Funnel', FUNNEL_SUMMARY),
-  demo('funnels', 'funnel-4', 'Funnel Page 4', 'Funnel', FUNNEL_SUMMARY),
-]
-
-export const bookingPages: Demo[] = [
-  demo('funnels', 'booking-1', 'Booking Page 1', 'Booking', BOOKING_SUMMARY),
-  demo('funnels', 'booking-2', 'Booking Page 2', 'Booking', BOOKING_SUMMARY),
-]
-
-/* ---------- Apps and extensions ---------- */
-
-export const apps: AppBuild[] = [
   {
-    id: 'app-1',
-    name: 'App One',
-    kind: 'Mobile app',
-    tagline: 'Your tagline here.',
-    summary: 'PLACEHOLDER - tell me what to put here: two sentences on what the app does and who uses it.',
-    status: 'Beta',
-    image: { src: '/images/apps/app-1.webp', alt: 'App One store screen', width: 540, height: 1200 },
+    id: 'confluence-docs',
+    name: 'Confluence Documentation',
+    kicker: 'Knowledge management',
+    summary: 'Structured and maintained documentation in Confluence so teams could find current, usable information more easily.',
   },
   {
-    id: 'app-2',
-    name: 'App Two',
-    kind: 'Mobile app',
-    tagline: 'Your tagline here.',
-    summary: 'PLACEHOLDER - tell me what to put here: two sentences on what the app does and who uses it.',
-    status: 'Beta',
-    image: { src: '/images/apps/app-2.webp', alt: 'App Two screens', width: 480, height: 266 },
+    id: 'airtable-library',
+    name: 'Airtable Document Library',
+    kicker: 'Document control',
+    summary: 'Built a searchable tracking library for documentation, ownership, status, and maintenance work.',
   },
   {
-    id: 'app-3',
-    name: 'App Three',
-    kind: 'Mobile app',
-    tagline: 'Your tagline here.',
-    summary: 'PLACEHOLDER - tell me what to put here: two sentences on what the app does and who uses it.',
-    status: 'Free',
-    image: { src: '/images/apps/app-3.webp', alt: 'App Three screens', width: 480, height: 266 },
+    id: 'jira-tracking',
+    name: 'Documentation Request Tracking',
+    kicker: 'Workflow',
+    summary: 'Used Jira and other project-management tools to track requests, feedback, dependencies, and handoffs.',
   },
   {
-    id: 'extension-1',
-    name: 'Extension One',
-    kind: 'Browser extension',
-    tagline: 'Your tagline here.',
-    summary: 'PLACEHOLDER - tell me what to put here: one or two sentences on what the extension does in one click.',
-    image: { src: '/images/apps/extension-1.webp', alt: 'Extension One popup', width: 419, height: 597 },
-  },
-  {
-    id: 'extension-2',
-    name: 'Extension Two',
-    kind: 'Browser extension',
-    tagline: 'Your tagline here.',
-    summary: 'PLACEHOLDER - tell me what to put here: one or two sentences on what the extension does in one click.',
-    image: { src: '/images/apps/extension-2.webp', alt: 'Extension Two popup', width: 403, height: 306 },
+    id: 'release-notes',
+    name: 'Monthly Release Notes',
+    kicker: 'SaaS documentation',
+    summary: 'Translated software updates into concise release notes for internal and client-facing audiences.',
   },
 ]
 
-/* ---------- Side projects and experiments (no pictures: the sheet lists them) ---------- */
+/* ---------- Unused template groups kept empty until real samples are added ---------- */
+
+export const sampleSites: Demo[] = []
+export const funnelPages: Demo[] = []
+export const bookingPages: Demo[] = []
+export const apps: AppBuild[] = []
 
 export const sideProjects: AiGroup[] = [
   {
-    title: 'Group One',
-    summary: 'PLACEHOLDER - tell me what to put here: one line on what this group of projects has in common.',
+    title: 'Technical manuals & writing',
+    summary: 'Long-form documentation and editorial work built around clarity, consistency, and the needs of the reader.',
     builds: [
-      { name: 'Side Project 1', summary: 'PLACEHOLDER - tell me what to put here: one sentence on what it does.', stack: 'Stack A, Stack B', status: 'Live' },
-      { name: 'Side Project 2', summary: 'PLACEHOLDER - tell me what to put here: one sentence on what it does.', stack: 'Stack A, Stack C', status: 'Internal' },
-      { name: 'Side Project 3', summary: 'PLACEHOLDER - tell me what to put here: one sentence on what it does.', stack: 'Stack B, Stack C', status: 'Internal' },
-      { name: 'Side Project 4', summary: 'PLACEHOLDER - tell me what to put here: one sentence on what it does.', stack: 'Stack A, Stack D', status: 'Internal' },
-    ],
-  },
-  {
-    title: 'Group Two',
-    summary: 'PLACEHOLDER - tell me what to put here: one line on what this group of projects has in common.',
-    builds: [
-      { name: 'Side Project 5', summary: 'PLACEHOLDER - tell me what to put here: one sentence on what it does.', stack: 'Stack B, Stack D', status: 'Live' },
-      { name: 'Side Project 6', summary: 'PLACEHOLDER - tell me what to put here: one sentence on what it does.', stack: 'Stack C, Stack D', status: 'Live' },
+      {
+        name: 'Technical Manuals & Installation Guides',
+        summary: 'Created technical manuals, installation guides, and user-facing materials while coordinating with developers and QA.',
+        stack: 'Microsoft 365, SharePoint',
+        status: 'Internal',
+      },
+      {
+        name: 'Training Materials & Style Guides',
+        summary: 'Produced training documentation and writing standards that helped teams create more consistent materials.',
+        stack: 'Microsoft 365, Canva',
+        status: 'Internal',
+      },
+      {
+        name: 'Freelance Writing & Editing',
+        summary: 'Wrote, edited, and refined content for different audiences before moving deeper into technical documentation and operations.',
+        stack: 'Google Workspace, WordPress, Canva',
+        status: 'Live',
+      },
     ],
   },
 ]
 
-export const experiments: AiGroup[] = [
-  {
-    title: 'Experiments',
-    summary: 'PLACEHOLDER - tell me what to put here: one line on what these experiments are.',
-    builds: [
-      { name: 'Experiment 1', summary: 'PLACEHOLDER - tell me what to put here: one sentence on what it does.', stack: 'Stack A', status: 'Live' },
-      { name: 'Experiment 2', summary: 'PLACEHOLDER - tell me what to put here: one sentence on what it does.', stack: 'Stack B', status: 'Live' },
-      { name: 'Experiment 3', summary: 'PLACEHOLDER - tell me what to put here: one sentence on what it does.', stack: 'Stack C', status: 'Live' },
-    ],
-  },
-]
+export const experiments: AiGroup[] = []
 
 const buildsIn = (groups: AiGroup[]) => groups.reduce((n, g) => n + g.builds.length, 0)
 
-/** Number of builds across every Work chapter, shown as the sidebar badge. Derived, never typed in. */
 export const workCount =
   1 +
   caseStudies.length +
   1 +
   screens.length +
-  sampleSites.length +
-  funnelPages.length +
-  bookingPages.length +
-  apps.length +
-  buildsIn(sideProjects) +
-  buildsIn(experiments)
+  buildsIn(sideProjects)
