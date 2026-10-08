@@ -5,8 +5,8 @@
 export const contactPage = {
   eyebrow: 'Contact',
   titleThin: 'Tell me what',
-  titleBold: 'you need built.',
-  lede: 'Read the answers first. If your question is still open, write and I will reply with a plan or a straight no.',
+  titleBold: 'needs organizing.',
+  lede: 'Need help with workflows, documentation, or everyday operations? Tell me what is taking up your time.',
   faqEyebrow: 'FAQs',
   faqTitle: 'Quick answers',
   faqSub: 'Still have one? Write below.',
