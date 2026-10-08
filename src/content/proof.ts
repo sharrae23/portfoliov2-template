@@ -1,85 +1,46 @@
 import type { ClientAccount, Quote, VideoTestimonial } from './schema'
 
 export const proofPage = {
-  eyebrow: 'Proof',
-  titleThin: 'Results you',
-  titleBold: 'can check.',
-  bands: { videos: 'On camera', quotes: 'In the community', clients: 'Client accounts' },
-  lede: 'PLACEHOLDER - tell me what to put here: one or two sentences introducing the client accounts, the video clips and the written feedback below.',
+  eyebrow: 'Experience',
+  titleThin: 'Documentation across',
+  titleBold: 'teams and systems.',
+  bands: { videos: 'Client clips', quotes: 'Feedback', clients: 'Selected experience' },
+  lede: 'My background spans technical writing, knowledge-base management, document control, SaaS documentation, and operational support.',
 }
 
-/** Client names stay anonymised: the label is shown, the role and the work say what you do for them. */
 export const clientAccounts: ClientAccount[] = [
   {
-    label: 'Client Name 1',
-    role: 'PLACEHOLDER - your role for this client',
-    work: 'PLACEHOLDER - tell me what to put here: one or two sentences on what you run or build for this client and what keeps it moving.',
-    tags: ['Tag A', 'Tag B', 'Tag C'],
-    logo: { src: '/images/clients/64/client-1.webp', alt: 'Client Name 1 logo', width: 64, height: 64 },
+    label: 'Yempo Solutions · 2024–present',
+    role: 'Technical Writing & Documentation',
+    work: 'Support documentation work in a corporate environment, including knowledge management, process documentation, and maintaining information as workflows change.',
+    tags: ['Technical writing', 'Documentation', 'Knowledge management'],
   },
   {
-    label: 'Client Name 2',
-    role: 'PLACEHOLDER - your role for this client',
-    work: 'PLACEHOLDER - tell me what to put here: one or two sentences on what you build inside this client\'s systems and what you hand over.',
-    tags: ['Tag A', 'Tag B', 'Tag C'],
-    logo: { src: '/images/clients/64/client-2.webp', alt: 'Client Name 2 logo', width: 64, height: 64 },
+    label: 'Freelance SaaS client · 2026',
+    role: 'SaaS Documentation Specialist',
+    work: 'Created internal and client-facing technical documentation, updated knowledge-base content, built an Airtable document library, and produced monthly release notes.',
+    tags: ['Notion', 'Help Scout', 'Airtable'],
   },
   {
-    label: 'Client Name 3',
-    role: 'PLACEHOLDER - your role for this client',
-    work: 'PLACEHOLDER - tell me what to put here: one or two sentences on the part of this client\'s work you own and the result it produces.',
-    tags: ['Tag A', 'Tag B', 'Tag C'],
-    // No logo: the ledger shows the row number in its place. Add `logo` like the two above to show one.
+    label: 'Concentrix / Google · 2023–2024',
+    role: 'Knowledge Base & Documentation',
+    work: 'Managed a large internal knowledge base, including 100+ articles in one role, and coordinated content reviews and approvals with stakeholders.',
+    tags: ['Knowledge base', 'Stakeholders', 'Content governance'],
+  },
+  {
+    label: 'RT Lawrence · 2021–2023',
+    role: 'Technical Writer',
+    work: 'Created technical manuals, installation guides, training materials, and style guidance while coordinating with developers and QA.',
+    tags: ['Manuals', 'Training', 'Developer + QA'],
+  },
+  {
+    label: 'Freelance · 2017–2021',
+    role: 'Writer & Editor',
+    work: 'Wrote, edited, and refined content for different audiences, building the editorial foundation that later expanded into technical documentation and operations.',
+    tags: ['Writing', 'Editing', 'Content'],
   },
 ]
 
-export const videoTestimonials: VideoTestimonial[] = [
-  {
-    id: 'client-clip-1',
-    src: '/media/clip-1.mp4',
-    poster: '/media/clip-1-poster.jpg',
-    width: 640,
-    height: 360,
-    duration: '0:08',
-    label: 'Client video 1',
-    published: '2026-01-01',
-  },
-  {
-    id: 'client-clip-2',
-    src: '/media/clip-2.mp4',
-    poster: '/media/clip-2-poster.jpg',
-    width: 464,
-    height: 832,
-    duration: '0:08',
-    label: 'Client video 2',
-    published: '2026-01-01',
-  },
-]
-
-/** Written feedback. Only named, dated quotes are used. */
-export const communityQuotes: Quote[] = [
-  {
-    name: 'Person Name 1',
-    context: 'Role, Company',
-    date: 'Jan 1, 2026',
-    text: 'PLACEHOLDER - tell me what to put here: a real quote from this person, one to three sentences, word for word.',
-  },
-  {
-    name: 'Person Name 2',
-    context: 'Role, Company',
-    date: 'Jan 1, 2026',
-    text: 'PLACEHOLDER - tell me what to put here: a real quote from this person, one to three sentences, word for word.',
-  },
-  {
-    name: 'Person Name 3',
-    context: 'Role, Company',
-    date: 'Jan 1, 2026',
-    text: 'PLACEHOLDER - tell me what to put here: a real quote from this person, one to three sentences, word for word.',
-  },
-  {
-    name: 'Person Name 4',
-    context: 'Role, Company',
-    date: 'Jan 1, 2026',
-    text: 'PLACEHOLDER - tell me what to put here: a real quote from this person, one to three sentences, word for word.',
-  },
-]
+/** Real client clips and direct quotes can be added once portfolio-safe versions are supplied. */
+export const videoTestimonials: VideoTestimonial[] = []
+export const communityQuotes: Quote[] = []
