@@ -21,8 +21,8 @@
   margin: 0 0 18px;
   color: var(--ink-3);
   font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.3em;
+  font-size: 13px;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
 }
 
@@ -41,8 +41,8 @@
 .wk-count {
   color: var(--ink-3);
   font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.12em;
+  font-size: 13.5px;
+  letter-spacing: 0.1em;
 }
 
 /* ---------- The bento ---------- */
@@ -56,25 +56,21 @@
 .wb__grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  grid-template-rows: repeat(4, clamp(150px, 14.5cqi, 210px));
+  grid-template-rows: repeat(3, clamp(170px, 16cqi, 230px));
   grid-template-areas:
-    'web web web web web web app app app tic tic tic'
-    'web web web web web web app app app tic tic tic'
-    'aut aut aut aut fw  fw  app app app bp  bp  bp'
-    'aut aut aut aut ai  ai  bot bot bot bp  bp  bp';
+    'tic tic tic tic tic tic fw  fw  fw  aut aut aut'
+    'tic tic tic tic tic tic fw  fw  fw  aut aut aut'
+    'bp  bp  bp  bp  bp  bp  ai  ai  ai  ai  ai  ai';
   gap: 12px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
-.wb__cell[data-area='websites'] { grid-area: web; }
-.wb__cell[data-area='apps'] { grid-area: app; }
 .wb__cell[data-area='featured'] { grid-area: tic; }
 .wb__cell[data-area='screens'] { grid-area: aut; }
 .wb__cell[data-area='case-studies'] { grid-area: fw; }
 .wb__cell[data-area='process'] { grid-area: bp; }
 .wb__cell[data-area='side-projects'] { grid-area: ai; }
-.wb__cell[data-area='experiments'] { grid-area: bot; }
 
 .wb__cell {
   min-width: 0;
@@ -153,12 +149,12 @@
 }
 .wb__cap .wk-count {
   font-family: inherit;
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 0;
 }
 /* Names wrap (never clip): a narrow tile gives the picture's height to a second line. */
 .wb__cap > b {
-  font-size: 15px;
+  font-size: 16.5px;
   font-weight: 600;
   line-height: 1.25;
   letter-spacing: -0.01em;
@@ -176,14 +172,12 @@
 @container (max-width: 700px) {
   .wb__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-rows: 220px 180px 180px 200px 170px 160px;
+    grid-template-rows: 220px 190px 190px 180px;
     grid-template-areas:
-      'web web'
-      'app tic'
-      'app bp'
-      'aut aut'
-      'fw  ai'
-      'bot bot';
+      'tic tic'
+      'fw  aut'
+      'bp  bp'
+      'ai  ai';
     gap: 10px;
   }
 }

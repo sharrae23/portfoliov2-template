@@ -5,13 +5,13 @@
 export const contactPage = {
   eyebrow: 'Contact',
   titleThin: 'Tell me what',
-  titleBold: 'you need built.',
-  lede: 'Read the answers first. If your question is still open, write and I will reply with a plan or a straight no.',
+  titleBold: 'needs organizing.',
+  lede: 'Need help with workflows, documentation, or everyday operations? Tell me what is taking up your time.',
   faqEyebrow: 'FAQs',
   faqTitle: 'Quick answers',
   faqSub: 'Still have one? Write below.',
   cardTitle: 'Send me a message',
-  cardBody: 'What do you need? What are you using today? Two or three lines is enough.',
+  cardBody: 'Share the workflow, documentation need, or recurring task you want to make clearer. Two or three lines is enough.',
 }
 
 /** The form. Until a backend is wired, Send opens the visitor's own mail app with the message laid out. */
@@ -23,7 +23,7 @@ export const contactForm = {
   phFirst: 'First name',
   phLast: 'Last name',
   phEmail: 'you@yourbusiness.com',
-  phMessage: 'What do you need? What are you using today? What does a good result look like?',
+  phMessage: 'What needs documenting or organizing? What are you using today? What would a good result look like?',
   send: 'Send message',
   hint: 'This form opens your own email app. Nothing is sent to or stored on this site.',
   error: 'Add your name, a real email, and a short note.',

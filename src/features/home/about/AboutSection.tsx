@@ -1,6 +1,6 @@
 import { ArrowUpRight, MapPin } from '@phosphor-icons/react'
 import { aboutSection, capabilities, credentials, type AboutCredential } from '@/content/about'
-import { certification, externalLinks, socials } from '@/content/site'
+import { certification, site, socials } from '@/content/site'
 import { personJsonLd } from '@/lib/seo'
 import './about.css'
 
@@ -11,7 +11,7 @@ const personLd = personJsonLd({
   skills: capabilities.map((c) => c.title),
   credential: { name: certification.title, id: certification.detail.replace(/^(Member|Credential) ID /, ''), url: certification.href },
   sameAs: [...socials.filter((s) => !s.partner).map((s) => s.href), ...(certification.href ? [certification.href] : [])],
-  companyUrl: externalLinks.company,
+  companyUrl: site.url,
 })
 
 function Credential({ c }: { c: AboutCredential }) {
@@ -75,13 +75,7 @@ export function AboutSection() {
       </div>
 
       <div className="ab__below">
-        <p className="ab__note">
-          <strong>{s.note.company}</strong>, and{' '}
-          <a href={s.note.product.href} target="_blank" rel="noopener noreferrer">
-            {s.note.product.label}
-          </a>{' '}
-          {s.note.rest}
-        </p>
+        <p className="ab__note">{s.note}</p>
         <ul className="ab__caps">
           {capabilities.map((c, i) => (
             <li key={c.title} className="ab__cap">
