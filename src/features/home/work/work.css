@@ -21,8 +21,8 @@
   margin: 0 0 18px;
   color: var(--ink-3);
   font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.3em;
+  font-size: 13px;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
 }
 
@@ -41,8 +41,8 @@
 .wk-count {
   color: var(--ink-3);
   font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.12em;
+  font-size: 13.5px;
+  letter-spacing: 0.1em;
 }
 
 /* ---------- The bento ---------- */
@@ -149,12 +149,12 @@
 }
 .wb__cap .wk-count {
   font-family: inherit;
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 0;
 }
 /* Names wrap (never clip): a narrow tile gives the picture's height to a second line. */
 .wb__cap > b {
-  font-size: 15px;
+  font-size: 16.5px;
   font-weight: 600;
   line-height: 1.25;
   letter-spacing: -0.01em;
