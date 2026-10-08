@@ -1,18 +1,13 @@
 import type { Icon } from '@phosphor-icons/react'
-import { Briefcase, Compass, Cube, Envelope, FileText, House, SealCheck, ShieldCheck, Stack, User } from '@phosphor-icons/react'
+import { Briefcase, Envelope, FileText, House, ShieldCheck, Stack, User } from '@phosphor-icons/react'
 import { workCount } from '@/content/work'
 import { externalLinks, site } from '@/content/site'
-
-/**
- * The route registry: the one list that drives the router, the sidebar, the search palette
- * and every page title. Add a page = add one entry here.
- */
 
 export type NavGroupId = 'menu' | 'discover' | 'general'
 
 export const NAV_GROUPS: { id: NavGroupId; label: string }[] = [
   { id: 'menu', label: 'Menu' },
-  { id: 'discover', label: 'Discover' },
+  { id: 'discover', label: 'Profiles' },
   { id: 'general', label: 'General' },
 ]
 
@@ -20,19 +15,13 @@ export type PageRoute = {
   kind: 'page'
   id: string
   path: string
-  /** Short name for the sidebar and search. */
   label: string
-  /** Unique document title. */
   title: string
   description: string
   icon: Icon
-  /** Omit to keep the page out of the sidebar (legal pages). */
   group?: NavGroupId
   badge?: number
-  /** A Home section id: the sidebar and search scroll Home to it instead of opening `path`. */
   section?: string
-  /** Still the RouteStage placeholder: kept out of the sitemap (RouteStage also marks it noindex).
-   *  Remove when the page is built and registered in router.tsx PAGE_COMPONENTS. */
   draft?: true
 }
 
@@ -47,8 +36,6 @@ export type ExternalRoute = {
 }
 
 export type NavEntry = PageRoute | ExternalRoute
-
-/** Every page title ends with your name (content/site.ts). */
 const SUFFIX = site.name
 
 export const pages: PageRoute[] = [
@@ -57,8 +44,8 @@ export const pages: PageRoute[] = [
     id: 'home',
     path: '/',
     label: 'Home',
-    title: `${SUFFIX} | Your Headline Here`,
-    description: 'PLACEHOLDER - tell me what to put here: the one-sentence search result description of you and what you do (under 160 characters).',
+    title: `${SUFFIX} | Documentation + Operations Support`,
+    description: 'Documentation and operations support for SOPs, knowledge bases, document workflows, technical content, and reliable follow-through.',
     icon: House,
     group: 'menu',
   },
@@ -69,7 +56,7 @@ export const pages: PageRoute[] = [
     path: '/work',
     label: 'Work',
     title: `Work | ${SUFFIX}`,
-    description: 'PLACEHOLDER - tell me what to put here: one line on the kinds of work you show.',
+    description: 'Selected SOP, knowledge-base, document-control, technical-writing, and operations-support work.',
     icon: Briefcase,
     group: 'menu',
     badge: workCount,
@@ -82,7 +69,7 @@ export const pages: PageRoute[] = [
     path: '/services',
     label: 'Services',
     title: `Services | ${SUFFIX}`,
-    description: 'PLACEHOLDER - tell me what to put here: one line listing the services you offer.',
+    description: 'SOPs, knowledge bases, technical documentation, document management, and operations support.',
     icon: Stack,
     group: 'menu',
     section: 'services',
@@ -94,32 +81,10 @@ export const pages: PageRoute[] = [
     path: '/about',
     label: 'About',
     title: `About ${SUFFIX}`,
-    description: 'PLACEHOLDER - tell me what to put here: one line on your background and where you are based.',
+    description: 'Technical writer and documentation-focused operations support professional based in the Philippines.',
     icon: User,
     group: 'menu',
     section: 'about',
-  },
-  {
-    kind: 'page',
-    id: 'proof',
-    path: '/proof',
-    label: 'Proof',
-    title: `Proof | ${SUFFIX}`,
-    description: 'PLACEHOLDER - tell me what to put here: one line on the clients, testimonials and feedback this page shows.',
-    icon: SealCheck,
-    group: 'discover',
-    section: 'proof',
-  },
-  {
-    kind: 'page',
-    id: 'showcase',
-    path: '/showcase',
-    label: 'Showcase',
-    title: `Showcase | ${SUFFIX}`,
-    description: 'PLACEHOLDER - tell me what to put here: one line on the product or project you feature here.',
-    icon: Cube,
-    group: 'discover',
-    section: 'showcase',
   },
   {
     kind: 'page',
@@ -127,7 +92,7 @@ export const pages: PageRoute[] = [
     path: '/contact',
     label: 'Contact',
     title: `Contact | ${SUFFIX}`,
-    description: 'PLACEHOLDER - tell me what to put here: one line inviting people to get in touch, and when you reply.',
+    description: 'Get in touch about documentation, SOPs, knowledge bases, document workflows, or ongoing operations support.',
     icon: Envelope,
     group: 'general',
     section: 'contact',
@@ -138,7 +103,7 @@ export const pages: PageRoute[] = [
     path: '/privacy',
     label: 'Privacy Policy',
     title: `Privacy Policy | ${SUFFIX}`,
-    description: 'What this site stores, what it does not, and how to ask for your data.',
+    description: 'What this site stores, what it does not, and how to ask about your data.',
     icon: ShieldCheck,
   },
   {
@@ -155,21 +120,19 @@ export const pages: PageRoute[] = [
 export const externals: ExternalRoute[] = [
   {
     kind: 'external',
-    id: 'resource',
+    id: 'upwork',
     href: externalLinks.resource,
-    label: 'Resources',
-    description: 'PLACEHOLDER - tell me what to put here: one line on the off-site link (a blog, a guide, a store), or delete this entry.',
-    icon: Compass,
+    label: 'Upwork',
+    description: 'View my freelance profile, work history, and availability on Upwork.',
+    icon: Briefcase,
     group: 'discover',
   },
 ]
 
-/** Sidebar entries per group, in registry order (pages first, then external links). */
 export function navEntries(group: NavGroupId): NavEntry[] {
   return [...pages.filter((p) => p.group === group), ...externals.filter((e) => e.group === group)]
 }
 
-/** Where a nav entry goes: its Home section when it has one, else its page. */
 export function navTarget(page: PageRoute): string {
   return page.section ? `/#${page.section}` : page.path
 }

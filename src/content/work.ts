@@ -2,8 +2,8 @@ import type { AiGroup, AppBuild, Demo, Image, LinkRef } from './schema'
 
 export const workPage = {
   eyebrow: 'Work',
-  title: 'Real builds you can open.',
-  lede: 'PLACEHOLDER - tell me what to put here: one sentence on what the visitor can open in this section.',
+  title: 'Documentation and operations work.',
+  lede: 'Selected examples of the systems, documents, and support I have built across technical writing and operations.',
 }
 
 /* ---------- Featured project ---------- */
@@ -180,17 +180,6 @@ export const experiments: AiGroup[] = [
   },
 ]
 
-const buildsIn = (groups: AiGroup[]) => groups.reduce((n, g) => n + g.builds.length, 0)
 
 /** Number of builds across every Work chapter, shown as the sidebar badge. Derived, never typed in. */
-export const workCount =
-  1 +
-  caseStudies.length +
-  1 +
-  screens.length +
-  sampleSites.length +
-  funnelPages.length +
-  bookingPages.length +
-  apps.length +
-  buildsIn(sideProjects) +
-  buildsIn(experiments)
+export const workCount = 8

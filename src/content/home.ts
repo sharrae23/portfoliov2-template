@@ -1,254 +1,181 @@
-import type { Demo, Image, ToolMark, WorkChapter, WorkItem } from './schema'
-import { site } from './site'
+import type { WorkChapter } from './schema'
 import { method } from './method'
 import { tools } from './tools'
-import {
-  apps,
-  bookingPages,
-  caseStudies,
-  experiments,
-  featuredProject,
-  funnelPages,
-  processDoc,
-  sampleSites,
-  screens,
-  sideProjects,
-  workCount,
-} from './work'
 
-/**
- * Home page copy. The hero pairs a thin line with a bold one. The bold line is sized in `cqi` in
- * features/home/hero/hero.css so it fills the column: re-measure it when you change the words
- * (see the comment on `.hero__title` there).
- */
 export const homeHero = {
-  headlineThin: 'Your headline.',
-  headlineBold: 'Make it yours.',
-  subhead: 'PLACEHOLDER - tell me what to put here: one sentence on who you help and the result you get them.',
+  headlineThin: 'Organize the work.',
+  headlineBold: 'Document the process.',
+  subhead: 'Documentation and operations support for growing teams that need clearer workflows, reliable follow-through, and knowledge that does not live in one person\'s head.',
   cta: { label: 'Get in touch', to: '/#contact' },
 }
 
-/**
- * The statement under the hero: words light up as the page scrolls, each keyword lands bold and
- * moves the tracker. Replace the words, keep four keywords (the tracker shows them in order).
- * A string is plain words; `{ key }` is a keyword.
- */
 export type ManifestoPart = string | { key: string }
 
 export const homeManifesto = {
   eyebrow: method.eyebrow,
   parts: [
-    'This is your',
-    { key: 'statement.' },
-    'Say who you',
-    { key: 'help,' },
-    'what you',
-    { key: 'make' },
-    'for them, and how you',
-    { key: 'deliver' },
-    'the result they came for.',
+    'Good operations need',
+    { key: 'clarity,' },
+    'visible',
+    { key: 'ownership,' },
+    'reliable',
+    { key: 'follow-through,' },
+    'and documentation that stays',
+    { key: 'maintainable.' },
   ] satisfies ManifestoPart[],
 }
 
 export const homeSections = {
   work: {
     eyebrow: 'Selected work',
-    title: 'Builds you can open right now.',
+    title: 'Documentation and operations systems built for real teams.',
   },
   proof: {
-    eyebrow: 'Proof',
-    title: 'What I run for clients today.',
+    eyebrow: 'Experience',
+    title: 'The work behind the documentation.',
   },
   objections: {
     eyebrow: 'Before you write',
-    title: 'The three questions everyone asks.',
+    title: 'A few quick answers.',
   },
 }
 
 export const ctaBand = {
-  title: 'Tell me what is eating your week.',
-  body: 'PLACEHOLDER - tell me what to put here: one or two sentences on what the visitor gets when they write to you.',
-  button: 'Email me your question',
+  title: 'Tell me what keeps getting lost, repeated, or stuck.',
+  body: 'Share the workflow, documentation problem, or recurring task that is slowing the team down. I can help make the next step clearer.',
+  button: 'Email me',
 }
 
-/* ---------- Work section ---------- */
-
-/** Full-size covers, 1800x1125, with 480 / 640 / 960 copies for the Work tiles (scripts/make-image-variants.py). */
-const cover = (id: string, label: string, noun = 'page'): Image => ({
-  src: `/images/covers/${id}.webp`,
-  alt: `${label} ${noun}`,
-  width: 1800,
-  height: 1125,
-  srcSet: [480, 640, 960].map((w) => `/images/covers/${w}/${id}.webp ${w}w`).join(', ') + `, /images/covers/${id}.webp 1800w`,
-})
-/** Workspace screens, 1600x900, with 480 / 640 / 960 copies for the Work tile (scripts/make-image-variants.py). */
-const screen = (id: string, alt: string, width: number, height: number): Image => ({
-  src: `/images/screens/${id}.webp`,
-  alt,
-  width,
-  height,
-  srcSet: [480, 640, 960].map((w) => `/images/screens/${w}/${id}.webp ${w}w`).join(', ') + `, /images/screens/${id}.webp ${width}w`,
-})
-
-/** A live demo page as a showcase item, with its full-size cover. */
-const demoItem =
-  (group: string) =>
-  (demo: Demo): WorkItem => ({
-    id: demo.id,
-    name: demo.label,
-    kicker: demo.tag,
-    group,
-    summary: demo.summary,
-    image: cover(demo.id, demo.label),
-    href: demo.href,
-  })
-
-const groupItems = (groups: typeof sideProjects): WorkItem[] =>
-  groups.flatMap((group) =>
-    group.builds.map((build) => ({
-      id: build.name.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
-      name: build.name,
-      kicker: group.title,
-      summary: build.summary,
-      stack: build.stack,
-      status: build.status,
-    })),
-  )
-
-/** The site's own mark for the Experiments card. The card ground is always light. */
-const siteMark: ToolMark = { name: site.brand, logo: site.logo.light }
-
-/** The URL of a chapter's showcase sheet. Real, shareable and in the sitemap. */
 export const chapterPath = (id: string) => `/work/${id}`
-
-const sideProjectItems = groupItems(sideProjects)
-const experimentItems = groupItems(experiments)
 
 export const workSection = {
   ...homeSections.work,
-  /** The title as one display line in the hero's thin + bold pairing. */
-  titleThin: 'Builds you can',
-  titleBold: 'open right now.',
-  all: { label: `See all ${workCount} builds`, to: '/work' },
+  titleThin: 'Work that turns',
+  titleBold: 'scattered into structured.',
+  all: { label: 'Browse work areas', to: '/#work' },
 }
 
-const screenItems: WorkItem[] = screens.map((s) => ({
-  id: s.id,
-  name: s.name,
-  kicker: s.kicker,
-  summary: s.summary,
-  image: screen(s.id, `${s.name}, a workspace screen`, 1600, 900),
-}))
+const item = (id: string, name: string, kicker: string, summary: string) => ({
+  id,
+  name,
+  kicker,
+  summary,
+})
 
-/**
- * The Work chapters, in bento order. Add, remove or reorder a chapter here; the bento, the sheets and
- * the sitemap follow (the bento's grid areas in work.css are keyed by chapter id). A chapter with a
- * `lead` is a single build; one with no landscape picture shows its `marks` as a logo face instead.
- */
 export const workChapters: WorkChapter[] = [
   {
     id: 'featured',
-    title: 'Featured Project',
-    line: 'A short line about your best project.',
-    count: 1,
-    unit: 'project',
-    description: 'PLACEHOLDER - tell me what to put here: one or two sentences on your featured project (under 160 characters).',
-    marks: [tools.toolA, siteMark],
-    items: [],
-    lead: cover('featured-project', featuredProject.title, 'cover'),
-    gallery: featuredProject.gallery,
-    link: featuredProject.link,
+    title: 'Construction SOP System',
+    line: 'Operational know-how turned into practical SOPs and checklists.',
+    count: 3,
+    unit: 'workflows',
+    description: 'An owner-led construction business needed repeatable processes that did not depend on one person remembering every step.',
+    marks: [tools.toolB, tools.toolI, tools.toolJ],
+    items: [
+      item('supplier-quotes', 'Supplier Quotes & Procurement', 'SOP', 'Structured the steps, decisions, and handoffs around collecting and comparing supplier quotes.'),
+      item('defects-callbacks', 'Defects & Callbacks', 'Checklist', 'Documented a clearer path for logging issues, assigning action, and following through to resolution.'),
+      item('site-checklists', 'Site & Trade Checklists', 'Process', 'Converted recurring site activities into practical checklists for consistent execution and handoff.'),
+    ],
   },
   {
     id: 'case-studies',
-    title: 'Case Studies',
-    line: 'Two projects, told as problem and result.',
-    count: caseStudies.length,
-    unit: 'cases',
-    description: 'PLACEHOLDER - tell me what to put here: one or two sentences on your case studies (under 160 characters).',
+    title: 'SaaS Knowledge Base',
+    line: 'Client-facing help content, internal documentation, and release updates.',
+    count: 3,
+    unit: 'systems',
+    description: 'Documentation support for a SaaS platform serving doulas and patients, with content maintained across support and workspace tools.',
     marks: [tools.toolB, tools.toolC, tools.toolD],
-    items: caseStudies.map((study) => ({
-      id: study.id,
-      name: study.title,
-      kicker: 'Case study',
-      summary: study.summary,
-      image: cover(study.id, study.title, 'cover'),
-      href: study.link.href,
-    })),
+    items: [
+      item('help-content', 'Help Center Content', 'Knowledge base', 'Created and revised user-facing documentation, checking product steps where possible before publishing.'),
+      item('document-library', 'Document Library', 'Airtable', 'Built and maintained a trackable document library so content, status, and ownership were easier to see.'),
+      item('release-notes', 'Monthly Release Notes', 'Product updates', 'Turned software changes into clear monthly release notes for internal and client-facing audiences.'),
+    ],
   },
   {
     id: 'process',
-    title: 'Process Doc',
-    line: 'A real plan, before the work starts.',
-    count: 1,
-    unit: 'doc',
-    description: 'PLACEHOLDER - tell me what to put here: one or two sentences on the process document you show (under 160 characters).',
-    marks: [tools.toolE],
-    items: [],
-    lead: cover('process-doc', processDoc.title, 'cover'),
-    link: processDoc.link,
+    title: 'Documentation Request Workflow',
+    line: 'A clearer way to request, review, approve, and track documentation.',
+    count: 3,
+    unit: 'stages',
+    description: 'A documentation workflow designed to make requests, status, ownership, reviews, and approvals easier to follow.',
+    marks: [tools.toolE, tools.toolA, tools.toolD],
+    items: [
+      item('request-intake', 'Request Intake', 'Workflow', 'Centralized incoming documentation requests so scope and ownership were visible earlier.'),
+      item('review-approval', 'Review & Approval', 'Governance', 'Supported stakeholder review and approval steps rather than letting documents stall in informal follow-up.'),
+      item('status-tracking', 'Status Tracking', 'Document control', 'Used request tracking and repositories to keep current state and next actions visible.'),
+    ],
   },
   {
     id: 'screens',
-    title: 'Screens',
-    line: 'Real screens from the systems you build.',
-    count: screenItems.length,
-    unit: 'screens',
-    description: 'PLACEHOLDER - tell me what to put here: one or two sentences on the screens you show (under 160 characters).',
-    marks: [tools.toolF, tools.toolG, tools.toolH],
-    items: screenItems,
+    title: 'Confluence Documentation Redesign',
+    line: 'Same content, clearer hierarchy and easier scanning.',
+    count: 4,
+    unit: 'improvements',
+    description: 'A formatting and usability pass on existing Confluence documentation without changing the underlying content.',
+    marks: [tools.toolA, tools.toolK],
+    items: [
+      item('navigation', 'Navigation & Table of Contents', 'Information design', 'Added clearer navigation and page structure for long documentation.'),
+      item('layouts', 'Two-Column Layouts', 'Formatting', 'Reworked dense lists into layouts that were easier to scan without rewriting the source content.'),
+      item('process-visuals', 'Process Tables', 'Visual structure', 'Converted process flows into compact visual tables that reduced page heaviness.'),
+      item('consistency', 'Spacing & List Consistency', 'Cleanup', 'Standardized spacing, lists, and emphasis so pages felt more deliberate and readable.'),
+    ],
   },
   {
     id: 'websites',
-    title: 'Websites',
-    line: 'Sample sites, funnel pages and booking pages.',
-    count: sampleSites.length + funnelPages.length + bookingPages.length,
-    unit: 'pages',
-    description: 'PLACEHOLDER - tell me what to put here: one or two sentences on the sites and pages people can open live (under 160 characters).',
-    marks: [tools.toolI, tools.toolJ, tools.toolK],
+    title: 'Enterprise Knowledge Base',
+    line: 'High-volume documentation across multiple teams and stakeholders.',
+    count: 3,
+    unit: 'responsibilities',
+    description: 'Knowledge-base work across multiple teams, including article creation, stakeholder coordination, and documentation-request processes.',
+    marks: [tools.toolA, tools.toolE, tools.toolI],
     items: [
-      ...sampleSites.map(demoItem('Sample sites')),
-      ...funnelPages.map(demoItem('Funnel pages')),
-      ...bookingPages.map(demoItem('Booking pages')),
+      item('kb-articles', 'Knowledge-Base Articles', 'Technical writing', 'Authored and maintained a large body of internal knowledge content across previous roles.'),
+      item('stakeholder-review', 'Stakeholder Review', 'Coordination', 'Worked with subject-matter experts and stakeholders to review and approve documentation.'),
+      item('request-process', 'Documentation Requests', 'Operations', 'Helped establish clearer ways to request and track documentation work across teams.'),
     ],
   },
   {
     id: 'apps',
-    title: 'Apps and Extensions',
-    line: 'Phone apps and browser tools you ship.',
-    count: apps.length,
-    unit: 'apps',
-    description: 'PLACEHOLDER - tell me what to put here: one or two sentences on the apps and extensions you built (under 160 characters).',
-    // The tile shows the first app's store shot, cropped from the title bar down (public/images/apps/app-1-tile.webp).
-    tile: {
-      src: '/images/apps/app-1-tile.webp',
-      alt: 'App One store screen',
-      width: 540,
-      height: 928,
-      srcSet: '/images/apps/320/app-1-tile.webp 320w, /images/apps/app-1-tile.webp 540w',
-    },
-    marks: [tools.toolL, tools.toolA, tools.toolB],
-    items: apps.map((app) => ({ id: app.id, name: app.name, kicker: app.kind, summary: app.summary, image: app.image, status: app.status })),
+    title: 'Technical Manuals & Training',
+    line: 'Technical source material translated into usable guidance.',
+    count: 3,
+    unit: 'deliverables',
+    description: 'Technical manuals, installation guides, style guidance, and training material built with input from developers and QA.',
+    marks: [tools.toolE, tools.toolJ, tools.toolK],
+    items: [
+      item('manuals', 'Technical Manuals', 'Documentation', 'Created manuals and installation guidance for technical products and processes.'),
+      item('training', 'Training Materials', 'Enablement', 'Translated releases and technical changes into material teams could use for training.'),
+      item('source-validation', 'Developer & QA Validation', 'Collaboration', 'Worked directly with developers and QA to clarify source information instead of guessing at technical behavior.'),
+    ],
   },
   {
     id: 'side-projects',
-    title: 'Side Projects',
-    line: 'Things built for fun that taught you something.',
-    count: sideProjectItems.length,
-    unit: 'builds',
-    description: 'PLACEHOLDER - tell me what to put here: one or two sentences on your side projects (under 160 characters).',
-    marks: [tools.toolC, tools.toolD, tools.toolE],
-    items: sideProjectItems,
+    title: 'Document Control & QMS Support',
+    line: 'Documentation treated as a maintained system, not a folder of files.',
+    count: 3,
+    unit: 'practices',
+    description: 'Document-control and quality-management support focused on ownership, repositories, updates, and controlled change.',
+    marks: [tools.toolA, tools.toolE, tools.toolJ],
+    items: [
+      item('repositories', 'Documentation Repositories', 'Document control', 'Maintained organized repositories so teams could find the current document more reliably.'),
+      item('controlled-updates', 'Controlled Updates', 'QMS support', 'Supported document updates with attention to review, versioning, and approval requirements.'),
+      item('quality-process', 'Quality Process Support', 'ISO 9001', 'Applied document-control discipline alongside ISO 9001-related quality-management work.'),
+    ],
   },
   {
     id: 'experiments',
-    title: 'Experiments',
-    line: 'Small tests, each doing one thing well.',
-    count: experimentItems.length,
-    unit: 'tests',
-    description: 'PLACEHOLDER - tell me what to put here: one or two sentences on your experiments (under 160 characters).',
-    marks: [siteMark, tools.toolF],
-    items: experimentItems,
+    title: 'Operations & Virtual Assistance',
+    line: 'The follow-through around the work: tracking, files, coordination, and admin support.',
+    count: 4,
+    unit: 'support areas',
+    description: 'Operations support that complements documentation: trackers, follow-ups, file organization, research, coordination, and recurring admin work.',
+    marks: [tools.toolF, tools.toolG, tools.toolI],
+    items: [
+      item('tracking', 'Task & Request Tracking', 'Operations', 'Keep requests, statuses, and next actions visible across project-management tools.'),
+      item('files', 'File & Information Organization', 'Admin support', 'Organize working files, references, and document libraries so information is easier to retrieve.'),
+      item('coordination', 'Coordination & Follow-up', 'Virtual assistance', 'Support recurring follow-ups and handoffs so work does not disappear between people.'),
+      item('research', 'Research & Content Support', 'Flexible support', 'Handle research, content preparation, and practical support tasks around ongoing projects.'),
+    ],
   },
 ]
 

@@ -3,65 +3,63 @@ import { tools } from './tools'
 
 export const servicesPage = {
   eyebrow: 'Services',
-  title: 'Everything you offer, in one line each.',
-  lede: 'PLACEHOLDER - tell me what to put here: one sentence on what you offer and how a client can combine it.',
+  title: 'Support that keeps work moving and knowledge usable.',
+  lede: 'Bring me in for one documentation problem, ongoing operations support, or a mix of both.',
 }
 
-/**
- * The Home Services section: a stack of cards dealt onto a pile as the page scrolls. The display line
- * is the thin + bold pair below.
- */
 export const servicesSection = {
   eyebrow: servicesPage.eyebrow,
-  titleThin: 'Pick one',
-  titleBold: 'or stack a few.',
-  explore: 'Explore',
-  /** The Work chapter each card opens, by service id (a chapter id from home.ts). */
-  work: { 'service-1': 'screens', 'service-2': 'featured', 'service-3': 'websites', 'service-4': 'websites', 'service-5': 'apps' } as Record<string, string>,
+  titleThin: 'Organize the work.',
+  titleBold: 'Keep the process clear.',
+  explore: 'See related work',
+  work: {
+    'service-1': 'experiments',
+    'service-2': 'featured',
+    'service-3': 'case-studies',
+    'service-4': 'side-projects',
+    'service-5': 'apps',
+  } as Record<string, string>,
 }
-
-const SUMMARY = 'PLACEHOLDER - tell me what to put here: the benefit of this service in one line.'
-const BULLET = 'PLACEHOLDER - tell me what to put here: one short benefit'
 
 export const services: Service[] = [
   {
     id: 'service-1',
-    title: 'Service One',
-    summary: SUMMARY,
-    outcome: 'Outcome One',
-    bullets: [BULLET, BULLET, BULLET],
-    tools: [tools.toolA, tools.toolB, tools.toolC],
+    title: 'Virtual Assistance & Operations Support',
+    summary: 'Reliable support for the recurring work that keeps a small team organized.',
+    outcome: 'Less dropped work',
+    bullets: ['Track requests and follow-ups', 'Keep files and information organized', 'Support coordination, research, and admin workflows'],
+    tools: [tools.toolF, tools.toolG, tools.toolI],
   },
   {
     id: 'service-2',
-    title: 'Service Two',
-    summary: SUMMARY,
-    outcome: 'Outcome Two',
-    bullets: [BULLET, BULLET, BULLET],
-    tools: [tools.toolD, tools.toolE, tools.toolF],
+    title: 'SOP & Process Documentation',
+    summary: 'Turn practical know-how into steps, checklists, and handoffs people can actually use.',
+    outcome: 'Repeatable work',
+    bullets: ['Map the real workflow', 'Clarify ownership and decision points', 'Write practical SOPs and checklists'],
+    tools: [tools.toolB, tools.toolI, tools.toolJ],
   },
   {
     id: 'service-3',
-    title: 'Service Three',
-    summary: SUMMARY,
-    outcome: 'Outcome Three',
-    bullets: [BULLET, BULLET, BULLET],
-    tools: [tools.toolG, tools.toolH, tools.toolI],
+    title: 'Knowledge Bases & Help Documentation',
+    summary: 'Create and maintain support content that is easy to find, understand, and update.',
+    outcome: 'Faster answers',
+    bullets: ['Write and revise knowledge-base articles', 'Organize content around user goals', 'Validate steps against the product or source process'],
+    tools: [tools.toolA, tools.toolB, tools.toolC],
   },
   {
     id: 'service-4',
-    title: 'Service Four',
-    summary: SUMMARY,
-    outcome: 'Outcome Four',
-    bullets: [BULLET, BULLET, BULLET],
-    tools: [tools.toolJ, tools.toolK, tools.toolL],
+    title: 'Document Management & Workflow Support',
+    summary: 'Build order around document requests, reviews, approvals, repositories, and change tracking.',
+    outcome: 'Visible ownership',
+    bullets: ['Track requests and statuses', 'Support review and approval flows', 'Maintain document libraries and repositories'],
+    tools: [tools.toolD, tools.toolE, tools.toolA],
   },
   {
     id: 'service-5',
-    title: 'Service Five',
-    summary: SUMMARY,
-    outcome: 'Outcome Five',
-    bullets: [BULLET, BULLET, BULLET],
-    tools: [tools.toolA, tools.toolF, tools.toolK],
+    title: 'Technical Documentation & Release Notes',
+    summary: 'Translate product and technical changes into clear material for users, teams, and training.',
+    outcome: 'Clear handoff',
+    bullets: ['Create manuals and user-facing guides', 'Turn releases into usable updates', 'Coordinate source validation with developers, QA, and stakeholders'],
+    tools: [tools.toolE, tools.toolA, tools.toolK],
   },
 ]

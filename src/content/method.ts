@@ -1,13 +1,24 @@
 import type { MethodStep } from './schema'
 
-/** Your method: the three jobs your service does for a client, in order. It names the steps of the Home automation diagram. */
 export const method = {
-  eyebrow: 'Your Method',
-  title: 'Attract. Nurture. Convert.',
-  summary: 'PLACEHOLDER - tell me what to put here: one line on the three jobs your work does for a client, in order.',
+  eyebrow: 'How I work',
+  title: 'Understand. Document. Maintain.',
+  summary: 'I learn the real workflow first, turn it into something people can follow, then leave the system easier to maintain.',
   steps: [
-    { name: 'Attract', body: 'PLACEHOLDER - tell me what to put here: one short line on step one.', inputs: ['Input A', 'Input B', 'Input C', 'Input D'] },
-    { name: 'Nurture', body: 'PLACEHOLDER - tell me what to put here: one short line on step two.', inputs: ['Input A', 'Input B', 'Input C'] },
-    { name: 'Convert', body: 'PLACEHOLDER - tell me what to put here: one short line on step three.', inputs: ['Input A', 'Input B', 'Input C'] },
+    {
+      name: 'Understand',
+      body: 'I gather context from the people, files, tools, and existing process before I write.',
+      inputs: ['Stakeholder input', 'Existing files', 'Current tools', 'Real workflow'],
+    },
+    {
+      name: 'Document',
+      body: 'I organize the work into clear steps, ownership, decisions, and usable documentation.',
+      inputs: ['SOPs', 'Knowledge base', 'Checklists', 'Guides'],
+    },
+    {
+      name: 'Maintain',
+      body: 'I help keep the system current through reviews, trackers, release notes, and follow-through.',
+      inputs: ['Approvals', 'Updates', 'Document control', 'Follow-up'],
+    },
   ] satisfies MethodStep[],
 }
