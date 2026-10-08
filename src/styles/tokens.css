@@ -7,67 +7,58 @@
 :root {
   color-scheme: light;
 
-  /* Surfaces */
-  --bg: #f0f8ff;
+  /* Mary Sharra palette: deep purple, pastel lavender, soft sage and warm off-white. */
+  --bg: #f8f6f1;
   --surface: #ffffff;
-  --surface-2: #e6f0fa;
-  --surface-3: #d9e7f5;
+  --surface-2: #f0ecf8;
+  --surface-3: #dcd4f2;
 
-  /* Text */
-  --ink: #0e1b2a;
-  --ink-2: #44566b;
-  --ink-3: #566779; /* 4.6:1 even on --surface-3; #5e6f83 fell to 4.47 on --surface-2 (audit 2026-10-02) */
+  --ink: #302b3a;
+  --ink-2: #51495d;
+  --ink-3: #6a6175;
 
-  /* Accent */
-  --accent: #2d78c2;
-  --accent-ink: #2566a6;
-  --accent-deep: #1b4f86; /* pulse heads in the signal-flow background */
-  --accent-soft: rgb(45 120 194 / 0.1);
+  --accent: #4b3f72;
+  --accent-ink: #4b3f72;
+  --accent-deep: #6f9278;
+  --accent-soft: rgb(220 212 242 / 0.62);
   --on-accent: #ffffff;
-  /* Third-party marks: the social keys take these on hover. */
+
   --brand-facebook: #0866ff;
   --brand-linkedin: #0a66c2;
   --brand-discord: #5865f2;
-  --brand-github: var(--ink); /* one-colour marks follow the ink, so they never vanish on dark */
+  --brand-github: var(--ink);
   --brand-x: var(--ink);
   --knob: #ffffff;
-  --band: var(--accent-soft); /* sidebar banner behind the picture */
+  --band: #cfe3d4;
 
-  /* Paper: the light ground of the Work cards without a picture. The same in both themes, so they
-     read as one set with the page captures beside them. */
   --paper: #ffffff;
-  --paper-2: #eef3f9; /* the lower end of the paper's fall of light */
-  --paper-light: rgb(255 255 255 / 0.95); /* emboss highlight */
-  --paper-bevel: rgb(14 27 42 / 0.07); /* emboss shade */
-  --paper-ink: #0e1b2a;
+  --paper-2: #f1f6f2;
+  --paper-light: rgb(255 255 255 / 0.95);
+  --paper-bevel: rgb(75 63 114 / 0.08);
+  --paper-ink: #302b3a;
 
-  --grid-line: rgb(14 27 42 / 0.035); /* the faint 40px grid behind the automation diagram */
-  --paper-ink-3: #5e6f83;
-  --paper-line: rgb(14 27 42 / 0.08);
-  --paper-tile-shadow: 0 1px 2px rgb(14 27 42 / 0.08), 0 14px 30px -10px rgb(20 60 110 / 0.28);
+  --grid-line: rgb(75 63 114 / 0.045);
+  --paper-ink-3: #675e72;
+  --paper-line: rgb(75 63 114 / 0.11);
+  --paper-tile-shadow: 0 1px 2px rgb(48 43 58 / 0.07), 0 14px 30px -10px rgb(75 63 114 / 0.2);
 
-  /* Controls laid over video and screenshots: the same in both themes, since the picture decides the ground. */
   --media-scrim: rgb(10 10 10 / 0.72);
   --on-media: #ffffff;
-  /* Transparent cutouts (the About desk illustration): no rim on light, a faint 1px edge on Onyx. */
   --cutout-rim: none;
 
-  /* Lines and depth */
-  --drop-float: drop-shadow(0 1px 1.5px rgb(14 27 42 / 0.06)) drop-shadow(0 16px 28px rgb(20 60 110 / 0.13));
-  --line: rgb(14 27 42 / 0.08);
-  --line-strong: rgb(14 27 42 / 0.14);
-  --scrim: rgb(14 27 42 / 0.32);
-  --shadow-sm: 0 1px 2px rgb(14 27 42 / 0.05);
-  --shadow-md: 0 1px 2px rgb(14 27 42 / 0.04), 0 10px 28px -12px rgb(14 27 42 / 0.14);
-  --shadow-float: 0 2px 6px rgb(14 27 42 / 0.05), 0 24px 56px -20px rgb(20 60 110 / 0.22);
+  --drop-float: drop-shadow(0 1px 1.5px rgb(48 43 58 / 0.05)) drop-shadow(0 16px 28px rgb(75 63 114 / 0.12));
+  --line: rgb(48 43 58 / 0.09);
+  --line-strong: rgb(48 43 58 / 0.16);
+  --scrim: rgb(48 43 58 / 0.3);
+  --shadow-sm: 0 1px 2px rgb(48 43 58 / 0.05);
+  --shadow-md: 0 1px 2px rgb(48 43 58 / 0.04), 0 10px 28px -12px rgb(75 63 114 / 0.17);
+  --shadow-float: 0 2px 6px rgb(48 43 58 / 0.05), 0 24px 56px -20px rgb(75 63 114 / 0.25);
 
-  /* Shape */
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 18px;
   --radius-xl: 24px;
 
-  /* Layout */
   --sidebar-w: 272px;
   --rail-w: 76px;
   --sidebar-gap: 16px;
@@ -91,39 +82,39 @@
 :root[data-theme='dark'] {
   color-scheme: dark;
 
-  --bg: #0a0a0a;
-  --surface: #141414;
-  --surface-2: #1e1e1e;
-  --surface-3: #2a2a2a;
+  --bg: #181521;
+  --surface: #211d2b;
+  --surface-2: #2b2636;
+  --surface-3: #373141;
 
-  --ink: #ededed;
-  --ink-2: #a1a1a1;
-  --ink-3: #878787;
+  --ink: #f8f6f1;
+  --ink-2: #d5cfde;
+  --ink-3: #b1a8bc;
 
-  --accent: #2d78c2;
-  --accent-ink: #7db3e8;
-  --accent-deep: #7db3e8;
-  --accent-soft: rgb(45 120 194 / 0.18);
-  --on-accent: #ffffff;
-  --band: rgb(255 255 255 / 0.05);
-  --grid-line: rgb(255 255 255 / 0.03);
-  --cutout-rim: drop-shadow(0 0 0.8px rgb(255 255 255 / 0.5));
+  --accent: #b8a9dc;
+  --accent-ink: #dcd4f2;
+  --accent-deep: #92b39b;
+  --accent-soft: rgb(220 212 242 / 0.16);
+  --on-accent: #181521;
+  --band: rgb(207 227 212 / 0.12);
+  --grid-line: rgb(220 212 242 / 0.035);
+  --cutout-rim: drop-shadow(0 0 0.8px rgb(255 255 255 / 0.45));
 
-  --drop-float: drop-shadow(0 0 0.5px rgb(255 255 255 / 0.16)) drop-shadow(0 18px 32px rgb(0 0 0 / 0.55));
-  --line: rgb(255 255 255 / 0.08);
-  --line-strong: rgb(255 255 255 / 0.14);
-  --scrim: rgb(2 6 12 / 0.6);
-  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.3);
-  --shadow-md: 0 1px 2px rgb(0 0 0 / 0.3), 0 12px 32px -12px rgb(0 0 0 / 0.5);
-  --shadow-float: 0 2px 6px rgb(0 0 0 / 0.3), 0 28px 60px -20px rgb(0 0 0 / 0.65);
+  --drop-float: drop-shadow(0 0 0.5px rgb(255 255 255 / 0.14)) drop-shadow(0 18px 32px rgb(0 0 0 / 0.5));
+  --line: rgb(248 246 241 / 0.09);
+  --line-strong: rgb(248 246 241 / 0.16);
+  --scrim: rgb(12 10 17 / 0.62);
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.28);
+  --shadow-md: 0 1px 2px rgb(0 0 0 / 0.28), 0 12px 32px -12px rgb(0 0 0 / 0.48);
+  --shadow-float: 0 2px 6px rgb(0 0 0 / 0.28), 0 28px 60px -20px rgb(0 0 0 / 0.62);
 }
 
 @media (prefers-contrast: more) {
   :root {
-    --ink-2: #22354a;
-    --ink-3: #2f4257;
-    --line: rgb(14 27 42 / 0.3);
-    --line-strong: rgb(14 27 42 / 0.5);
+    --ink-2: #453d50;
+    --ink-3: #51495d;
+    --line: rgb(48 43 58 / 0.3);
+    --line-strong: rgb(48 43 58 / 0.5);
   }
   :root[data-theme='dark'] {
     --ink-2: #d4d4d4;
