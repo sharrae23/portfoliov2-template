@@ -180,7 +180,6 @@ export const experiments: AiGroup[] = [
   },
 ]
 
-const buildsIn = (groups: AiGroup[]) => groups.reduce((n, g) => n + g.builds.length, 0)
 
 /** Number of builds across every Work chapter, shown as the sidebar badge. Derived, never typed in. */
 export const workCount = 8
