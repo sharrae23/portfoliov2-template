@@ -30,30 +30,34 @@ function ProofLedger({ nested }: { nested: boolean }) {
 
   return (
     <div className="pf-ledger">
-      <Band id="pf-videos" title={c.bands.videos} count={`${pad2(videoTestimonials.length)} clips`} nested={nested}>
-        <div className="pf-clips">
-          {videoTestimonials.map((clip) => (
-            <ClipPlayer key={clip.id} clip={clip} />
+      {videoTestimonials.length ? (
+        <Band id="pf-videos" title={c.bands.videos} count={`${pad2(videoTestimonials.length)} clips`} nested={nested}>
+          <div className="pf-clips">
+            {videoTestimonials.map((clip) => (
+              <ClipPlayer key={clip.id} clip={clip} />
+            ))}
+          </div>
+        </Band>
+      ) : null}
+
+      {communityQuotes.length ? (
+        <Band id="pf-quotes" title={c.bands.quotes} count={`${pad2(communityQuotes.length)} notes`} nested={nested}>
+          {communityQuotes.map((q) => (
+            <blockquote key={q.name} className="pf-quote">
+              <p>{q.text}</p>
+              <footer>
+                <cite>{q.name}</cite>
+                <span className="pg-mono">{q.context}</span>
+                <time className="pg-mono" dateTime={isoDay(q.date)}>
+                  {q.date}
+                </time>
+              </footer>
+            </blockquote>
           ))}
-        </div>
-      </Band>
+        </Band>
+      ) : null}
 
-      <Band id="pf-quotes" title={c.bands.quotes} count={`${pad2(communityQuotes.length)} notes`} nested={nested}>
-        {communityQuotes.map((q) => (
-          <blockquote key={q.name} className="pf-quote">
-            <p>{q.text}</p>
-            <footer>
-              <cite>{q.name}</cite>
-              <span className="pg-mono">{q.context}</span>
-              <time className="pg-mono" dateTime={isoDay(q.date)}>
-                {q.date}
-              </time>
-            </footer>
-          </blockquote>
-        ))}
-      </Band>
-
-      <Band id="pf-clients" title={c.bands.clients} count={`${pad2(clientAccounts.length)} running`} nested={nested}>
+      <Band id="pf-clients" title={c.bands.clients} count={`${pad2(clientAccounts.length)} roles`} nested={nested}>
         {clientAccounts.map((a, i) => (
           <div key={a.label} className="pf-account">
             <span className="pf-key" data-blank={a.logo ? undefined : ''}>
