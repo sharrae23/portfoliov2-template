@@ -1,6 +1,6 @@
 /*
  * Design tokens. Every color, shadow, radius and motion value in the app comes from here.
- * Brand: #F0F8FF (Alice white) + #2D78C2 (French blue). One accent, no second hue.
+ * Brand: soft lavender surfaces + sage green accents, with deep plum text.
  * Contrast (checked): on-accent/accent 4.6:1, accent-ink/bg 5.6:1, ink-3/bg 5.4:1 (4.6:1 on surface-3).
  */
 
@@ -8,21 +8,21 @@
   color-scheme: light;
 
   /* Surfaces */
-  --bg: #f0f8ff;
+  --bg: #f7f4fb;
   --surface: #ffffff;
-  --surface-2: #e6f0fa;
-  --surface-3: #d9e7f5;
+  --surface-2: #eee8f7;
+  --surface-3: #dfeedd;
 
   /* Text */
-  --ink: #0e1b2a;
-  --ink-2: #44566b;
-  --ink-3: #566779; /* 4.6:1 even on --surface-3; #5e6f83 fell to 4.47 on --surface-2 (audit 2026-10-02) */
+  --ink: #2f2638;
+  --ink-2: #5f556d;
+  --ink-3: #746b80;
 
   /* Accent */
-  --accent: #2d78c2;
-  --accent-ink: #2566a6;
-  --accent-deep: #1b4f86; /* pulse heads in the signal-flow background */
-  --accent-soft: rgb(45 120 194 / 0.1);
+  --accent: #5f8f6b;
+  --accent-ink: #4f7659;
+  --accent-deep: #3f6048;
+  --accent-soft: rgb(207 227 212 / 0.55);
   --on-accent: #ffffff;
   /* Third-party marks: the social keys take these on hover. */
   --brand-facebook: #0866ff;
@@ -31,19 +31,19 @@
   --brand-github: var(--ink); /* one-colour marks follow the ink, so they never vanish on dark */
   --brand-x: var(--ink);
   --knob: #ffffff;
-  --band: var(--accent-soft); /* sidebar banner behind the picture */
+  --band: #e3f0e1; /* sidebar banner behind the picture */
 
   /* Paper: the light ground of the Work cards without a picture. The same in both themes, so they
      read as one set with the page captures beside them. */
   --paper: #ffffff;
-  --paper-2: #eef3f9; /* the lower end of the paper's fall of light */
+  --paper-2: #f1ecf7; /* the lower end of the paper's fall of light */
   --paper-light: rgb(255 255 255 / 0.95); /* emboss highlight */
-  --paper-bevel: rgb(14 27 42 / 0.07); /* emboss shade */
-  --paper-ink: #0e1b2a;
+  --paper-bevel: rgb(75 63 114 / 0.08); /* emboss shade */
+  --paper-ink: #2f2638;
 
   --grid-line: rgb(14 27 42 / 0.035); /* the faint 40px grid behind the automation diagram */
-  --paper-ink-3: #5e6f83;
-  --paper-line: rgb(14 27 42 / 0.08);
+  --paper-ink-3: #746b80;
+  --paper-line: rgb(75 63 114 / 0.1);
   --paper-tile-shadow: 0 1px 2px rgb(14 27 42 / 0.08), 0 14px 30px -10px rgb(20 60 110 / 0.28);
 
   /* Controls laid over video and screenshots: the same in both themes, since the picture decides the ground. */
@@ -91,21 +91,21 @@
 :root[data-theme='dark'] {
   color-scheme: dark;
 
-  --bg: #0a0a0a;
-  --surface: #141414;
-  --surface-2: #1e1e1e;
-  --surface-3: #2a2a2a;
+  --bg: #17131f;
+  --surface: #211a2b;
+  --surface-2: #2a2236;
+  --surface-3: #342a42;
 
-  --ink: #ededed;
-  --ink-2: #a1a1a1;
-  --ink-3: #878787;
+  --ink: #f4f0f8;
+  --ink-2: #cbbfd6;
+  --ink-3: #aa9db6;
 
-  --accent: #2d78c2;
-  --accent-ink: #7db3e8;
-  --accent-deep: #7db3e8;
-  --accent-soft: rgb(45 120 194 / 0.18);
-  --on-accent: #ffffff;
-  --band: rgb(255 255 255 / 0.05);
+  --accent: #9ac7a2;
+  --accent-ink: #b9dcbe;
+  --accent-deep: #b9dcbe;
+  --accent-soft: rgb(154 199 162 / 0.18);
+  --on-accent: #172019;
+  --band: rgb(154 199 162 / 0.08);
   --grid-line: rgb(255 255 255 / 0.03);
   --cutout-rim: drop-shadow(0 0 0.8px rgb(255 255 255 / 0.5));
 
