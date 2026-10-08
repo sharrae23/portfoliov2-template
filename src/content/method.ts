@@ -1,13 +1,25 @@
 import type { MethodStep } from './schema'
 
-/** Your method: the three jobs your service does for a client, in order. It names the steps of the Home automation diagram. */
+/** A simple documentation-and-operations method: understand the work, make it usable, keep it current. */
 export const method = {
-  eyebrow: 'Your Method',
-  title: 'Attract. Nurture. Convert.',
-  summary: 'PLACEHOLDER - tell me what to put here: one line on the three jobs your work does for a client, in order.',
+  eyebrow: 'How I work',
+  title: 'Discover. Document. Maintain.',
+  summary: 'I start with the real workflow, turn it into something people can use, then keep the system practical as the work changes.',
   steps: [
-    { name: 'Attract', body: 'PLACEHOLDER - tell me what to put here: one short line on step one.', inputs: ['Input A', 'Input B', 'Input C', 'Input D'] },
-    { name: 'Nurture', body: 'PLACEHOLDER - tell me what to put here: one short line on step two.', inputs: ['Input A', 'Input B', 'Input C'] },
-    { name: 'Convert', body: 'PLACEHOLDER - tell me what to put here: one short line on step three.', inputs: ['Input A', 'Input B', 'Input C'] },
+    {
+      name: 'Discover',
+      body: 'Understand the request, the existing process, the people involved, and where information is getting lost.',
+      inputs: ['Existing docs', 'Stakeholder input', 'Current tools', 'Pain points'],
+    },
+    {
+      name: 'Document',
+      body: 'Structure the information, write the steps clearly, and validate the draft against how the work actually happens.',
+      inputs: ['SOPs', 'Knowledge bases', 'User guides', 'Checklists'],
+    },
+    {
+      name: 'Maintain',
+      body: 'Publish, organize, track feedback, and update documentation so it stays useful after handoff.',
+      inputs: ['Reviews', 'Approvals', 'Release notes', 'Document control'],
+    },
   ] satisfies MethodStep[],
 }
