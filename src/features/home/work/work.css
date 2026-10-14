@@ -56,11 +56,10 @@
 .wb__grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  grid-template-rows: repeat(3, clamp(170px, 16cqi, 230px));
+  grid-template-rows: repeat(2, clamp(240px, 23cqi, 320px));
   grid-template-areas:
-    'tic tic tic tic tic tic fw  fw  fw  aut aut aut'
-    'tic tic tic tic tic tic fw  fw  fw  aut aut aut'
-    'bp  bp  bp  bp  bp  bp  ai  ai  ai  ai  ai  ai';
+    'tic tic tic tic tic tic fw  fw  fw  fw  fw  fw'
+    'aut aut aut aut aut aut bp  bp  bp  bp  bp  bp';
   gap: 12px;
   margin: 0;
   padding: 0;
@@ -70,7 +69,6 @@
 .wb__cell[data-area='screens'] { grid-area: aut; }
 .wb__cell[data-area='case-studies'] { grid-area: fw; }
 .wb__cell[data-area='process'] { grid-area: bp; }
-.wb__cell[data-area='side-projects'] { grid-area: ai; }
 
 .wb__cell {
   min-width: 0;
@@ -171,13 +169,13 @@
 }
 @container (max-width: 700px) {
   .wb__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-rows: 220px 190px 190px 180px;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: repeat(4, 210px);
     grid-template-areas:
-      'tic tic'
-      'fw  aut'
-      'bp  bp'
-      'ai  ai';
+      'tic'
+      'fw'
+      'aut'
+      'bp';
     gap: 10px;
   }
 }
@@ -312,4 +310,24 @@
   text-shadow: 0 1px 0 var(--paper-light);
   font-size: 4.2cqw;
   line-height: 1.5;
+}
+
+
+/* Meaningful category icon used instead of template letter/logo placeholders. */
+.wa__category-icon {
+  display: grid;
+  place-items: center;
+  width: min(36cqw, 150px);
+  aspect-ratio: 1;
+  border-radius: 24%;
+  background: color-mix(in srgb, var(--surface-3) 72%, var(--surface));
+  color: var(--accent);
+  box-shadow:
+    var(--paper-tile-shadow),
+    inset 0 1.5px 0 var(--paper-light),
+    inset 0 0 0 1px var(--paper-line);
+}
+.wa__category-icon > svg {
+  width: 52%;
+  height: 52%;
 }
