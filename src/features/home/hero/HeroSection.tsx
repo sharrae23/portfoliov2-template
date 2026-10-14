@@ -30,7 +30,10 @@ export function HeroSection() {
       </h1>
 
       <div className="hero__foot">
-        <p className="hero__sub">{homeHero.subhead}</p>
+        <p className="hero__sub">
+          <strong className="hero__sub-lead">{homeHero.subheadLead}</strong>
+          <span className="hero__sub-rest">{homeHero.subheadRest}</span>
+        </p>
 
         {/* Glides Home to the Contact section (a same-path link, so Lenis keeps its glide). */}
         <Link
