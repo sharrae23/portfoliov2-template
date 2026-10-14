@@ -22,8 +22,8 @@ export const site = {
   countryCode: 'PH',
   timeZone: 'Asia/Manila',
   timePlace: 'in the Philippines',
-  avatar: { src: '/images/profile/avatar.webp', alt: 'Mary Sharra', width: 400, height: 400 },
-  avatarSmall: '/images/profile/avatar-224.webp',
+  avatar: { src: '/images/profile/profile.webp', alt: 'Mary Sharra', width: 320, height: 320 },
+  avatarSmall: '/images/profile/profile.webp',
 } as const
 
 export const certification: Credential = {
