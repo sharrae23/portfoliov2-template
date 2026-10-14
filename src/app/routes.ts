@@ -1,5 +1,5 @@
 import type { Icon } from '@phosphor-icons/react'
-import { Briefcase, Envelope, FileText, House, SealCheck, ShieldCheck, Stack, User } from '@phosphor-icons/react'
+import { Briefcase, ChatText, Envelope, FileText, House, SealCheck, ShieldCheck, Stack, User } from '@phosphor-icons/react'
 import { workCount } from '@/content/work'
 import { site } from '@/content/site'
 
@@ -48,6 +48,16 @@ export const pages: PageRoute[] = [
     title: `${SUFFIX} | Documentation + Operations Support`,
     description: 'Virtual assistance and documentation support for clearer workflows, reliable follow-through, and usable team knowledge.',
     icon: House,
+    group: 'menu',
+  },
+  {
+    kind: 'page',
+    id: 'testimonials',
+    path: '/testimonials',
+    label: 'Testimonials',
+    title: `Client Feedback | ${SUFFIX}`,
+    description: 'Client feedback on operations support, SOPs, SaaS documentation, creative project assistance, and content work.',
+    icon: ChatText,
     group: 'menu',
   },
   {
