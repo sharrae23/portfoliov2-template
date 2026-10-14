@@ -7,7 +7,8 @@ import { caseStudies, featuredProject, processDoc, screens, sideProjects, workCo
 export const homeHero = {
   headlineThin: 'Organize the work.',
   headlineBold: 'Document the process.',
-  subhead: 'Virtual assistance and documentation support for growing teams that need clearer workflows, reliable follow-through, and knowledge that does not live in one person’s head.',
+  subheadLead: 'Virtual assistance and documentation support',
+  subheadRest: 'for growing teams that need clearer workflows, reliable follow-through, and knowledge that does not live in one person’s head.',
   cta: { label: 'Get in touch', to: '/#contact' },
 }
 
