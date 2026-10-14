@@ -1,10 +1,17 @@
-import { ArrowUpRight, MapPin } from '@phosphor-icons/react'
+import { ArrowUpRight, BookOpenText, Briefcase, FolderSimple, ListChecks, MapPin } from '@phosphor-icons/react'
 import { aboutSection, capabilities, credentials, type AboutCredential } from '@/content/about'
 import { certification, site, socials } from '@/content/site'
 import { personJsonLd } from '@/lib/seo'
 import './about.css'
 
 const pad2 = (n: number) => String(n).padStart(2, '0')
+
+const capabilityIcons = {
+  process: ListChecks,
+  knowledge: BookOpenText,
+  operations: Briefcase,
+  control: FolderSimple,
+}
 
 const personLd = personJsonLd({
   description: aboutSection.lede,
@@ -77,21 +84,27 @@ export function AboutSection() {
       <div className="ab__below">
         <p className="ab__note">{s.note}</p>
         <ul className="ab__caps">
-          {capabilities.map((c, i) => (
-            <li key={c.title} className="ab__cap">
-              <span className="ab__keys">
-                {c.tools.map((t) => (
-                  <span key={t.name} className="ab__key" title={t.name}>
-                    <img src={t.logo} alt={t.name} width={20} height={20} loading="lazy" decoding="async" />
-                  </span>
-                ))}
-              </span>
-              <span className="ab__cap-title">{c.title}</span>
-              <span className="ab__cap-i" aria-hidden>
-                {pad2(i + 1)}
-              </span>
-            </li>
-          ))}
+          {capabilities.map((c, i) => {
+            const CapabilityIcon = capabilityIcons[c.icon]
+            return (
+              <li key={c.title} className="ab__cap">
+                <span className="ab__cap-icon" aria-hidden>
+                  <CapabilityIcon size={24} weight="regular" />
+                </span>
+                <span className="ab__cap-copy">
+                  <span className="ab__cap-title">{c.title}</span>
+                  <ul className="ab__cap-bullets">
+                    {c.bullets.map((bullet) => (
+                      <li key={bullet}>{bullet}</li>
+                    ))}
+                  </ul>
+                </span>
+                <span className="ab__cap-i" aria-hidden>
+                  {pad2(i + 1)}
+                </span>
+              </li>
+            )
+          })}
         </ul>
       </div>
 

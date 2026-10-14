@@ -1,6 +1,5 @@
-import type { Image, ToolMark } from './schema'
+import type { Image } from './schema'
 import { certification, site } from './site'
-import { tools } from './tools'
 
 export const aboutSection = {
   eyebrow: 'About',
@@ -19,11 +18,33 @@ export const aboutSection = {
   } satisfies Image,
 }
 
-export const capabilities: { title: string; tools: ToolMark[] }[] = [
-  { title: 'SOP & Process Documentation', tools: [tools.toolA, tools.toolB, tools.toolJ] },
-  { title: 'Knowledge Base Management', tools: [tools.toolA, tools.toolB, tools.toolC, tools.toolD] },
-  { title: 'Operations & Virtual Assistance', tools: [tools.toolF, tools.toolG, tools.toolI] },
-  { title: 'Document Control & Workflow Support', tools: [tools.toolD, tools.toolE, tools.toolK] },
+export type Capability = {
+  title: string
+  icon: 'process' | 'knowledge' | 'operations' | 'control'
+  bullets: [string, string, string, string]
+}
+
+export const capabilities: Capability[] = [
+  {
+    title: 'SOP & Process Documentation',
+    icon: 'process',
+    bullets: ['SOPs and checklists', 'Process documentation', 'Workflow standardization', 'Review and approval support'],
+  },
+  {
+    title: 'Knowledge Base Management',
+    icon: 'knowledge',
+    bullets: ['Knowledge-base articles', 'Content updates and maintenance', 'Release notes', 'Documentation libraries'],
+  },
+  {
+    title: 'Operations & Virtual Assistance',
+    icon: 'operations',
+    bullets: ['Task and request tracking', 'File and document organization', 'Follow-ups and coordination', 'Admin and day-to-day operations support'],
+  },
+  {
+    title: 'Document Control & Workflow Support',
+    icon: 'control',
+    bullets: ['Document tracking', 'Review and approval workflows', 'Version and status management', 'Repository organization'],
+  },
 ]
 
 export type AboutCredential = {
