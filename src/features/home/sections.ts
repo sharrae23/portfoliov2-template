@@ -7,6 +7,7 @@ import { ServicesSection } from './services/ServicesSection'
 import { WorkSection } from './work/WorkSection'
 import { ProofSection } from '@/features/proof/ProofPage'
 import { ContactSection } from '@/features/contact/ContactPage'
+import { TestimonialsSection } from '@/features/testimonials/TestimonialsPage'
 
 /**
  * The Home page, in scroll order. Add a section = build it in its own folder (component + css +
@@ -17,6 +18,7 @@ export type HomeSection = { id: string; Component: ComponentType }
 
 export const homeSectionList: HomeSection[] = [
   { id: 'hero', Component: HeroSection },
+  { id: 'testimonials', Component: TestimonialsSection },
   { id: 'manifesto', Component: ManifestoSection },
   { id: 'automation', Component: AutomationSection },
   { id: 'work', Component: WorkSection },
