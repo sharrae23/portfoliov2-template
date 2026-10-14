@@ -8,7 +8,7 @@ export const aboutSection = {
   lede: 'I work where documentation and day-to-day operations meet: turning scattered information into clear systems people can actually use.',
   lead: 'I started with writing. I stayed for the process behind it.',
   leadQuiet: 'For 5+ years, I have helped teams create, maintain, organize, and move documentation through real workflows.',
-  note: 'My work goes beyond writing: I manage knowledge bases and document repositories, track requests, coordinate reviews, organize documentation libraries, and help changing processes stay documented.',
+  note: 'My work goes beyond writing. I provide hands-on administrative and operations support, from managing tasks, trackers, files, and follow-ups to coordinating requests, maintaining documentation, and helping teams stay organized and on schedule.',
   picture: {
     src: '/images/profile/desk.webp',
     srcSet: '/images/profile/800/desk.webp 800w, /images/profile/desk.webp 1200w',
