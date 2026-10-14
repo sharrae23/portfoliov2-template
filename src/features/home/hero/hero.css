@@ -26,11 +26,12 @@
      13.05 = 94). The 2.3rem floor keeps the smallest phones' line readable (~265px at 320). To re-measure
      for your own words: set the bold line in the browser, read its width in em (range width / font-size),
      and use 94 / that width. Keep the thin line narrower than the bold one, or it overflows. */
-  font-size: clamp(2.3rem, 13.05cqi, 10rem);
-  line-height: 0.86;
-  letter-spacing: -0.05em;
+  width: min(100%, 1100px);
+  font-size: clamp(2.4rem, 7.2cqi, 6.4rem);
+  line-height: 0.96;
+  letter-spacing: -0.045em;
   text-transform: uppercase;
-  white-space: nowrap;
+  white-space: normal;
   transform-origin: 50% 0;
 }
 
@@ -60,16 +61,29 @@
 }
 
 .hero__sub {
-  max-width: 60ch; /* two lines on desktop */
+  display: grid;
+  gap: 10px;
+  max-width: 70ch;
   margin: 40px 0 0;
   color: var(--ink-2);
-  font-family: var(--font-mono);
-  font-size: 17px;
-  line-height: 1.7;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-family: var(--font-sans);
+  line-height: 1.65;
+  letter-spacing: 0;
+  text-transform: none;
   text-wrap: balance;
   animation: hero-rise var(--dur-slow) var(--ease-spring) 180ms both;
+}
+
+.hero__sub-lead {
+  color: var(--ink);
+  font-size: clamp(1.35rem, 1.05rem + 1vw, 2rem);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.hero__sub-rest {
+  font-size: clamp(1rem, 0.96rem + 0.25vw, 1.18rem);
+  font-weight: 400;
 }
 
 .hero__cta {

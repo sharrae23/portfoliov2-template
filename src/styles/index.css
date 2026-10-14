@@ -1,8 +1,7 @@
 @import 'tailwindcss';
 @import './tokens.css';
 
-/* Self-hosted type (public/fonts/, SIL Open Font License, see public/fonts/OFL-*.txt). Geist is one variable file
-   (100-900, preloaded in index.html); IBM Plex Mono ships only the four weights the site uses. */
+/* Montserrat is the primary typeface across the portfolio. Local fonts remain as fallbacks. */
 @font-face {
   font-family: 'Geist';
   src: url('/fonts/geist-var.woff2') format('woff2');
@@ -66,10 +65,8 @@
   --shadow-float: var(--shadow-float);
 
   --ease-spring: var(--ease-spring);
-  /* Geist (variable, 100-900). Display type pairs weight 100 with 700 at -0.05em. */
-  --font-sans: 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
-  /* Eyebrows and small caps labels: IBM Plex Mono, 400 / 500 / 600 / 700. */
-  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+  --font-sans: 'Montserrat', 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Montserrat', 'IBM Plex Mono', ui-sans-serif, system-ui, sans-serif;
 }
 
 @custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
