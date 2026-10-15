@@ -1,3 +1,5 @@
+import { PageMeta } from '@/app/PageMeta'
+import type { PageRoute } from '@/app/routes'
 import { PageHeader } from '@/components/page/PageHeader'
 import { marqueeTools, toolGroups, toolsSection } from '@/content/tools'
 import type { ToolMark } from '@/content/schema'
@@ -45,6 +47,17 @@ function ToolsBody() {
         ))}
       </div>
     </>
+  )
+}
+
+export function ToolsPage({ page }: { page: PageRoute }) {
+  const c = toolsSection
+  return (
+    <div className="pg tl">
+      <PageMeta page={page} />
+      <PageHeader eyebrow={c.eyebrow} titleThin={c.titleThin} titleBold={c.titleBold} lede={c.lede} />
+      <ToolsBody />
+    </div>
   )
 }
 
