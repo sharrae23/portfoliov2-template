@@ -2,42 +2,66 @@ import type { ClientAccount, Quote, VideoTestimonial } from './schema'
 
 export const proofPage = {
   eyebrow: 'Experience',
-  titleThin: 'Documentation across',
+  titleThin: 'Support across',
   titleBold: 'teams and systems.',
   bands: { videos: 'Client clips', quotes: 'Feedback', clients: 'Selected experience' },
-  lede: 'My background spans technical writing, knowledge-base management, document control, SaaS documentation, and operational support.',
+  lede: 'I help teams stay organized behind the scenes, combining hands-on operations support with technical writing, document management, and knowledge-base experience.',
 }
 
 export const clientAccounts: ClientAccount[] = [
   {
-    label: 'Yempo Solutions · 2024–present',
-    role: 'Technical Writing & Documentation',
-    work: 'Support documentation work in a corporate environment, including knowledge management, process documentation, and maintaining information as workflows change.',
-    tags: ['Technical writing', 'Documentation', 'Knowledge management'],
+    label: 'Upwork · 2026',
+    role: 'Research & Operations Coordinator',
+    work: 'Supports multiple creative projects through structured research, source gathering, comparison sheets, project tracking, file organization, and recurring administrative work, turning scattered information into review-ready materials that make decisions easier and reduce manual follow-up.',
+    tags: ['Research support', 'Operations support', 'Project coordination', 'Asana + Notion'],
   },
   {
-    label: 'Freelance SaaS client · 2026',
-    role: 'SaaS Documentation Specialist',
-    work: 'Created internal and client-facing technical documentation, updated knowledge-base content, built an Airtable document library, and produced monthly release notes.',
-    tags: ['Notion', 'Help Scout', 'Airtable'],
+    label: 'Upwork · 2026',
+    role: 'Creative Operations Assistant',
+    work: 'Keeps recurring content-production work organized through trackers, spreadsheets, scheduling support, prep materials, checklists, and structured files so projects keep moving without details falling through the cracks.',
+    tags: ['Operations support', 'Project coordination', 'Tracking'],
   },
   {
-    label: 'Concentrix / Google · 2023–2024',
-    role: 'Knowledge Base & Documentation',
-    work: 'Managed a large internal knowledge base, including 100+ articles in one role, and coordinated content reviews and approvals with stakeholders.',
-    tags: ['Knowledge base', 'Stakeholders', 'Content governance'],
+    label: 'Upwork · 2026',
+    role: 'Creative Project Assistant',
+    work: 'Organized story canon, project files, visual references, and production details for an original anime/manga IP, helping keep a growing creative project structured and easier to coordinate across writers, artists, and collaborators.',
+    tags: ['Project support', 'File organization', 'Content coordination'],
+  },
+  {
+    label: 'Upwork · 2026',
+    role: 'SaaS Product Technical Writer',
+    work: 'Created and maintained internal and client-facing SaaS documentation, including help center articles, product guides, release notes, and knowledge-base content, while organizing documentation in Airtable to keep product information structured and current.',
+    tags: ['SaaS documentation', 'Help center articles', 'Knowledge base', 'Airtable'],
+  },
+  {
+    label: 'Upwork · 2026',
+    role: 'Virtual Assistant – Administrative Support',
+    work: 'Provided administrative and design support for a growing business, helping organize assigned work, prepare client-facing materials, and keep active deliverables moving through completion and handoff.',
+    tags: ['Virtual assistance', 'Administrative support', 'Canva'],
+  },
+  {
+    label: 'Yempo Solutions · 2024',
+    role: 'Technical Writer – Document Management & ISO Compliance',
+    work: 'Supports document management and process consistency by maintaining controlled documentation, coordinating updates, documenting changing workflows, and supporting ISO-aligned documentation practices across teams.',
+    tags: ['Technical writing', 'Document management', 'ISO compliance'],
+  },
+  {
+    label: 'Concentrix · 2023–2024',
+    role: 'Knowledge Base Technical Writer',
+    work: 'Managed and maintained a large internal knowledge base, including 100+ articles in one role, while coordinating content reviews, approvals, and updates with stakeholders to keep information accurate and usable.',
+    tags: ['Knowledge base', 'Technical writing', 'Content governance'],
   },
   {
     label: 'RT Lawrence · 2021–2023',
-    role: 'Technical Writer',
-    work: 'Created technical manuals, installation guides, training materials, and style guidance while coordinating with developers and QA.',
-    tags: ['Manuals', 'Training', 'Developer + QA'],
+    role: 'Document Specialist & Product Team Coordinator',
+    work: 'Created software manuals, installation guides, training materials, and documentation standards while coordinating a nine-person team’s day-to-day tasks and helping work move between product, development, QA, and documentation teams.',
+    tags: ['Documentation', 'Software manuals', 'Team coordination', 'Administrative support'],
   },
   {
     label: 'Freelance · 2017–2021',
-    role: 'Writer & Editor',
-    work: 'Wrote, edited, and refined content for different audiences, building the editorial foundation that later expanded into technical documentation and operations.',
-    tags: ['Writing', 'Editing', 'Content'],
+    role: 'Freelance Writer & Editor',
+    work: 'Supported client projects through research, writing, editing, and organized delivery, building the communication and attention-to-detail foundation I now bring to documentation and operations work.',
+    tags: ['Content writing', 'Editing', 'Client support'],
   },
 ]
 

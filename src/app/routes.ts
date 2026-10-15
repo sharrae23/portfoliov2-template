@@ -103,7 +103,7 @@ export const pages: PageRoute[] = [
     path: '/proof',
     label: 'Experience',
     title: `Experience | ${SUFFIX}`,
-    description: 'Selected technical writing, SaaS documentation, knowledge-base, and document-control experience.',
+    description: 'Selected virtual assistance, operations support, technical writing, SaaS documentation, document-management, and knowledge-base experience.',
     icon: SealCheck,
     group: 'discover',
     section: 'proof',

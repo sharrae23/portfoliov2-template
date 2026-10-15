@@ -5,6 +5,7 @@ import { PageHeader } from '@/components/page/PageHeader'
 import { clientAccounts, communityQuotes, proofPage, videoTestimonials } from '@/content/proof'
 import { isoDay, proofJsonLd } from '@/lib/seo'
 import { ClipPlayer } from './ClipPlayer'
+import { ToolsInline } from '@/features/tools/ToolsSection'
 import './proof.css'
 
 const pad2 = (n: number) => String(n).padStart(2, '0')
@@ -104,6 +105,7 @@ export function ProofPage({ page }: { page: PageRoute }) {
 
       <PageHeader eyebrow={c.eyebrow} titleThin={c.titleThin} titleBold={c.titleBold} lede={c.lede} />
       <ProofLedger nested={false} />
+      <ToolsInline />
     </div>
   )
 }

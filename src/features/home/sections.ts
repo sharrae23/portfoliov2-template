@@ -8,6 +8,7 @@ import { WorkSection } from './work/WorkSection'
 import { ProofSection } from '@/features/proof/ProofPage'
 import { ContactSection } from '@/features/contact/ContactPage'
 import { TestimonialsSection } from '@/features/testimonials/TestimonialsPage'
+import { ToolsSection } from '@/features/tools/ToolsSection'
 
 /**
  * The Home page, in scroll order. Add a section = build it in its own folder (component + css +
@@ -26,6 +27,7 @@ export const homeSectionList: HomeSection[] = [
   { id: 'about', Component: AboutSection },
   // Experience and Contact also keep their own pages; here they run as Home sections.
   { id: 'proof', Component: ProofSection },
+  { id: 'tools', Component: ToolsSection },
   // Contact is the final Home section.
   { id: 'contact', Component: ContactSection },
 ]
