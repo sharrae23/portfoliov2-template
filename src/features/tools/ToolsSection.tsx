@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { PageMeta } from '@/app/PageMeta'
 import type { PageRoute } from '@/app/routes'
 import { PageHeader } from '@/components/page/PageHeader'
@@ -5,12 +6,42 @@ import { marqueeTools, toolGroups, toolsSection } from '@/content/tools'
 import type { ToolMark } from '@/content/schema'
 import './tools.css'
 
+function toolInitials(name: string) {
+  return name
+    .split(/\s+/)
+    .map((part) => part[0])
+    .join('')
+    .replace(/[^a-z0-9]/gi, '')
+    .slice(0, 2)
+    .toUpperCase()
+}
+
+function ToolLogo({ tool }: { tool: ToolMark }) {
+  const [failed, setFailed] = useState(false)
+
+  return (
+    <span className="tl-tool__logo" aria-hidden>
+      {failed ? (
+        <span className="tl-tool__fallback">{toolInitials(tool.name)}</span>
+      ) : (
+        <img
+          src={tool.logo}
+          alt=""
+          width={28}
+          height={28}
+          loading="lazy"
+          decoding="async"
+          onError={() => setFailed(true)}
+        />
+      )}
+    </span>
+  )
+}
+
 function ToolTile({ tool, compact = false }: { tool: ToolMark; compact?: boolean }) {
   return (
     <div className="tl-tool" data-compact={compact ? '' : undefined}>
-      <span className="tl-tool__logo">
-        <img src={tool.logo} alt="" width={28} height={28} loading="lazy" decoding="async" />
-      </span>
+      <ToolLogo tool={tool} />
       <span>{tool.name}</span>
     </div>
   )
