@@ -47,7 +47,6 @@ export type Credential = {
   issuer?: string
   image?: Image
   href?: string
-  caseStudy?: CaseStudy
 }
 
 export type Service = {
@@ -156,6 +155,7 @@ export type WorkItem = {
   summary: string
   image?: Image
   href?: string
+  caseStudy?: CaseStudy
   /** What it runs on (AI builds). */
   stack?: string
   status?: BuildStatus
