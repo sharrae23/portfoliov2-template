@@ -137,7 +137,9 @@ export type CaseStudy = {
   note?: string
   /** Highlights selected work in the UI. */
   featured?: boolean
-  /** CTA label when href is present. */
+  /** One or more portfolio-safe files visitors can open directly. */
+  samples?: LinkRef[]
+  /** CTA label when a single generic href is present. */
   sampleLabel?: string
 }
 
