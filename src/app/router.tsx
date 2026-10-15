@@ -6,6 +6,7 @@ import { ShowcasePage } from '@/features/showcase/ShowcasePage'
 import { LegalPage } from '@/features/legal/LegalPage'
 import { ProofPage } from '@/features/proof/ProofPage'
 import { TestimonialsPage } from '@/features/testimonials/TestimonialsPage'
+import { ToolsPage } from '@/features/tools/ToolsSection'
 import { AppShell } from './AppShell'
 import { RouteStage } from './RouteStage'
 import { notFoundTitle, pages, type PageRoute } from './routes'
@@ -16,6 +17,7 @@ const PAGE_COMPONENTS: Partial<Record<string, ComponentType<{ page: PageRoute }>
   testimonials: TestimonialsPage,
   'showcase': ShowcasePage,
   proof: ProofPage,
+  tools: ToolsPage,
   contact: ContactPage,
   privacy: LegalPage,
   terms: LegalPage,
