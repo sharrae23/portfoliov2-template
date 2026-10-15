@@ -410,6 +410,12 @@ a:hover .sh__name svg {
   font-size: 0.82rem;
 }
 
+.sh__sample-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .sh__sample-link {
   justify-self: start;
 }
