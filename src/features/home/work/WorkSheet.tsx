@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type MouseEvent, type ReactNode } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router'
-import { ArrowRight, ArrowUpRight, FileText, X } from '@phosphor-icons/react'
+import { ArrowRight, ArrowUpRight, X } from '@phosphor-icons/react'
 import { HeadMeta } from '@/app/PageMeta'
 import { chapterPath, workChapters } from '@/content/home'
 import type { WorkChapter, WorkItem } from '@/content/schema'
@@ -137,59 +137,52 @@ function CaseStudies({ items }: { items: WorkItem[] }) {
       {items.map((item) => {
         const cs = item.caseStudy
         if (!cs) return null
+
         return (
-          <li key={item.id} className="sh__case" data-reveal>
-            <div className="sh__case-preview" aria-label={`${item.name} sample preview`}>
-              <span className="wk-count">{item.kicker}</span>
-              <FileText size={34} weight="regular" aria-hidden />
-              {cs.excerpt ? <p>“{cs.excerpt}”</p> : null}
-              {item.href ? (
-                <a className="btn-line sh__sample-link" href={item.href} target="_blank" rel="noopener">
-                  {cs.sampleLabel ?? 'View sample'}
-                  <ArrowUpRight size={16} weight="bold" aria-hidden />
-                </a>
-              ) : (
-                <span className="sh__sample-status">Portfolio case study</span>
-              )}
-            </div>
-
-            <div className="sh__case-copy">
-              <div className="sh__case-head">
-                <span className="wk-count">{item.kicker}</span>
-                <h3>{item.name}</h3>
-                <p>{item.summary}</p>
-              </div>
-
-              <dl className="sh__case-meta">
-                <div>
-                  <dt>Context</dt>
-                  <dd>{cs.context}</dd>
+          <li key={item.id} className="sh__case" data-reveal data-featured={cs.featured ? '' : undefined}>
+            <details className="sh__case-details">
+              <summary className="sh__case-summary">
+                <div className="sh__case-summary-copy">
+                  <span className="wk-count">
+                    {item.kicker}
+                    {cs.featured ? <span className="sh__featured">Featured</span> : null}
+                  </span>
+                  <h3>{item.name}</h3>
+                  <p>{item.summary}</p>
+                  <ul className="sh__chips sh__chips--preview" aria-label="Key tags">
+                    {cs.tags.slice(0, 3).map((tag) => (
+                      <li key={tag}>{tag}</li>
+                    ))}
+                  </ul>
                 </div>
-                <div>
-                  <dt>My contribution</dt>
-                  <dd>{cs.contribution}</dd>
+                <span className="btn-line sh__case-toggle">
+                  View Case Study
+                  <ArrowRight size={16} weight="bold" aria-hidden />
+                </span>
+              </summary>
+
+              <div className="sh__case-expanded">
+                <p className="sh__case-body">{cs.body}</p>
+
+                <div className="sh__case-block">
+                  <h4>Tags</h4>
+                  <ul className="sh__chips" aria-label="Case study tags">
+                    {cs.tags.map((tag) => (
+                      <li key={tag}>{tag}</li>
+                    ))}
+                  </ul>
                 </div>
-              </dl>
 
-              <div className="sh__case-block">
-                <h4>What the sample shows</h4>
-                <ul>
-                  {cs.highlights.map((highlight) => (
-                    <li key={highlight}>{highlight}</li>
-                  ))}
-                </ul>
+                {cs.note ? <p className="sh__case-note">{cs.note}</p> : null}
+
+                {item.href ? (
+                  <a className="btn-line sh__sample-link" href={item.href} target="_blank" rel="noopener">
+                    {cs.sampleLabel ?? 'View Work Sample'}
+                    <ArrowUpRight size={16} weight="bold" aria-hidden />
+                  </a>
+                ) : null}
               </div>
-
-              {cs.tools?.length ? (
-                <ul className="sh__chips" aria-label="Tools and systems">
-                  {cs.tools.map((tool) => (
-                    <li key={tool}>{tool}</li>
-                  ))}
-                </ul>
-              ) : null}
-
-              {cs.note ? <p className="sh__case-note">{cs.note}</p> : null}
-            </div>
+            </details>
           </li>
         )
       })}

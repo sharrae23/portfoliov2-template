@@ -129,18 +129,14 @@ export type WorkChapter = {
 
 /** One build inside a Work chapter. `href` opens it live in a new tab. */
 export type CaseStudy = {
-  /** Why the work existed or what needed to be made clearer. */
-  context: string
-  /** Mary's role/contribution, stated without invented outcomes. */
-  contribution: string
-  /** Concrete parts visible in the sample. */
-  highlights: string[]
-  /** Tools/systems directly evidenced by the sample. */
-  tools?: string[]
-  /** Short source excerpt used as an in-site sample preview. */
-  excerpt?: string
-  /** Disclosure or redaction note shown with the sample. */
+  /** Concise combined overview + contribution used in the expanded case study. */
+  body: string
+  /** Portfolio/SEO-friendly expertise tags. */
+  tags: string[]
+  /** Optional disclosure, redaction, or historical-context note. */
   note?: string
+  /** Highlights selected work in the UI. */
+  featured?: boolean
   /** CTA label when href is present. */
   sampleLabel?: string
 }
