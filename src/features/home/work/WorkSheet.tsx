@@ -164,6 +164,25 @@ function CaseStudies({ items }: { items: WorkItem[] }) {
               <div className="sh__case-expanded">
                 <p className="sh__case-body">{cs.body}</p>
 
+                {cs.samples?.length ? (
+                  <div className="sh__sample-area">
+                    <span className="sh__sample-label">Work sample</span>
+                    <div className="sh__sample-links">
+                      {cs.samples.map((sample) => (
+                        <a key={sample.href} className="btn-line sh__sample-link" href={sample.href} target="_blank" rel="noopener">
+                          {sample.label}
+                          <ArrowUpRight size={16} weight="bold" aria-hidden />
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                ) : item.href ? (
+                  <a className="btn-line sh__sample-link" href={item.href} target="_blank" rel="noopener">
+                    {cs.sampleLabel ?? 'View Work Sample'}
+                    <ArrowUpRight size={16} weight="bold" aria-hidden />
+                  </a>
+                ) : null}
+
                 <div className="sh__case-block">
                   <h4>Tags</h4>
                   <ul className="sh__chips" aria-label="Case study tags">
@@ -174,22 +193,6 @@ function CaseStudies({ items }: { items: WorkItem[] }) {
                 </div>
 
                 {cs.note ? <p className="sh__case-note">{cs.note}</p> : null}
-
-                {cs.samples?.length ? (
-                  <div className="sh__sample-links">
-                    {cs.samples.map((sample) => (
-                      <a key={sample.href} className="btn-line sh__sample-link" href={sample.href} target="_blank" rel="noopener">
-                        {sample.label}
-                        <ArrowUpRight size={16} weight="bold" aria-hidden />
-                      </a>
-                    ))}
-                  </div>
-                ) : item.href ? (
-                  <a className="btn-line sh__sample-link" href={item.href} target="_blank" rel="noopener">
-                    {cs.sampleLabel ?? 'View Work Sample'}
-                    <ArrowUpRight size={16} weight="bold" aria-hidden />
-                  </a>
-                ) : null}
               </div>
             </details>
           </li>
