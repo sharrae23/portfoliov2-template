@@ -60,7 +60,6 @@ export const knowledgeBaseSamples: WorkItem[] = [
     name: 'Folder Organization',
     kicker: 'Help center article',
     summary: 'Task-based SaaS documentation for organizing resources and client files into folders.',
-    href: 'https://help.doulado.co/article/142-folder-organization',
     caseStudy: {
       context: 'Users needed a clear walkthrough for creating folders in both the Resource Bank and individual client profiles.',
       contribution: 'Split the workflow by use case, wrote numbered steps, and paired each action with annotated product screenshots.',
@@ -68,7 +67,6 @@ export const knowledgeBaseSamples: WorkItem[] = [
       tools: ['Help Scout', 'Doulado'],
       excerpt: 'Organize resources and client files by creating folders within the template bank and client profiles.',
       note: douladoNote,
-      sampleLabel: 'View live article',
     },
   },
   {
@@ -76,7 +74,6 @@ export const knowledgeBaseSamples: WorkItem[] = [
     name: 'Invoice Installments',
     kicker: 'Help center article',
     summary: 'A billing guide explaining custom installment schedules, retainers, due dates, reminders, visibility, and invoice options.',
-    href: 'https://help.doulado.co/article/137-invoice-installments',
     caseStudy: {
       context: 'The invoice workflow includes several configurable payment-schedule controls that needed to be explained without overwhelming users.',
       contribution: 'Turned the feature into a sequential task guide, separating retainer setup, due dates, recurring installments, visibility, and completion steps.',
@@ -84,7 +81,6 @@ export const knowledgeBaseSamples: WorkItem[] = [
       tools: ['Help Scout', 'Doulado'],
       excerpt: 'Each installment date and amount can be customized individually.',
       note: douladoNote,
-      sampleLabel: 'View live article',
     },
   },
   {
@@ -92,7 +88,6 @@ export const knowledgeBaseSamples: WorkItem[] = [
     name: 'Managing Templates',
     kicker: 'Help center article',
     summary: 'A feature guide for editing, adding, testing, and reverting email or text notification templates.',
-    href: 'https://help.doulado.co/article/393-managing-templates',
     caseStudy: {
       context: 'Business owners needed one reference for the full template lifecycle, from editing existing notifications to testing and reverting changes.',
       contribution: 'Organized the article into four task sections and added a field-reference table for subject lines, reply-to behavior, body content, and variables.',
@@ -100,7 +95,6 @@ export const knowledgeBaseSamples: WorkItem[] = [
       tools: ['Help Scout', 'Doulado'],
       excerpt: 'Business owners can customize templates to better match their branding, communication style, and workflow needs.',
       note: douladoNote,
-      sampleLabel: 'View live article',
     },
   },
   {
@@ -108,7 +102,6 @@ export const knowledgeBaseSamples: WorkItem[] = [
     name: 'March 2026 Release Notes',
     kicker: 'Release notes',
     summary: 'Monthly product documentation covering updates across documents, claims and insurance, admin settings, team capabilities, and bank verification.',
-    href: 'https://help.doulado.co/article/308-march-2026',
     caseStudy: {
       context: 'A broad monthly release introduced changes across several parts of the product and needed to be understandable to non-technical users.',
       contribution: 'Grouped updates by product area, explained what changed and why it mattered, and added screenshots and links to deeper help articles.',
@@ -116,7 +109,6 @@ export const knowledgeBaseSamples: WorkItem[] = [
       tools: ['Help Scout', 'Doulado'],
       excerpt: 'These updates are focused on making everyday tasks smoother and more efficient.',
       note: douladoNote,
-      sampleLabel: 'View live release notes',
     },
   },
   {
@@ -124,7 +116,6 @@ export const knowledgeBaseSamples: WorkItem[] = [
     name: 'Stripe Setup & Settings',
     kicker: 'Payments guide',
     summary: 'A setup guide for connecting Stripe, understanding payment methods, ACH verification, and controlling client payment options.',
-    href: 'https://help.doulado.co/article/424-setup-settings',
     caseStudy: {
       context: 'Payment setup spans onboarding, processing methods, verification, primary methods, and business- or client-level restrictions.',
       contribution: 'Combined setup instructions, a payment-method comparison table, verification guidance, and settings behavior into one reference article.',
@@ -132,7 +123,6 @@ export const knowledgeBaseSamples: WorkItem[] = [
       tools: ['Help Scout', 'Stripe', 'Doulado'],
       excerpt: 'Before accepting payments, complete your payment setup by connecting your Stripe account and configuring your preferred payment methods.',
       note: douladoNote,
-      sampleLabel: 'View live article',
     },
   },
   {
@@ -140,7 +130,6 @@ export const knowledgeBaseSamples: WorkItem[] = [
     name: 'Using the Directory',
     kicker: 'Feature guide',
     summary: 'A guide to creating network profiles, importing team members, and using standard and custom directory filters.',
-    href: 'https://help.doulado.co/article/364-using-the-directory',
     caseStudy: {
       context: 'The Network Directory supports both profile creation and search/filter behavior, so users needed a guide that covered setup and daily use.',
       contribution: 'Separated individual creation, bulk import, filtering, and dynamic custom filters into clear task sections with annotated screenshots.',
@@ -148,7 +137,6 @@ export const knowledgeBaseSamples: WorkItem[] = [
       tools: ['Help Scout', 'Doulado'],
       excerpt: 'The Network Directory allows you to create and manage profiles for your team while keeping everything organized in one place.',
       note: douladoNote,
-      sampleLabel: 'View live article',
     },
   },
   {
@@ -156,7 +144,6 @@ export const knowledgeBaseSamples: WorkItem[] = [
     name: 'Verify Your Bank Account',
     kicker: 'Task guide',
     summary: 'A focused ACH verification guide covering micro-deposits, verification codes, confirmation, and payment-method use.',
-    href: 'https://help.doulado.co/article/248-verifying-bank-transfer-payment-method',
     caseStudy: {
       context: 'Bank verification can follow different paths depending on whether the user receives micro-deposits or a verification code.',
       contribution: 'Explained both verification paths, showed where to complete verification in the profile, and connected the verified method to plan and payment settings.',
@@ -164,7 +151,6 @@ export const knowledgeBaseSamples: WorkItem[] = [
       tools: ['Help Scout', 'Stripe', 'Doulado'],
       excerpt: 'A bank account must be verified before it can be used within Doulado.',
       note: douladoNote,
-      sampleLabel: 'View live article',
     },
   },
 ]
