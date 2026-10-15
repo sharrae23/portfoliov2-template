@@ -70,6 +70,19 @@
   object-fit: contain;
 }
 
+.tl-tool__fallback {
+  display: grid;
+  place-items: center;
+  width: 23px;
+  height: 23px;
+  border-radius: 7px;
+  background: var(--surface-3);
+  color: var(--accent);
+  font-size: 0.67rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
 .tl-groups {
   display: grid;
   gap: 30px;
