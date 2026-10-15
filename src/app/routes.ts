@@ -1,5 +1,5 @@
 import type { Icon } from '@phosphor-icons/react'
-import { Briefcase, ChatText, Envelope, FileText, House, SealCheck, ShieldCheck, Stack, User } from '@phosphor-icons/react'
+import { Briefcase, ChatText, Envelope, FileText, House, SealCheck, ShieldCheck, Stack, User, Wrench } from '@phosphor-icons/react'
 import { workCount } from '@/content/work'
 import { site } from '@/content/site'
 
@@ -107,6 +107,16 @@ export const pages: PageRoute[] = [
     icon: SealCheck,
     group: 'discover',
     section: 'proof',
+  },
+  {
+    kind: 'page',
+    id: 'tools',
+    path: '/tools',
+    label: 'Tools & Systems',
+    title: `Tools & Systems | ${SUFFIX}`,
+    description: 'Tools used across documentation, project tracking, operations support, collaboration, content, and research.',
+    icon: Wrench,
+    group: 'discover',
   },
   {
     kind: 'page',
