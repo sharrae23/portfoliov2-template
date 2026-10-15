@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type MouseEvent, type ReactNode } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router'
-import { ArrowRight, ArrowUpRight, X } from '@phosphor-icons/react'
+import { ArrowRight, ArrowUpRight, FileText, X } from '@phosphor-icons/react'
 import { HeadMeta } from '@/app/PageMeta'
 import { chapterPath, workChapters } from '@/content/home'
 import type { WorkChapter, WorkItem } from '@/content/schema'
@@ -104,7 +104,15 @@ export function WorkSheet({ chapter }: { chapter: WorkChapter | null }) {
 
             <div ref={bodyRef} className="sh__body" onScroll={onBodyScroll}>
               <p className="sh__intro">{shown.description}</p>
-              {shown.lead ? <Single chapter={shown} /> : shown.items.some((item) => item.image) ? <Showcase items={shown.items} /> : <Groups items={shown.items} />}
+              {shown.items.some((item) => item.caseStudy) ? (
+                <CaseStudies items={shown.items} />
+              ) : shown.lead ? (
+                <Single chapter={shown} />
+              ) : shown.items.some((item) => item.image) ? (
+                <Showcase items={shown.items} />
+              ) : (
+                <Groups items={shown.items} />
+              )}
 
               {next && next !== shown ? (
                 <nav className="sh__next" aria-label="More work" data-reveal>
@@ -120,6 +128,72 @@ export function WorkSheet({ chapter }: { chapter: WorkChapter | null }) {
         ) : null}
       </div>
     </dialog>
+  )
+}
+
+function CaseStudies({ items }: { items: WorkItem[] }) {
+  return (
+    <ul className="sh__cases">
+      {items.map((item) => {
+        const cs = item.caseStudy
+        if (!cs) return null
+        return (
+          <li key={item.id} className="sh__case" data-reveal>
+            <div className="sh__case-preview" aria-label={`${item.name} sample preview`}>
+              <span className="wk-count">{item.kicker}</span>
+              <FileText size={34} weight="regular" aria-hidden />
+              {cs.excerpt ? <p>“{cs.excerpt}”</p> : null}
+              {item.href ? (
+                <a className="btn-line sh__sample-link" href={item.href} target="_blank" rel="noopener">
+                  {cs.sampleLabel ?? 'View sample'}
+                  <ArrowUpRight size={16} weight="bold" aria-hidden />
+                </a>
+              ) : (
+                <span className="sh__sample-status">Portfolio case study</span>
+              )}
+            </div>
+
+            <div className="sh__case-copy">
+              <div className="sh__case-head">
+                <span className="wk-count">{item.kicker}</span>
+                <h3>{item.name}</h3>
+                <p>{item.summary}</p>
+              </div>
+
+              <dl className="sh__case-meta">
+                <div>
+                  <dt>Context</dt>
+                  <dd>{cs.context}</dd>
+                </div>
+                <div>
+                  <dt>My contribution</dt>
+                  <dd>{cs.contribution}</dd>
+                </div>
+              </dl>
+
+              <div className="sh__case-block">
+                <h4>What the sample shows</h4>
+                <ul>
+                  {cs.highlights.map((highlight) => (
+                    <li key={highlight}>{highlight}</li>
+                  ))}
+                </ul>
+              </div>
+
+              {cs.tools?.length ? (
+                <ul className="sh__chips" aria-label="Tools and systems">
+                  {cs.tools.map((tool) => (
+                    <li key={tool}>{tool}</li>
+                  ))}
+                </ul>
+              ) : null}
+
+              {cs.note ? <p className="sh__case-note">{cs.note}</p> : null}
+            </div>
+          </li>
+        )
+      })}
+    </ul>
   )
 }
 

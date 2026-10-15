@@ -128,6 +128,23 @@ export type WorkChapter = {
 }
 
 /** One build inside a Work chapter. `href` opens it live in a new tab. */
+export type CaseStudy = {
+  /** Why the work existed or what needed to be made clearer. */
+  context: string
+  /** Mary's role/contribution, stated without invented outcomes. */
+  contribution: string
+  /** Concrete parts visible in the sample. */
+  highlights: string[]
+  /** Tools/systems directly evidenced by the sample. */
+  tools?: string[]
+  /** Short source excerpt used as an in-site sample preview. */
+  excerpt?: string
+  /** Disclosure or redaction note shown with the sample. */
+  note?: string
+  /** CTA label when href is present. */
+  sampleLabel?: string
+}
+
 export type WorkItem = {
   id: string
   name: string
@@ -138,6 +155,7 @@ export type WorkItem = {
   summary: string
   image?: Image
   href?: string
+  caseStudy?: CaseStudy
   /** What it runs on (AI builds). */
   stack?: string
   status?: BuildStatus

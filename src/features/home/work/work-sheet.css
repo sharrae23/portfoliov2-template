@@ -270,6 +270,171 @@ a:hover .sh__name svg {
   object-position: left top;
 }
 
+/* ---------- Structured case studies ---------- */
+
+.sh__cases {
+  display: grid;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh__case {
+  display: grid;
+  gap: 22px;
+  padding: clamp(20px, 3vw, 32px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background: var(--surface);
+  box-shadow: var(--shadow-md);
+}
+
+.sh__case-preview {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  min-height: 230px;
+  padding: clamp(20px, 3vw, 30px);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--surface-3) 70%, var(--surface)), var(--surface-2));
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.sh__case-preview > svg {
+  color: var(--accent);
+}
+
+.sh__case-preview > p {
+  max-width: 34ch;
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(1.04rem, 0.98rem + 0.25vw, 1.22rem);
+  font-weight: 600;
+  line-height: 1.55;
+  letter-spacing: -0.015em;
+}
+
+.sh__sample-link {
+  justify-self: start;
+  margin-top: auto;
+}
+
+.sh__sample-status {
+  align-self: end;
+  width: fit-content;
+  margin-top: auto;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--ink-2);
+  font-size: 0.76rem;
+  font-weight: 650;
+}
+
+.sh__case-copy {
+  display: grid;
+  align-content: start;
+  gap: 20px;
+}
+
+.sh__case-head {
+  display: grid;
+  gap: 7px;
+}
+
+.sh__case-head h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(1.35rem, 1.18rem + 0.55vw, 1.8rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.sh__case-head p,
+.sh__case-meta dd,
+.sh__case-block li,
+.sh__case-note {
+  color: var(--ink-2);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.sh__case-head p {
+  margin: 0;
+}
+
+.sh__case-meta {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+}
+
+.sh__case-meta > div {
+  display: grid;
+  gap: 5px;
+}
+
+.sh__case-meta dt,
+.sh__case-block h4 {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.sh__case-meta dd {
+  margin: 0;
+}
+
+.sh__case-block {
+  display: grid;
+  gap: 8px;
+}
+
+.sh__case-block ul {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.sh__case-block li::marker {
+  color: var(--accent-deep);
+}
+
+.sh__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sh__chips li {
+  padding: 6px 9px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--ink-2);
+  font-size: 0.74rem;
+  font-weight: 650;
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.sh__case-note {
+  margin: 0;
+  padding: 12px 14px;
+  border-left: 3px solid var(--accent-deep);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: color-mix(in srgb, var(--band) 45%, var(--surface));
+  font-size: 0.82rem;
+}
+
 /* Next chapter. */
 .sh__next {
   margin-top: 56px;
@@ -341,5 +506,17 @@ a:hover .sh__name svg {
   .sh__groups {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 48px 40px;
+  }
+  .sh__case {
+    grid-template-columns: minmax(260px, 0.85fr) minmax(0, 1.35fr);
+    gap: 34px;
+  }
+  .sh__case-preview {
+    position: sticky;
+    top: 12px;
+  }
+  .sh__case-meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
   }
 }
