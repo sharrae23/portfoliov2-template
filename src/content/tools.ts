@@ -1,7 +1,8 @@
 import type { ToolMark } from './schema'
 
-const logo = (slug: string) => `https://cdn.simpleicons.org/${slug}`
-const mark = (name: string, slug: string): ToolMark => ({ name, logo: logo(slug) })
+const simpleIcon = (slug: string) => `https://cdn.simpleicons.org/${slug}`
+const mark = (name: string, slug: string): ToolMark => ({ name, logo: simpleIcon(slug) })
+const directMark = (name: string, logo: string): ToolMark => ({ name, logo })
 
 /** Tools Mary has direct working experience with, grouped by how they support client work. */
 export const tools = {
@@ -11,18 +12,18 @@ export const tools = {
   toolD: mark('Airtable', 'airtable'),
   toolE: mark('Jira', 'jira'),
   toolF: mark('Asana', 'asana'),
-  toolG: mark('Monday.com', 'mondaydotcom'),
+  toolG: directMark('Monday.com', 'https://cdn.worldvectorlogo.com/logos/monday-1.svg'),
   toolH: mark('Trello', 'trello'),
-  toolI: mark('Google Workspace', 'googleworkspace'),
-  toolJ: mark('Microsoft 365', 'microsoft365'),
-  toolK: mark('SharePoint', 'microsoftsharepoint'),
-  toolL: mark('Canva', 'canva'),
-  toolM: mark('Slack', 'slack'),
+  toolI: directMark('Google Workspace', 'https://api.iconify.design/logos/google-icon.svg'),
+  toolJ: directMark('Microsoft 365', 'https://api.iconify.design/logos/microsoft-icon.svg'),
+  toolK: directMark('SharePoint', 'https://api.iconify.design/simple-icons/microsoftsharepoint.svg?color=%230078D4'),
+  toolL: directMark('Canva', 'https://api.iconify.design/simple-icons/canva.svg?color=%2300C4CC'),
+  toolM: directMark('Slack', 'https://api.iconify.design/logos/slack.svg'),
   toolN: mark('Calendly', 'calendly'),
   toolO: mark('WordPress', 'wordpress'),
-  toolP: mark('ChatGPT', 'openai'),
+  toolP: directMark('ChatGPT', 'https://api.iconify.design/logos/openai-icon.svg'),
   toolQ: mark('Gemini', 'googlegemini'),
-  toolR: mark('Apify', 'apify'),
+  toolR: directMark('Apify', 'https://api.iconify.design/devicon-plain/apify.svg'),
 } satisfies Record<string, ToolMark>
 
 export const toolsSection = {
