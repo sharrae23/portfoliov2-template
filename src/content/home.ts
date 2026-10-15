@@ -1,6 +1,6 @@
-import type { WorkChapter, WorkItem } from './schema'
+import type { WorkChapter } from './schema'
 import { method } from './method'
-import { caseStudies, featuredProject, processDoc, screens, workCount } from './work'
+import { knowledgeBaseSamples, operationsSamples, sopSamples, workflowSamples, workCount } from './work'
 
 export const homeHero = {
   headlineThin: 'Organize the work.',
@@ -56,54 +56,42 @@ export const workSection = {
   all: { label: `See all work · ${workCount} examples`, to: '/work' },
 }
 
-const systemItems: WorkItem[] = screens.map((s) => ({
-  id: s.id,
-  name: s.name,
-  kicker: s.kicker,
-  summary: s.summary,
-}))
-
 export const workChapters: WorkChapter[] = [
   {
     id: 'featured',
     title: 'SOP & Process Documentation',
     line: 'SOPs, checklists, and process guidance built around how the work actually gets done.',
-    count: 1,
-    unit: 'project',
-    description: featuredProject.summary,
-    items: [],
+    count: sopSamples.length,
+    unit: 'samples',
+    description: 'Operational SOP samples for short-term rental teams, with client-specific details redacted where needed.',
+    items: sopSamples,
   },
   {
     id: 'case-studies',
     title: 'Knowledge Base Management',
     line: 'Internal and client-facing knowledge kept clear, findable, and current.',
-    count: caseStudies.length,
-    unit: 'cases',
-    description: 'Knowledge-base creation, maintenance, document-library tracking, and release documentation across SaaS and enterprise environments.',
-    items: caseStudies.map((study) => ({
-      id: study.id,
-      name: study.title,
-      kicker: 'Case study',
-      summary: study.summary,
-    })),
+    count: knowledgeBaseSamples.length,
+    unit: 'articles',
+    description: 'Published SaaS help content and release documentation. Product screenshots use Doulado test profiles and sample data.',
+    items: knowledgeBaseSamples,
   },
   {
     id: 'screens',
     title: 'Operations & Virtual Assistance',
     line: 'Task tracking, file organization, recurring updates, and day-to-day follow-through.',
-    count: systemItems.length,
-    unit: 'examples',
-    description: 'Examples of request tracking, organized documentation libraries, knowledge systems, and recurring updates that support day-to-day operations.',
-    items: systemItems,
+    count: operationsSamples.length,
+    unit: 'case study',
+    description: 'Behind-the-scenes documentation operations: tracking content, relationships, publication status, and maintenance work.',
+    items: operationsSamples,
   },
   {
     id: 'process',
     title: 'Document Control & Workflow Support',
     line: 'Requests, reviews, approvals, versions, and handoffs kept visible and moving.',
-    count: 1,
-    unit: 'workflow',
-    description: processDoc.summary,
-    items: [],
+    count: workflowSamples.length,
+    unit: 'examples',
+    description: 'Information architecture and documentation workflows that make requests, coverage, reviews, and handoffs easier to follow.',
+    items: workflowSamples,
   },
 ]
 
