@@ -175,7 +175,16 @@ function CaseStudies({ items }: { items: WorkItem[] }) {
 
                 {cs.note ? <p className="sh__case-note">{cs.note}</p> : null}
 
-                {item.href ? (
+                {cs.samples?.length ? (
+                  <div className="sh__sample-links">
+                    {cs.samples.map((sample) => (
+                      <a key={sample.href} className="btn-line sh__sample-link" href={sample.href} target="_blank" rel="noopener">
+                        {sample.label}
+                        <ArrowUpRight size={16} weight="bold" aria-hidden />
+                      </a>
+                    ))}
+                  </div>
+                ) : item.href ? (
                   <a className="btn-line sh__sample-link" href={item.href} target="_blank" rel="noopener">
                     {cs.sampleLabel ?? 'View Work Sample'}
                     <ArrowUpRight size={16} weight="bold" aria-hidden />
