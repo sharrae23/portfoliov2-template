@@ -46,31 +46,9 @@ export const sopSamples: WorkItem[] = [
       samples: [workSample('Scheduler SOP.pdf')],
     },
   },
-  {
-    id: 'general-cleaning-standards',
-    name: 'General Cleaning Standards Guide',
-    kicker: 'SOP & Process Documentation',
-    summary: 'A visual housekeeping SOP designed as a practical room-by-room field reference.',
-    caseStudy: {
-      body: 'Designed a visual housekeeping SOP that turns general cleaning expectations into a practical field reference. I structured the guide around a simple Review → Clean → Check → Complete process, then organized requirements by area with checklists, presentation standards, restocking guidance, “What Good Looks Like” callouts, and a final property walkthrough.',
-      tags: ['Visual SOP', 'Training Documentation', 'Technical Writing', 'Housekeeping Standards', 'Instructional Content'],
-      featured: true,
-    },
-  },
 ]
 
 export const knowledgeBaseSamples: WorkItem[] = [
-  {
-    id: 'data-sharing',
-    name: 'Data Sharing Feature Guide',
-    kicker: 'Knowledge Base Management',
-    summary: 'A concise SaaS feature guide explaining data sharing between connected organizations and teams.',
-    caseStudy: {
-      body: 'Created a concise SaaS knowledge-base article explaining how organizations can connect with another business or team and share selected content and data. The article introduces the feature’s purpose, summarizes what users can do with it, and shows where the related settings can be found within the product.',
-      tags: ['Knowledge Base', 'SaaS Documentation', 'Feature Documentation', 'Technical Writing', 'Help Center'],
-      note: douladoNote,
-    },
-  },
   {
     id: 'folder-organization',
     name: 'Folder Organization Help Guide',
