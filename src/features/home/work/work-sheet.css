@@ -410,6 +410,23 @@ a:hover .sh__name svg {
   font-size: 0.82rem;
 }
 
+.sh__sample-area {
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--band) 34%, var(--surface));
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.sh__sample-label {
+  color: var(--ink-3);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
 .sh__sample-links {
   display: flex;
   flex-wrap: wrap;
