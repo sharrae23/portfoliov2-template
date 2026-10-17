@@ -330,3 +330,85 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* ---------- Resume shortcuts ---------- */
+
+.ct-resumes {
+  display: grid;
+  gap: 18px;
+  margin-top: clamp(34px, 5vh, 50px);
+}
+
+.ct-resumes__head {
+  display: grid;
+  gap: 6px;
+}
+
+.ct-resumes__head h2 {
+  margin: 0;
+  font-size: clamp(1.25rem, 1.08rem + 0.5vw, 1.6rem);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.ct-resumes__head > p:last-child {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.ct-resumes__grid {
+  display: grid;
+  gap: 12px;
+}
+
+.ct-resume-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.ct-resume-card:hover {
+  border-color: var(--accent);
+}
+
+.ct-resume-card__icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  color: var(--accent-ink);
+}
+
+.ct-resume-card strong,
+.ct-resume-card small {
+  display: block;
+}
+
+.ct-resume-card strong {
+  color: var(--ink);
+  font-size: 0.92rem;
+  line-height: 1.35;
+}
+
+.ct-resume-card small {
+  margin-top: 3px;
+  color: var(--ink-2);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+@container (min-width: 700px) {
+  .ct-resumes__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
