@@ -1,4 +1,4 @@
-import { CaretDown, EnvelopeSimple } from '@phosphor-icons/react'
+import { ArrowRight, CaretDown, EnvelopeSimple, FileText } from '@phosphor-icons/react'
 import { PageMeta } from '@/app/PageMeta'
 import type { PageRoute } from '@/app/routes'
 import { PageHeader } from '@/components/page/PageHeader'
@@ -6,11 +6,39 @@ import { SocialLinks } from '@/components/brand/SocialLinks'
 import { contactPage as c } from '@/content/contact'
 import { allFaqs } from '@/content/faqs'
 import { mailtoHref, site } from '@/content/site'
+import { resumes } from '@/content/resumes'
 import { contactJsonLd } from '@/lib/seo'
 import { ContactForm } from './ContactForm'
 import './contact.css'
 
 const pad2 = (n: number) => String(n).padStart(2, '0')
+
+function ResumeLinks() {
+  return (
+    <section className="ct-resumes" aria-labelledby="ct-resumes-title">
+      <div className="ct-resumes__head">
+        <p className="pg-mono">Resumes</p>
+        <h2 id="ct-resumes-title">Need the role-specific version?</h2>
+        <p>Choose the resume that best matches the support you are hiring for.</p>
+      </div>
+      <div className="ct-resumes__grid">
+        {resumes.map((resume) => (
+          <a key={resume.id} className="ct-resume-card" href={`/resumes#${resume.id}`}>
+            <span className="ct-resume-card__icon">
+              <FileText size={22} weight="regular" aria-hidden />
+            </span>
+            <span>
+              <strong>{resume.title}</strong>
+              <small>{resume.subtitle}</small>
+            </span>
+            <ArrowRight size={18} weight="bold" aria-hidden />
+          </a>
+        ))}
+      </div>
+    </section>
+  )
+}
+
 
 /** The answers plate beside the form. Nested = inside a Home section, so every heading steps down one level. */
 function ContactSheet({ nested }: { nested: boolean }) {
@@ -65,6 +93,7 @@ export function ContactPage({ page }: { page: PageRoute }) {
       <PageMeta page={page} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: contactJsonLd({ path: page.path, title: page.title, description: page.description, faq: allFaqs }) }} />
       <PageHeader eyebrow={c.eyebrow} titleThin={c.titleThin} titleBold={c.titleBold} lede={c.lede} />
+      <ResumeLinks />
       <ContactSheet nested={false} />
     </div>
   )
@@ -75,6 +104,7 @@ export function ContactSection() {
   return (
     <section id="contact" className="pg pg--section ct" aria-labelledby="contact-title">
       <PageHeader level={2} id="contact-title" eyebrow={c.eyebrow} titleThin={c.titleThin} titleBold={c.titleBold} lede={c.lede} />
+      <ResumeLinks />
       <ContactSheet nested />
     </section>
   )
