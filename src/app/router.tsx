@@ -8,6 +8,7 @@ import { ProofPage } from '@/features/proof/ProofPage'
 import { TestimonialsPage } from '@/features/testimonials/TestimonialsPage'
 import { ToolsPage } from '@/features/tools/ToolsSection'
 import { ResumesPage } from '@/features/resumes/ResumesPage'
+import { ServiceWorkflowPage } from '@/features/service-workflow/ServiceWorkflowPage'
 import { AppShell } from './AppShell'
 import { RouteStage } from './RouteStage'
 import { notFoundTitle, pages, type PageRoute } from './routes'
@@ -20,6 +21,7 @@ const PAGE_COMPONENTS: Partial<Record<string, ComponentType<{ page: PageRoute }>
   proof: ProofPage,
   tools: ToolsPage,
   resumes: ResumesPage,
+  'service-workflow': ServiceWorkflowPage,
   contact: ContactPage,
   privacy: LegalPage,
   terms: LegalPage,

@@ -1,5 +1,5 @@
 import type { Icon } from '@phosphor-icons/react'
-import { Briefcase, ChatText, Envelope, FileText, House, SealCheck, ShieldCheck, Stack, User, Wrench, IdentificationCard } from '@phosphor-icons/react'
+import { ArrowsClockwise, Briefcase, ChatText, Envelope, FileText, House, SealCheck, ShieldCheck, Stack, User, Wrench, IdentificationCard } from '@phosphor-icons/react'
 import { workCount } from '@/content/work'
 import { site } from '@/content/site'
 
@@ -84,6 +84,16 @@ export const pages: PageRoute[] = [
     icon: Stack,
     group: 'menu',
     section: 'services',
+  },
+  {
+    kind: 'page',
+    id: 'service-workflow',
+    path: '/service-workflow',
+    label: 'Service Workflow',
+    title: `Service Workflow | ${SUFFIX}`,
+    description: 'See how virtual assistance, operations support, and documentation work move from request through delivery, follow-through, and maintenance.',
+    icon: ArrowsClockwise,
+    group: 'menu',
   },
   {
     kind: 'page',
