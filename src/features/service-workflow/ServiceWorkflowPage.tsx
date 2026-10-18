@@ -137,16 +137,12 @@ function WorkflowPanel({ workflow }: { workflow: ServiceWorkflow }) {
   )
 }
 
-export function ServiceWorkflowPage({ page }: { page: PageRoute }) {
-  const c = serviceWorkflowPage
+function ServiceWorkflowBody() {
   const [active, setActive] = useState<ServiceWorkflow['id']>('operations')
   const workflow = serviceWorkflows.find((item) => item.id === active) ?? serviceWorkflows[0]!
 
   return (
-    <div className="pg sw">
-      <PageMeta page={page} />
-      <PageHeader eyebrow={c.eyebrow} titleThin={c.titleThin} titleBold={c.titleBold} lede={c.lede} />
-
+    <>
       <div className="sw-tabs" role="tablist" aria-label="Service workflows">
         {serviceWorkflows.map((item) => (
           <button
@@ -170,6 +166,36 @@ export function ServiceWorkflowPage({ page }: { page: PageRoute }) {
       >
         <WorkflowPanel key={workflow.id} workflow={workflow} />
       </div>
+    </>
+  )
+}
+
+export function ServiceWorkflowPage({ page }: { page: PageRoute }) {
+  const c = serviceWorkflowPage
+
+  return (
+    <div className="pg sw">
+      <PageMeta page={page} />
+      <PageHeader eyebrow={c.eyebrow} titleThin={c.titleThin} titleBold={c.titleBold} lede={c.lede} />
+      <ServiceWorkflowBody />
     </div>
+  )
+}
+
+export function ServiceWorkflowSection() {
+  const c = serviceWorkflowPage
+
+  return (
+    <section id="service-workflow" className="pg pg--section sw" aria-labelledby="service-workflow-title">
+      <PageHeader
+        level={2}
+        id="service-workflow-title"
+        eyebrow={c.eyebrow}
+        titleThin={c.titleThin}
+        titleBold={c.titleBold}
+        lede={c.lede}
+      />
+      <ServiceWorkflowBody />
+    </section>
   )
 }

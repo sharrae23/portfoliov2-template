@@ -94,6 +94,7 @@ export const pages: PageRoute[] = [
     description: 'See how virtual assistance, operations support, and documentation work move from request through delivery, follow-through, and maintenance.',
     icon: ArrowsClockwise,
     group: 'menu',
+    section: 'service-workflow',
   },
   {
     kind: 'page',
