@@ -1,6 +1,6 @@
 import type { Icon } from '@phosphor-icons/react'
 import {
-  ArchiveBox,
+  Archive,
   CheckCircle,
   CheckSquare,
   ClipboardText,
@@ -137,7 +137,7 @@ export const serviceWorkflows: ServiceWorkflow[] = [
         title: 'Archive / Close',
         tag: 'Keep records organized',
         about: 'Completed work is filed or closed cleanly so the workspace stays usable and easy to reference.',
-        icon: ArchiveBox,
+        icon: Archive,
       },
     ],
     loopLabel: 'Update needed',
@@ -232,7 +232,7 @@ export const serviceWorkflows: ServiceWorkflow[] = [
         title: 'Archive',
         tag: 'Retire old content',
         about: 'Outdated or replaced content is retired cleanly so teams do not follow the wrong version.',
-        icon: ArchiveBox,
+        icon: Archive,
       },
     ],
     loopLabel: 'Revision needed',
