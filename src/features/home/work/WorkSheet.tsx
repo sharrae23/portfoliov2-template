@@ -105,7 +105,7 @@ export function WorkSheet({ chapter }: { chapter: WorkChapter | null }) {
             <div ref={bodyRef} className="sh__body" onScroll={onBodyScroll}>
               <p className="sh__intro">{shown.description}</p>
               {shown.items.some((item) => item.caseStudy) ? (
-                <CaseStudies items={shown.items} />
+                <CaseStudies key={shown.id} items={shown.items} chapterId={shown.id} />
               ) : shown.lead ? (
                 <Single chapter={shown} />
               ) : shown.items.some((item) => item.image) ? (
@@ -131,10 +131,52 @@ export function WorkSheet({ chapter }: { chapter: WorkChapter | null }) {
   )
 }
 
-function CaseStudies({ items }: { items: WorkItem[] }) {
+type CaseFilter = { id: string; label: string; itemIds: string[] }
+
+const chapterFilters: Record<string, CaseFilter[]> = {
+  featured: [
+    { id: 'audit', label: 'Operations Audit', itemIds: ['cleaning-operations-audit'] },
+    { id: 'communication', label: 'Communication', itemIds: ['field-team-communication'] },
+    { id: 'scheduling', label: 'Scheduling', itemIds: ['scheduler-sop'] },
+  ],
+  'case-studies': [
+    { id: 'guides', label: 'Help Center Guides', itemIds: ['folder-organization', 'invoice-installments', 'managing-templates', 'stripe-setup-settings', 'network-directory', 'bank-account-verification'] },
+    { id: 'release', label: 'Release Notes', itemIds: ['march-2026-release-notes'] },
+    { id: 'payments', label: 'Billing & Payments', itemIds: ['invoice-installments', 'stripe-setup-settings', 'bank-account-verification'] },
+  ],
+  process: [
+    { id: 'mapping', label: 'Knowledge Base Organization', itemIds: ['notion-knowledge-base-map'] },
+    { id: 'workflow', label: 'Workflow Support', itemIds: ['noc-kb-request-workflow'] },
+  ],
+}
+
+function CaseStudies({ items, chapterId }: { items: WorkItem[]; chapterId: string }) {
+  const [selectedFilter, setSelectedFilter] = useState('all')
+  const availableFilters = chapterFilters[chapterId] ?? []
+  const filter = availableFilters.find((f) => f.id === selectedFilter)
+  const visibleItems = filter ? items.filter((item) => filter.itemIds.includes(item.id)) : items
+
   return (
-    <ul className="sh__cases">
-      {items.map((item) => {
+    <div className="sh__cases-wrap">
+      {availableFilters.length > 0 ? (
+        <div className="sh__filters" role="group" aria-label="Filter work samples">
+          <span>Browse by focus</span>
+          <div className="sh__filters-buttons">
+            {[{ id: 'all', label: 'All samples', itemIds: [] }, ...availableFilters].map((option) => (
+              <button
+                key={option.id}
+                type="button"
+                aria-pressed={selectedFilter === option.id}
+                onClick={() => setSelectedFilter(option.id)}
+              >
+                {option.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      ) : null}
+      <ul className="sh__cases">
+      {visibleItems.map((item) => {
         const cs = item.caseStudy
         if (!cs) return null
 
@@ -198,7 +240,8 @@ function CaseStudies({ items }: { items: WorkItem[] }) {
           </li>
         )
       })}
-    </ul>
+      </ul>
+    </div>
   )
 }
 

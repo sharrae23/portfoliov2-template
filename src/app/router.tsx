@@ -9,7 +9,6 @@ import { TestimonialsPage } from '@/features/testimonials/TestimonialsPage'
 import { ToolsPage } from '@/features/tools/ToolsSection'
 import { ResumesPage } from '@/features/resumes/ResumesPage'
 import { ServiceWorkflowPage } from '@/features/service-workflow/ServiceWorkflowPage'
-import { ProjectHighlightsPreviewPage } from '@/features/project-highlights-preview/ProjectHighlightsPreviewPage'
 import { AppShell } from './AppShell'
 import { RouteStage } from './RouteStage'
 import { notFoundTitle, pages, type PageRoute } from './routes'
@@ -23,7 +22,6 @@ const PAGE_COMPONENTS: Partial<Record<string, ComponentType<{ page: PageRoute }>
   tools: ToolsPage,
   resumes: ResumesPage,
   'service-workflow': ServiceWorkflowPage,
-  'project-highlights-preview': ProjectHighlightsPreviewPage,
   contact: ContactPage,
   privacy: LegalPage,
   terms: LegalPage,

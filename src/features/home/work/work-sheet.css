@@ -518,3 +518,46 @@ a:hover .sh__name svg {
   }
 
 }
+
+/* Service-focused filters for the four Project Highlights groups. */
+.sh__cases-wrap {
+  display: grid;
+  gap: 20px;
+}
+.sh__filters {
+  display: grid;
+  gap: 10px;
+}
+.sh__filters > span {
+  color: var(--ink-3);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+.sh__filters-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.sh__filters-buttons button {
+  min-height: 42px;
+  padding: 10px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 0.78rem;
+  line-height: 1.2;
+  transition: background-color 160ms ease, border-color 160ms ease;
+}
+.sh__filters-buttons button:hover {
+  border-color: var(--accent);
+}
+.sh__filters-buttons button[aria-pressed='true'] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  font-weight: 700;
+}

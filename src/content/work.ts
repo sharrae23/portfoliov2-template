@@ -52,7 +52,7 @@ export const knowledgeBaseSamples: WorkItem[] = [
   {
     id: 'folder-organization',
     name: 'Folder Organization Help Guide',
-    kicker: 'Knowledge Base Management',
+    kicker: 'SaaS & Help Center Documentation',
     summary: 'A task-based guide for organizing resources and client files into folders.',
     caseStudy: {
       body: 'Created a task-based help article showing users how to organize resources and client files using folders. I separated the documentation into resource-folder and client-file workflows, then used numbered steps and product screenshots to make each action easy to follow.',
@@ -64,7 +64,7 @@ export const knowledgeBaseSamples: WorkItem[] = [
   {
     id: 'invoice-installments',
     name: 'Invoice Installments User Guide',
-    kicker: 'Knowledge Base Management',
+    kicker: 'SaaS & Help Center Documentation',
     summary: 'A billing guide for creating and managing customized installment schedules.',
     caseStudy: {
       body: 'Documented how users can build customized invoice payment schedules, including retainers, final due dates, recurring installments, reminders, invoice visibility, drafts, client-portal publishing, and related invoice options. I organized several interconnected billing settings into one sequential workflow so users can understand both what to configure and how the settings affect the invoice.',
@@ -76,7 +76,7 @@ export const knowledgeBaseSamples: WorkItem[] = [
   {
     id: 'managing-templates',
     name: 'Managing Templates Guide',
-    kicker: 'Knowledge Base Management',
+    kicker: 'SaaS & Help Center Documentation',
     summary: 'A guide for creating, editing, testing, and reverting notification templates.',
     caseStudy: {
       body: 'Created a complete guide for managing customizable email and text notification templates, covering editing, creating, testing, using dynamic variables, and reverting templates to their defaults. I also included a field-reference section explaining settings such as subject lines, reply-to behavior, message content, and dynamic placeholders.',
@@ -88,7 +88,7 @@ export const knowledgeBaseSamples: WorkItem[] = [
   {
     id: 'march-2026-release-notes',
     name: 'March 2026 Product Release Notes',
-    kicker: 'Knowledge Base Management',
+    kicker: 'SaaS & Help Center Documentation',
     summary: 'Monthly SaaS release notes translating cross-product updates into user-facing documentation.',
     caseStudy: {
       body: 'Created monthly SaaS release notes covering updates across Documents & Forms, Claims & Insurance, administrative settings, payment verification, and team capabilities. I grouped updates by product area, translated software changes into user-facing language, and explained how key updates affected existing workflows.',
@@ -101,7 +101,7 @@ export const knowledgeBaseSamples: WorkItem[] = [
   {
     id: 'stripe-setup-settings',
     name: 'Stripe Setup & Settings Guide',
-    kicker: 'Knowledge Base Management',
+    kicker: 'SaaS & Help Center Documentation',
     summary: 'A central setup reference for Stripe onboarding, payment methods, and ACH settings.',
     caseStudy: {
       body: 'Created a central reference for configuring online payments within a SaaS product, including Stripe onboarding, payment methods, ACH verification, primary payment methods, processing considerations, and client-level payment restrictions. I combined step-by-step setup instructions with reference information so users could understand both the configuration process and how different payment options behave.',
@@ -113,7 +113,7 @@ export const knowledgeBaseSamples: WorkItem[] = [
   {
     id: 'network-directory',
     name: 'Network Directory User Guide',
-    kicker: 'Knowledge Base Management',
+    kicker: 'SaaS & Help Center Documentation',
     summary: 'A user guide for creating profiles, bulk imports, directory search, and custom filters.',
     caseStudy: {
       body: 'Documented how users can create and manage network profiles, add profiles individually or through bulk import, search the directory, and use standard or custom filters. I separated profile creation from filtering and search so users can quickly navigate to the task they need while still understanding how custom fields affect directory behavior.',
@@ -125,7 +125,7 @@ export const knowledgeBaseSamples: WorkItem[] = [
   {
     id: 'bank-account-verification',
     name: 'Bank Account Verification Guide',
-    kicker: 'Knowledge Base Management',
+    kicker: 'SaaS & Help Center Documentation',
     summary: 'A focused ACH verification guide covering verification codes and micro-deposits.',
     caseStudy: {
       body: 'Created a focused ACH verification guide covering two possible verification paths: a six-character code or two micro-deposit amounts. The article guides users from receiving the bank verification information through completing verification in their profile and using the verified payment method afterward.',
@@ -157,7 +157,7 @@ export const workflowSamples: WorkItem[] = [
   {
     id: 'notion-knowledge-base-map',
     name: 'Notion Knowledge Base Map',
-    kicker: 'Document Control & Workflow Support',
+    kicker: 'Knowledge & Document Management',
     summary: 'A content map organizing a SaaS knowledge base into clear parent topics and nested subtopics.',
     caseStudy: {
       body: 'Created a Notion-based content map for organizing a SaaS knowledge base into parent topics and nested subtopics. The structure makes documentation coverage easier to review across areas such as Clients & Workflows, Paperwork & Documents, Billing, Scheduling, Claims & Insurance, Messaging, and Teams while giving each topic a short plain-language description.',
@@ -168,7 +168,7 @@ export const workflowSamples: WorkItem[] = [
   {
     id: 'noc-kb-request-workflow',
     name: 'NOC Knowledge Base Request Workflow',
-    kicker: 'Document Control & Workflow Support',
+    kicker: 'Knowledge & Document Management',
     summary: 'An internal Monday.com workflow for knowledge-base intake, request types, tracking, review, and approval.',
     caseStudy: {
       body: 'Created internal process documentation for managing NOC knowledge-base requests through Monday.com. The guide combines a visual workflow with instructions for requesting access, entering the workspace, submitting documentation requests, selecting request types such as Create, Update, Deprecate, Combine, or Identify and Update KBs, tracking request status, and routing completed drafts through reviewer approval.',
