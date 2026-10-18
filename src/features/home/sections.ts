@@ -1,7 +1,6 @@
 import type { ComponentType } from 'react'
 import { AboutSection } from './about/AboutSection'
 import { HeroSection } from './hero/HeroSection'
-import { AutomationSection } from './automation/AutomationSection'
 import { ManifestoSection } from './manifesto/ManifestoSection'
 import { ServicesSection } from './services/ServicesSection'
 import { WorkSection } from './work/WorkSection'
@@ -21,7 +20,6 @@ export const homeSectionList: HomeSection[] = [
   { id: 'hero', Component: HeroSection },
   { id: 'testimonials', Component: TestimonialsSection },
   { id: 'manifesto', Component: ManifestoSection },
-  { id: 'automation', Component: AutomationSection },
   { id: 'work', Component: WorkSection },
   { id: 'services', Component: ServicesSection },
   { id: 'about', Component: AboutSection },
