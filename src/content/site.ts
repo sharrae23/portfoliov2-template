@@ -13,7 +13,7 @@ export const site = {
     headerLight: '/images/brand/mark-96.webp',
     headerDark: '/images/brand/mark-light-96.webp',
   },
-  url: 'https://sharra-portfolio-v2.netlify.app',
+  url: 'https://marysharra-portfolio.netlify.app',
   role: 'Documentation + Operations Support',
   email: 'bmarysharra@gmail.com',
   emailSubject: 'Project inquiry',
