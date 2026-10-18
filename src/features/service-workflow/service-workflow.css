@@ -1,4 +1,5 @@
 .sw {
+  max-width: 1440px;
   overflow: clip;
 }
 
@@ -120,6 +121,7 @@
 }
 
 .sw-board {
+  width: 100%;
   min-width: 0;
   padding: clamp(18px, 2.5vw, 28px);
   border: 1px solid var(--line);
@@ -373,13 +375,7 @@
   text-transform: uppercase;
 }
 
-@media (min-width: 1024px) {
-  .sw-layout {
-    grid-template-columns: minmax(165px, 190px) minmax(0, 1fr);
-    align-items: start;
-    gap: clamp(22px, 2.3vw, 34px);
-  }
-
+@media (min-width: 900px) {
   .sw-primary[data-count='6'] {
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
@@ -410,11 +406,46 @@
   }
 
   .sw-board {
-    padding: 20px clamp(18px, 2vw, 24px) 16px;
+    padding: 22px clamp(20px, 2.2vw, 30px) 18px;
   }
 }
 
-@media (max-width: 1023px) {
+@media (min-width: 1320px) {
+  .sw-layout {
+    grid-template-columns: minmax(145px, 165px) minmax(0, 1fr);
+    align-items: start;
+    gap: clamp(20px, 2vw, 30px);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1319px) {
+  .sw-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sw-rail {
+    padding: 16px 0 0;
+  }
+
+  .sw-rail__rule {
+    inset: 0 0 auto;
+    width: 100%;
+    height: 1px;
+  }
+
+  .sw-rail ol {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .sw-rail > p {
+    min-height: 0;
+    max-width: 68ch;
+    margin-top: 14px;
+  }
+}
+
+@media (max-width: 899px) {
   .sw-primary,
   .sw-secondary {
     grid-template-columns: repeat(2, minmax(0, 1fr));
