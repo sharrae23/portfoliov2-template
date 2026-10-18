@@ -86,9 +86,32 @@
   font-weight: 400;
 }
 
-.hero__cta {
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
   margin-top: 40px;
+}
+
+.hero__cta {
+  margin-top: 0;
   animation: hero-rise var(--dur-slow) var(--ease-spring) 260ms both;
+}
+
+.hero__cta--secondary {
+  background: var(--surface);
+}
+
+@media (max-width: 560px) {
+  .hero__actions {
+    width: min(100%, 360px);
+  }
+
+  .hero__actions .hero__cta {
+    justify-content: center;
+    width: 100%;
+  }
 }
 
 /* Starts at 0.1, not 0: Chrome never counts a fully transparent first paint as the Largest Contentful
