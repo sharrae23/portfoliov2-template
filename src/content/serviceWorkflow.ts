@@ -35,6 +35,7 @@ export type ServiceWorkflow = {
   legend: [string, string]
   steps: { name: string; body: string }[]
   primary: WorkflowNode[]
+  endState?: WorkflowNode
   secondary: WorkflowNode[]
   loopLabel: string
   secondaryLabel: string
@@ -107,13 +108,13 @@ export const serviceWorkflows: ServiceWorkflow[] = [
         about: 'I check the deliverable against the request and flag anything that still needs confirmation.',
         icon: UserFocus,
       },
-      {
-        title: 'Complete',
-        tag: 'Deliver or hand off',
-        about: 'The finished work is delivered, handed off, or marked complete with the relevant notes attached.',
-        icon: CheckCircle,
-      },
     ],
+    endState: {
+      title: 'Complete',
+      tag: 'Deliver or hand off',
+      about: 'The finished work is delivered, handed off, or marked complete with the relevant notes attached.',
+      icon: CheckCircle,
+    },
     secondary: [
       {
         title: 'Pending Input',
@@ -202,14 +203,14 @@ export const serviceWorkflows: ServiceWorkflow[] = [
         about: 'Feedback is incorporated and the content is prepared for approval or publication.',
         icon: ClipboardText,
       },
+    ],
+    secondary: [
       {
         title: 'Approval',
         tag: 'Ready to publish',
         about: 'The final version is approved according to the team or document-control workflow.',
         icon: SealCheck,
       },
-    ],
-    secondary: [
       {
         title: 'Published',
         tag: 'Available to the team',
