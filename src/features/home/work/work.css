@@ -58,8 +58,8 @@
   grid-template-columns: repeat(12, minmax(0, 1fr));
   grid-template-rows: repeat(2, clamp(240px, 23cqi, 320px));
   grid-template-areas:
-    'tic tic tic tic tic tic fw  fw  fw  fw  fw  fw'
-    'aut aut aut aut aut aut bp  bp  bp  bp  bp  bp';
+    'aut aut aut aut aut aut tic tic tic tic tic tic'
+    'fw  fw  fw  fw  fw  fw  bp  bp  bp  bp  bp  bp';
   gap: 12px;
   margin: 0;
   padding: 0;
@@ -172,9 +172,9 @@
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: repeat(4, 210px);
     grid-template-areas:
+      'aut'
       'tic'
       'fw'
-      'aut'
       'bp';
     gap: 10px;
   }
