@@ -35,20 +35,34 @@ export function HeroSection() {
           <span className="hero__sub-rest">{homeHero.subheadRest}</span>
         </p>
 
-        {/* Glides Home to the Contact section (a same-path link, so Lenis keeps its glide). */}
-        <Link
-          to={homeHero.cta.to}
-          className="hero__cta btn-line"
-          onClick={(event) => {
-            // A new-tab click (Ctrl / Cmd / middle) keeps the link's own behaviour.
-            if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey) return
-            event.preventDefault()
-            scrollToSection('contact')
-          }}
-        >
-          {homeHero.cta.label}
-          <ArrowUpRight size={16} weight="bold" aria-hidden />
-        </Link>
+        <div className="hero__actions">
+          <Link
+            to={homeHero.workCta.to}
+            className="hero__cta btn-line hero__cta--secondary"
+            onClick={(event) => {
+              if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey) return
+              event.preventDefault()
+              scrollToSection('work')
+            }}
+          >
+            {homeHero.workCta.label}
+            <ArrowUpRight size={16} weight="bold" aria-hidden />
+          </Link>
+
+          <Link
+            to={homeHero.cta.to}
+            className="hero__cta btn-line"
+            onClick={(event) => {
+              // A new-tab click (Ctrl / Cmd / middle) keeps the link's own behaviour.
+              if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey) return
+              event.preventDefault()
+              scrollToSection('contact')
+            }}
+          >
+            {homeHero.cta.label}
+            <ArrowUpRight size={16} weight="bold" aria-hidden />
+          </Link>
+        </div>
       </div>
     </section>
   )
