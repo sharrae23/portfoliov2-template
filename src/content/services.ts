@@ -17,7 +17,7 @@ export const servicesSection = {
     'service-2': 'featured',
     'service-3': 'case-studies',
     'service-4': 'process',
-    'service-5': 'side-projects',
+    'service-5': 'case-studies', // Technical manuals: closest published user-guide samples
   } as Record<string, string>,
 }
 
