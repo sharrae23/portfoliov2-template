@@ -8,6 +8,7 @@ export const homeHero = {
   subheadLead: 'Virtual assistance and documentation support',
   subheadRest: 'for growing teams that need clearer workflows, reliable follow-through, and knowledge that does not live in one person’s head.',
   cta: { label: 'Get in touch', to: '/#contact' },
+  workCta: { label: 'View my work samples', to: '/#work' },
 }
 
 export type ManifestoPart = string | { key: string }
