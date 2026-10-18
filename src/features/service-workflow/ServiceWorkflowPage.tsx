@@ -35,6 +35,7 @@ function FlowCard({
 
 function WorkflowPanel({ workflow }: { workflow: ServiceWorkflow }) {
   const [selected, setSelected] = useState<WorkflowNode>(workflow.primary[0]!)
+  const [activeStep, setActiveStep] = useState(0)
 
   return (
     <section className="sw-workflow" aria-labelledby={`sw-${workflow.id}-title`}>
@@ -50,13 +51,15 @@ function WorkflowPanel({ workflow }: { workflow: ServiceWorkflow }) {
           <span className="sw-rail__rule" aria-hidden />
           <ol>
             {workflow.steps.map((step, index) => (
-              <li key={step.name}>
-                <span>{String(index + 1).padStart(2, '0')}</span>
-                <strong>{step.name}</strong>
+              <li key={step.name} data-active={activeStep === index ? '' : undefined}>
+                <button type="button" onClick={() => setActiveStep(index)}>
+                  <span>{String(index + 1).padStart(2, '0')}</span>
+                  <strong>{step.name}</strong>
+                </button>
               </li>
             ))}
           </ol>
-          <p>{workflow.steps.map((step) => step.body).join(' ')}</p>
+          <p key={workflow.steps[activeStep]?.name}>{workflow.steps[activeStep]?.body}</p>
         </aside>
 
         <div className="sw-board">
@@ -73,7 +76,7 @@ function WorkflowPanel({ workflow }: { workflow: ServiceWorkflow }) {
 
           <div className="sw-flow">
             <div className="sw-flow__label">Intake & delivery</div>
-            <div className="sw-primary">
+            <div className="sw-primary" data-count={workflow.primary.length}>
               {workflow.primary.map((node, index) => (
                 <div key={node.title} className="sw-node-wrap">
                   <FlowCard
@@ -86,12 +89,25 @@ function WorkflowPanel({ workflow }: { workflow: ServiceWorkflow }) {
               ))}
             </div>
 
+            {workflow.endState ? (
+              <div className="sw-end-state">
+                <span className="sw-end-state__line" aria-hidden>
+                  <ArrowRight size={20} weight="bold" />
+                </span>
+                <FlowCard
+                  node={workflow.endState}
+                  active={selected.title === workflow.endState.title}
+                  onSelect={() => setSelected(workflow.endState!)}
+                />
+              </div>
+            ) : null}
+
             <div className="sw-loop">
               <span>{workflow.loopLabel}</span>
             </div>
 
             <div className="sw-secondary-wrap">
-              <div className="sw-secondary">
+              <div className="sw-secondary" data-count={workflow.secondary.length}>
                 {workflow.secondary.map((node, index) => (
                   <div key={node.title} className="sw-node-wrap">
                     <FlowCard
