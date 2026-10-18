@@ -281,7 +281,7 @@
   display: grid;
   grid-template-columns: auto minmax(150px, 190px);
   align-items: center;
-  justify-content: end;
+  justify-content: center;
   gap: 10px;
   margin-top: 14px;
 }
