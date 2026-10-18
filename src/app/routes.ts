@@ -73,6 +73,16 @@ export const pages: PageRoute[] = [
     badge: workCount,
     section: 'work',
   },
+  // Hidden comparison page for the three-category Project Highlights experiment.
+  {
+    kind: 'page',
+    id: 'project-highlights-preview',
+    path: '/project-highlights-preview',
+    label: 'Project Highlights Preview',
+    title: `Project Highlights — Layout Preview | ${SUFFIX}`,
+    description: 'An unpublished layout experiment grouping portfolio work into three service categories.',
+    icon: Briefcase,
+  },
   {
     kind: 'page',
     id: 'services',
