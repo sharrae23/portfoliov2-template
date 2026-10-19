@@ -136,7 +136,7 @@ type CaseFilter = { id: string; label: string; itemIds: string[] }
 const chapterFilters: Record<string, CaseFilter[]> = {
   screens: [
     { id: 'research', label: 'Research & Data Entry', itemIds: ['podcast-guest-research'] },
-    { id: 'tracking', label: 'Tracking & Organization', itemIds: ['airtable-document-library'] },
+    { id: 'tracking', label: 'Tracking & Organization', itemIds: ['airtable-document-library', 'jira-project-tracker'] },
   ],
   featured: [
     { id: 'audit', label: 'Operations Audit', itemIds: ['cleaning-operations-audit'] },

@@ -165,6 +165,18 @@ export const knowledgeBaseSamples: WorkItem[] = [
 
 export const operationsSamples: WorkItem[] = [
   {
+    id: 'jira-project-tracker',
+    name: 'Jira Project & Request Tracking',
+    kicker: 'Operations & Virtual Assistance',
+    summary: 'A visual project tracker for organizing documentation requests and monitoring their progress across workflow stages.',
+    caseStudy: {
+      body: 'Used a Jira tracking board to give documentation requests a clear place in the workflow. The board displays work across status stages such as pending, in progress, review, and approval, helping teams see what needs attention, follow up on outstanding requests, and coordinate handoffs between contributors and reviewers.',
+      tags: ['Jira', 'Project Tracking', 'Task Management', 'Workflow Coordination', 'Virtual Assistance', 'Operations Support'],
+      samples: [workSample('Jira Project Management.png', 'View Jira Tracking Board')],
+      note: 'This screenshot also supports the Document Control & Request Tracking case study under Knowledge & Document Management.',
+    },
+  },
+  {
     id: 'airtable-document-library',
     name: 'Airtable Documentation Library',
     kicker: 'Operations & Virtual Assistance',
