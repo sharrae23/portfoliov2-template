@@ -6,7 +6,7 @@ export const workPage = {
   lede: 'Selected SOPs, SaaS help content, documentation systems, and workflow support built from real operating processes.',
 }
 
-const douladoNote =
+const softwareGuideNote =
   'Screenshots were captured in a test environment using test profiles and sample data. No real customer information is displayed.'
 
 const sample = (filename: string) => `/work-samples/${encodeURIComponent(filename)}`
@@ -46,92 +46,119 @@ export const sopSamples: WorkItem[] = [
       samples: [workSample('Scheduler SOP.pdf')],
     },
   },
+  {
+    id: 'surveillance-audit-procedure',
+    name: 'ISO Surveillance Audit Timeline & Procedure',
+    kicker: 'SOP & Process Documentation',
+    summary: 'A procedure detailing audit preparation, documentation reviews, responsibilities, and a month-by-month timeline.',
+    caseStudy: {
+      body: 'Produced a structured procedure for preparing for an ISO 9001:2015 surveillance audit. The document defines responsibilities for leadership, quality management, department heads, and audit staff and walks through documentation reviews, gap checks, internal audits, corrective actions, and management review against a January-to-May schedule.',
+      tags: ['SOP Writing', 'ISO 9001', 'Audit Readiness', 'Process Documentation', 'Timeline Planning'],
+      samples: [workSample('Surveillance Audit Timeline and SOP.pdf')],
+      note: 'Historical internal process sample with some identifying details redacted.',
+    },
+  },
 ]
 
 export const knowledgeBaseSamples: WorkItem[] = [
   {
     id: 'folder-organization',
     name: 'Folder Organization Help Guide',
-    kicker: 'SaaS & Help Center Documentation',
+    kicker: 'Help Center & User Documentation',
     summary: 'A task-based guide for organizing resources and client files into folders.',
     caseStudy: {
       body: 'Created a task-based help article showing users how to organize resources and client files using folders. I separated the documentation into resource-folder and client-file workflows, then used numbered steps and product screenshots to make each action easy to follow.',
       tags: ['Knowledge Base', 'How-To Guide', 'SaaS Documentation', 'Technical Writing', 'User Documentation'],
-      samples: [workSample('Folder Organization - Doulado Knowledge Base.pdf')],
-      note: douladoNote,
+      samples: [workSample('Folder Organization - Help Center Guide.pdf')],
+      note: softwareGuideNote,
     },
   },
   {
     id: 'invoice-installments',
     name: 'Invoice Installments User Guide',
-    kicker: 'SaaS & Help Center Documentation',
+    kicker: 'Help Center & User Documentation',
     summary: 'A billing guide for creating and managing customized installment schedules.',
     caseStudy: {
       body: 'Documented how users can build customized invoice payment schedules, including retainers, final due dates, recurring installments, reminders, invoice visibility, drafts, client-portal publishing, and related invoice options. I organized several interconnected billing settings into one sequential workflow so users can understand both what to configure and how the settings affect the invoice.',
       tags: ['Knowledge Base', 'Billing Documentation', 'SaaS Documentation', 'User Guide', 'Technical Writing'],
-      samples: [workSample('Invoice Installments - Doulado Knowledge Base.pdf')],
-      note: douladoNote,
+      samples: [workSample('Invoice Installments - User Guide.pdf')],
+      note: softwareGuideNote,
     },
   },
   {
     id: 'managing-templates',
     name: 'Managing Templates Guide',
-    kicker: 'SaaS & Help Center Documentation',
+    kicker: 'Help Center & User Documentation',
     summary: 'A guide for creating, editing, testing, and reverting notification templates.',
     caseStudy: {
       body: 'Created a complete guide for managing customizable email and text notification templates, covering editing, creating, testing, using dynamic variables, and reverting templates to their defaults. I also included a field-reference section explaining settings such as subject lines, reply-to behavior, message content, and dynamic placeholders.',
       tags: ['Knowledge Base', 'Feature Documentation', 'SaaS Documentation', 'Technical Writing', 'User Guide'],
-      samples: [workSample('Managing Templates - Doulado Knowledge Base.pdf')],
-      note: douladoNote,
+      samples: [workSample('Managing Templates - Help Center Guide.pdf')],
+      note: softwareGuideNote,
     },
   },
   {
     id: 'march-2026-release-notes',
     name: 'March 2026 Product Release Notes',
-    kicker: 'SaaS & Help Center Documentation',
+    kicker: 'Help Center & User Documentation',
     summary: 'Monthly SaaS release notes translating cross-product updates into user-facing documentation.',
     caseStudy: {
       body: 'Created monthly SaaS release notes covering updates across Documents & Forms, Claims & Insurance, administrative settings, payment verification, and team capabilities. I grouped updates by product area, translated software changes into user-facing language, and explained how key updates affected existing workflows.',
       tags: ['Release Notes', 'Product Documentation', 'SaaS Documentation', 'Technical Writing', 'Software Updates'],
-      samples: [workSample('March 2026 Release Notes - Doulado Knowledge Base.pdf')],
-      note: douladoNote,
+      samples: [workSample('March 2026 - Product Release Notes.pdf')],
+      note: softwareGuideNote,
       featured: true,
     },
   },
   {
     id: 'stripe-setup-settings',
     name: 'Stripe Setup & Settings Guide',
-    kicker: 'SaaS & Help Center Documentation',
+    kicker: 'Help Center & User Documentation',
     summary: 'A central setup reference for Stripe onboarding, payment methods, and ACH settings.',
     caseStudy: {
       body: 'Created a central reference for configuring online payments within a SaaS product, including Stripe onboarding, payment methods, ACH verification, primary payment methods, processing considerations, and client-level payment restrictions. I combined step-by-step setup instructions with reference information so users could understand both the configuration process and how different payment options behave.',
       tags: ['Technical Writing', 'Stripe', 'Payments Documentation', 'SaaS Documentation', 'Setup Guide'],
-      samples: [workSample('Stripe Setup & Settings - Doulado Knowledge Base.pdf')],
-      note: douladoNote,
+      samples: [workSample('Payment Integration Setup - User Guide.pdf')],
+      note: softwareGuideNote,
     },
   },
   {
     id: 'network-directory',
     name: 'Network Directory User Guide',
-    kicker: 'SaaS & Help Center Documentation',
+    kicker: 'Help Center & User Documentation',
     summary: 'A user guide for creating profiles, bulk imports, directory search, and custom filters.',
     caseStudy: {
       body: 'Documented how users can create and manage network profiles, add profiles individually or through bulk import, search the directory, and use standard or custom filters. I separated profile creation from filtering and search so users can quickly navigate to the task they need while still understanding how custom fields affect directory behavior.',
       tags: ['Knowledge Base', 'SaaS Documentation', 'Feature Documentation', 'User Guide', 'Technical Writing'],
-      samples: [workSample('Using the Directory - Doulado Knowledge Base.pdf')],
-      note: douladoNote,
+      samples: [workSample('Network Directory - User Guide.pdf')],
+      note: softwareGuideNote,
     },
   },
   {
     id: 'bank-account-verification',
     name: 'Bank Account Verification Guide',
-    kicker: 'SaaS & Help Center Documentation',
+    kicker: 'Help Center & User Documentation',
     summary: 'A focused ACH verification guide covering verification codes and micro-deposits.',
     caseStudy: {
       body: 'Created a focused ACH verification guide covering two possible verification paths: a six-character code or two micro-deposit amounts. The article guides users from receiving the bank verification information through completing verification in their profile and using the verified payment method afterward.',
       tags: ['Technical Writing', 'ACH', 'Payments Documentation', 'Knowledge Base', 'How-To Guide'],
-      samples: [workSample('Verify Your Bank Account - Doulado Knowledge Base.pdf')],
-      note: douladoNote,
+      samples: [workSample('Bank Account Verification - User Guide.pdf')],
+      note: softwareGuideNote,
+    },
+  },
+  {
+    id: 'knowledge-network-user-guide',
+    name: 'Knowledge Network User Guide & Moderation SOP',
+    kicker: 'Help Center & User Documentation',
+    summary: 'An employee-facing introduction paired with internal instructions for running a Microsoft Teams knowledge-sharing community.',
+    caseStudy: {
+      body: 'Prepared two complementary documents for a professional knowledge-sharing network in Microsoft Teams. The user packet explains how to find discussions, select channels, format questions, follow community etiquette, and seek help. The internal SOP defines channel structure, moderator and SME roles, discussion management, escalation, and capturing validated answers as reusable knowledge.',
+      tags: ['User Documentation', 'Microsoft Teams', 'Onboarding Guide', 'Knowledge Sharing', 'Community Moderation', 'SOP Writing'],
+      samples: [
+        workSample('Client-Facing Knowledge Network Packet.pdf', 'View User Guide'),
+        workSample('Knowledge Network Internal SOP.pdf', 'View Internal Moderation SOP'),
+      ],
+      note: 'Samples represent two audiences in the same project: community members and internal administrators.',
     },
   },
 ]
@@ -149,6 +176,18 @@ export const operationsSamples: WorkItem[] = [
         workSample('Airtable Document Management - 1.png', 'View Work Sample 1'),
         workSample('Airtable Document Management - 2.png', 'View Work Sample 2'),
       ],
+    },
+  },
+  {
+    id: 'podcast-guest-research',
+    name: 'Podcast Guest Research & Data Entry',
+    kicker: 'Operations & Virtual Assistance',
+    summary: 'A structured guest research sheet matching potential podcast interviewees to relevant film-production topics.',
+    caseStudy: {
+      body: 'Compiled a comparison-ready list of potential podcast guests associated with selected film projects. Organized roles, production credits, topic relevance, possible interview angles, public contact routes, and verification notes into a consistent research table to support guest shortlisting and outreach preparation.',
+      tags: ['Virtual Assistance', 'Online Research', 'Data Entry', 'Guest Research', 'Contact Research', 'Spreadsheet Management'],
+      samples: [workSample('Data Entry for Podcast Guest.pdf')],
+      note: 'Research entries include publicly sourced contact information; some credits and outreach channels were flagged for further verification.',
     },
   },
 ]
@@ -175,6 +214,22 @@ export const workflowSamples: WorkItem[] = [
       tags: ['Knowledge Base', 'Documentation Workflow', 'Monday.com', 'Document Control', 'Request Management', 'Technical Writing'],
       samples: [workSample('NOC KB Process.pdf')],
       note: 'Some internal go/ links shown in this historical work sample may no longer function and are included only as part of the original documentation context.',
+    },
+  },
+  {
+    id: 'document-control-workflow-project',
+    name: 'Document Control & Request Tracking',
+    kicker: 'Knowledge & Document Management',
+    summary: 'A coordinated set of document-governance procedures and a Jira board used for tracking documentation work.',
+    caseStudy: {
+      body: 'Documented a quality-management document lifecycle covering document creation, revision, verification, approval, version history, storage, archiving, and Airtable document IDs. Developed a companion template-registration procedure defining ownership, unique IDs, library fields, and annual reviews. The Jira board screenshot illustrates how document requests move from pending and in-progress stages through review, final approval, and completion.',
+      tags: ['Document Control', 'ISO 9001', 'Airtable', 'Jira', 'Version Control', 'Documentation Workflow', 'SOP Writing'],
+      samples: [
+        workSample('Document Management SOP.pdf', 'View Document Management Procedure'),
+        workSample('Document Template SOP.pdf', 'View Template Management Procedure'),
+        workSample('Jira Project Management.png', 'View Jira Tracking Board'),
+      ],
+      note: 'Historical internal documentation and board screenshot with portfolio markings and identifying details redacted where applicable.',
     },
   },
 ]

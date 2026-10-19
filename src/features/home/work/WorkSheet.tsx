@@ -134,19 +134,26 @@ export function WorkSheet({ chapter }: { chapter: WorkChapter | null }) {
 type CaseFilter = { id: string; label: string; itemIds: string[] }
 
 const chapterFilters: Record<string, CaseFilter[]> = {
+  screens: [
+    { id: 'research', label: 'Research & Data Entry', itemIds: ['podcast-guest-research'] },
+    { id: 'tracking', label: 'Tracking & Organization', itemIds: ['airtable-document-library'] },
+  ],
   featured: [
     { id: 'audit', label: 'Operations Audit', itemIds: ['cleaning-operations-audit'] },
     { id: 'communication', label: 'Communication', itemIds: ['field-team-communication'] },
     { id: 'scheduling', label: 'Scheduling', itemIds: ['scheduler-sop'] },
+    { id: 'compliance', label: 'Audit & Compliance', itemIds: ['surveillance-audit-procedure'] },
   ],
   'case-studies': [
     { id: 'guides', label: 'Help Center Guides', itemIds: ['folder-organization', 'invoice-installments', 'managing-templates', 'stripe-setup-settings', 'network-directory', 'bank-account-verification'] },
+    { id: 'onboarding', label: 'User Onboarding', itemIds: ['knowledge-network-user-guide'] },
     { id: 'release', label: 'Release Notes', itemIds: ['march-2026-release-notes'] },
     { id: 'payments', label: 'Billing & Payments', itemIds: ['invoice-installments', 'stripe-setup-settings', 'bank-account-verification'] },
   ],
   process: [
     { id: 'mapping', label: 'Knowledge Base Organization', itemIds: ['notion-knowledge-base-map'] },
-    { id: 'workflow', label: 'Workflow Support', itemIds: ['noc-kb-request-workflow'] },
+    { id: 'workflow', label: 'Workflow Support', itemIds: ['noc-kb-request-workflow', 'document-control-workflow-project'] },
+    { id: 'control', label: 'Document Control', itemIds: ['document-control-workflow-project'] },
   ],
 }
 
