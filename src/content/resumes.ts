@@ -16,6 +16,11 @@ export type ResumeData = {
   selectedExperience?: { label: string; items: string[] }[]
 }
 
+export const resumeDownloads = {
+  'operations-va': '/resumes/Mary-Sharra-Virtual-Assistant-Resume.pdf',
+  'technical-writer': '/resumes/Mary-Sharra-Technical-Writer-Resume.pdf',
+} as const
+
 export const resumePage = {
   eyebrow: 'Resumes',
   titleThin: 'Two ways I can',

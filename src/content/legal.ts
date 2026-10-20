@@ -11,13 +11,13 @@ export type LegalDoc = {
 
 export const privacyPolicy: LegalDoc = {
   title: 'Privacy Policy',
-  updated: 'October 9, 2026',
+  updated: 'October 20, 2026',
   intro: `This policy describes how ${site.url.replace('https://', '')}, the portfolio of ${site.name}, currently handles visitor information. It is provided for transparency and is not legal advice.`,
   sections: [
     {
       heading: 'What this site collects',
       paragraphs: [
-        'The contact form does not submit information to a database on this website. It prepares a message in your own email app so you can choose whether to send it.',
+        'If you submit the contact form, the first name, last name, email address, and message you provide are processed through Netlify Forms for handling your inquiry. Submissions can be reviewed in the site owner’s Netlify dashboard and may be forwarded through configured notification services.',
         `If you send an email to ${site.email}, the message is handled through the relevant email services. You can contact me at the same address if you want to ask about or request deletion of correspondence you sent.`,
       ],
     },
@@ -36,7 +36,7 @@ export const privacyPolicy: LegalDoc = {
     {
       heading: 'Hosting',
       paragraphs: [
-        'The site is hosted on Netlify. Like other hosting providers, Netlify may process technical request information needed to serve and secure the site under its own policies.',
+        'The site is hosted on Netlify, which also handles contact-form submissions, spam protection, and technical request information needed to serve and secure the site under its own policies.',
       ],
     },
     {

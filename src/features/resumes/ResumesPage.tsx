@@ -1,8 +1,8 @@
-import { ArrowRight, FileText } from '@phosphor-icons/react'
+import { ArrowRight, DownloadSimple, FileText } from '@phosphor-icons/react'
 import { PageMeta } from '@/app/PageMeta'
 import type { PageRoute } from '@/app/routes'
 import { PageHeader } from '@/components/page/PageHeader'
-import { resumeCredentials, resumePage, resumes, type ResumeData } from '@/content/resumes'
+import { resumeCredentials, resumeDownloads, resumePage, resumes, type ResumeData } from '@/content/resumes'
 import './resumes.css'
 
 function Skills({ resume }: { resume: ResumeData }) {
@@ -29,10 +29,16 @@ function ResumeArticle({ resume }: { resume: ResumeData }) {
           <h2>{resume.title}</h2>
           <p>{resume.subtitle}</p>
         </div>
-        <a className="btn-line" href="#contact">
-          Contact me
-          <ArrowRight size={16} weight="bold" aria-hidden />
-        </a>
+        <div className="rs-resume__actions">
+          <a className="btn-line" href={resumeDownloads[resume.id]} download>
+            <DownloadSimple size={17} weight="bold" aria-hidden />
+            Download PDF
+          </a>
+          <a className="btn-line" href="/#contact">
+            Contact me
+            <ArrowRight size={16} weight="bold" aria-hidden />
+          </a>
+        </div>
       </header>
 
       <section className="rs-section">
