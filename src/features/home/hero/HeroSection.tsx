@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, type MouseEvent } from 'react'
 import { Link } from 'react-router'
 import { ArrowUpRight } from '@phosphor-icons/react'
 import { homeHero } from '@/content/home'
@@ -11,7 +11,7 @@ export function HeroSection() {
   const ref = useRef<HTMLElement>(null)
   useScrollScene(ref, heroScene)
 
-  const scrollTo = (event: React.MouseEvent<HTMLAnchorElement>, section: string) => {
+  const scrollTo = (event: MouseEvent<HTMLAnchorElement>, section: string) => {
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey) return
     event.preventDefault()
     scrollToSection(section)
