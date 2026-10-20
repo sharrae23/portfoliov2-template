@@ -2,18 +2,13 @@ import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { CheckCircle, Copy, PaperPlaneTilt, WarningCircle } from '@phosphor-icons/react'
 import { contactForm as f } from '@/content/contact'
 import { site } from '@/content/site'
-import { contactMailto, contactText, isCompleteMessage, missingFields, type ContactMessage } from '@/lib/mail'
+import { contactText, isCompleteMessage, missingFields, type ContactMessage } from '@/lib/mail'
 
-type Status = 'idle' | 'error' | 'sent'
+type Status = 'idle' | 'error' | 'submitting' | 'submit-error' | 'sent'
 
 const FIELDS = ['firstName', 'lastName', 'email', 'message'] as const
 
-/**
- * The bottleneck form. No backend yet: a complete message opens the visitor's mail app with it laid
- * out and addressed. The sent panel also gives the address and the message to copy, because a
- * visitor with no mail app set up sees nothing open. An incomplete one marks the fields, focuses the
- * first, and shakes the button.
- */
+/** Netlify Forms submission with accessible errors, spam honeypot, and an email fallback. */
 export function ContactForm({ nested = false }: { nested?: boolean }) {
   const Done = nested ? 'h4' : 'h3'
   const [status, setStatus] = useState<Status>('idle')
@@ -32,8 +27,10 @@ export function ContactForm({ nested = false }: { nested?: boolean }) {
     refocus.current = null
   }, [status])
 
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    if (status === 'submitting') return
+
     const data = new FormData(event.currentTarget)
     const message = Object.fromEntries(FIELDS.map((k) => [k, String(data.get(k) ?? '')])) as ContactMessage
     if (!isCompleteMessage(message)) {
@@ -41,7 +38,6 @@ export function ContactForm({ nested = false }: { nested?: boolean }) {
       setInvalid(missing)
       setStatus('error')
       formRef.current?.querySelector<HTMLElement>(`[name="${missing[0]}"]`)?.focus()
-      // Restart the shake on every failed try without remounting the button (that would drop focus).
       const send = sendRef.current
       if (send) {
         send.classList.remove('is-shaking')
@@ -50,12 +46,29 @@ export function ContactForm({ nested = false }: { nested?: boolean }) {
       }
       return
     }
-    window.open(contactMailto(message), '_self') // window.open (not location) so the E2E check can read the URL
+
     setInvalid([])
-    setSent(message)
-    setCopied(false)
-    refocus.current = 'done'
-    setStatus('sent')
+    setStatus('submitting')
+    try {
+      const payload = new URLSearchParams()
+      payload.set('form-name', 'portfolio-contact')
+      for (const field of FIELDS) payload.set(field, message[field])
+      payload.set('bot-field', String(data.get('bot-field') ?? ''))
+
+      const response = await fetch('/__forms.html', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: payload.toString(),
+      })
+      if (!response.ok) throw new Error('Form submission failed')
+
+      setSent(message)
+      setCopied(false)
+      refocus.current = 'done'
+      setStatus('sent')
+    } catch {
+      setStatus('submit-error')
+    }
   }
 
   const copyMessage = async () => {
@@ -103,7 +116,11 @@ export function ContactForm({ nested = false }: { nested?: boolean }) {
   const field = (name: (typeof FIELDS)[number]) => ({ name, 'aria-invalid': invalid.includes(name) || undefined, 'aria-describedby': invalid.includes(name) ? 'ct-err' : undefined })
 
   return (
-    <form ref={formRef} className="ct-form" noValidate onSubmit={onSubmit}>
+    <form ref={formRef} name="portfolio-contact" method="POST" action="/__forms.html" className="ct-form" noValidate onSubmit={onSubmit}>
+      <input type="hidden" name="form-name" value="portfolio-contact" />
+      <p className="ct-honeypot" aria-hidden="true">
+        <label>Leave this field blank <input type="text" name="bot-field" tabIndex={-1} autoComplete="off" /></label>
+      </p>
       <div className="ct-row2">
         <label className="ct-field">
           <span>{f.first}</span>
@@ -123,14 +140,14 @@ export function ContactForm({ nested = false }: { nested?: boolean }) {
         <textarea {...field('message')} required maxLength={1500} placeholder={f.phMessage} />
       </label>
       <div className="ct-actions">
-        <button ref={sendRef} type="submit" className="ct-send" onAnimationEnd={(e) => e.currentTarget.classList.remove('is-shaking')}>
+        <button ref={sendRef} type="submit" className="ct-send" disabled={status === 'submitting'} onAnimationEnd={(e) => e.currentTarget.classList.remove('is-shaking')}>
           <PaperPlaneTilt size={16} weight="fill" aria-hidden />
-          {f.send}
+          {status === 'submitting' ? f.sending : f.send}
         </button>
-        {status === 'error' ? (
+        {status === 'error' || status === 'submit-error' ? (
           <span id="ct-err" className="ct-err" role="alert">
             <WarningCircle size={16} weight="fill" aria-hidden />
-            {f.error}
+            {status === 'error' ? f.error : f.failed}
           </span>
         ) : (
           <span className="ct-hint">{f.hint}</span>
