@@ -14,7 +14,7 @@ export const contactPage = {
   cardBody: 'Share the workflow, documentation need, or recurring task you want to make clearer. Two or three lines is enough.',
 }
 
-/** The form. Until a backend is wired, Send opens the visitor's own mail app with the message laid out. */
+/** Netlify-hosted form fields and status messages. Visitors can alternatively use the listed email address. */
 export const contactForm = {
   first: 'First name',
   last: 'Last name',
@@ -25,12 +25,13 @@ export const contactForm = {
   phEmail: 'you@yourbusiness.com',
   phMessage: 'What needs documenting or organizing? What are you using today? What would a good result look like?',
   send: 'Send message',
-  hint: 'This form opens your own email app. Nothing is sent to or stored on this site.',
+  hint: 'Submit directly through this secure form. Or email me using the address beside it.',
   error: 'Add your name, a real email, and a short note.',
-  sentTitle: 'Your mail app has it.',
-  sentBody: 'The message is laid out and addressed. Press send there and it is on its way.',
-  // The fallback for a visitor whose browser has no mail app set up.
-  noMailApp: 'No mail app opened? Write to',
+  sentTitle: 'Message received.',
+  sentBody: 'Your inquiry has been submitted. I will get back to you as soon as I can.',
+  failed: 'Your message could not be submitted. Please try again or email me directly.',
+  sending: 'Sending…',
+  noMailApp: 'Prefer email? Write to',
   copy: 'Copy message',
   copied: 'Copied',
   again: 'Write another',
