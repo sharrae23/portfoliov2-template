@@ -184,3 +184,86 @@
     animation: hero-fade 200ms ease both;
   }
 }
+
+/* Client-focused hero actions and a compact proof strip. */
+.hero__foot {
+  width: min(100%, 1100px);
+}
+
+.hero__contact-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 18px;
+  min-height: 38px;
+  font-size: 13px;
+  color: var(--ink-2);
+  text-decoration: none;
+}
+.hero__contact-link span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--accent-ink);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.hero__contact-link:focus-visible,
+.hero__achievement-value--link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+.hero__achievements {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  width: min(100%, 810px);
+  margin: clamp(36px, 5vh, 56px) auto 0;
+  padding: 19px 10px;
+  border-top: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line-strong);
+  animation: hero-rise var(--dur-slow) var(--ease-spring) 310ms both;
+}
+.hero__achievement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 14px;
+}
+.hero__achievement + .hero__achievement {
+  border-left: 1px solid var(--line-strong);
+}
+.hero__achievement-value {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--ink);
+  font-size: clamp(1.2rem, 1.45vw + 0.75rem, 1.75rem);
+  font-weight: 700;
+  line-height: 1.13;
+  text-decoration: none;
+}
+.hero__achievement-value--link:hover {
+  color: var(--accent-ink);
+}
+.hero__achievement-label {
+  max-width: 22ch;
+  color: var(--ink-2);
+  font-size: clamp(0.71rem, 0.6rem + 0.3vw, 0.82rem);
+  line-height: 1.4;
+  text-wrap: balance;
+}
+@media (max-width: 560px) {
+  .hero__achievements { padding: 16px 0; }
+  .hero__achievement { padding: 0 7px; }
+  .hero__achievement-value { font-size: clamp(0.95rem, 3.8vw, 1.2rem); }
+  .hero__achievement-label { font-size: 0.68rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__achievements { animation: none; }
+}
