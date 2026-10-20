@@ -229,21 +229,41 @@ export const workflowSamples: WorkItem[] = [
     },
   },
   {
-    id: 'document-control-workflow-project',
-    name: 'Document Control & Request Tracking',
+    id: 'document-management-procedure',
+    name: 'Document Management Procedure',
     kicker: 'Knowledge & Document Management',
-    summary: 'A coordinated set of document-governance procedures and a Jira board used for tracking documentation work.',
+    summary: 'An ISO-aligned procedure for managing controlled documents from creation through revisions, approvals, distribution, and archiving.',
     caseStudy: {
-      body: 'Documented a quality-management document lifecycle covering document creation, revision, verification, approval, version history, storage, archiving, and Airtable document IDs. Developed a companion template-registration procedure defining ownership, unique IDs, library fields, and annual reviews. The Jira board screenshot illustrates how document requests move from pending and in-progress stages through review, final approval, and completion.',
-      tags: ['Document Control', 'ISO 9001', 'Airtable', 'Jira', 'Version Control', 'Documentation Workflow', 'SOP Writing'],
-      samples: [
-        workSample('Document Management SOP.pdf', 'View Document Management Procedure'),
-        workSample('Document Template SOP.pdf', 'View Template Management Procedure'),
-        workSample('Jira Project Management.png', 'View Jira Tracking Board'),
-      ],
-      note: 'Historical internal documentation and board screenshot with portfolio markings and identifying details redacted where applicable.',
+      body: 'Documented the Quality Management System document lifecycle, covering creation, updates, verification, approval, revision history, expiration, document classification, Airtable-based ID generation, distribution, and storage. The procedure establishes consistent document-control practices so teams can identify current records, track changes, and retire obsolete information.',
+      tags: ['Document Control', 'ISO 9001', 'Technical Writing', 'Document Management', 'Version Control', 'Airtable'],
+      samples: [workSample('Document Management SOP.pdf', 'View Document Management Procedure')],
+      note: 'Historical internal documentation with portfolio markings and identifying details redacted where applicable.',
     },
   },
+  {
+    id: 'document-template-management',
+    name: 'Document Template Management Procedure',
+    kicker: 'Knowledge & Document Management',
+    summary: 'A standardized procedure for registering, tracking, updating, and reviewing reusable document templates.',
+    caseStudy: {
+      body: 'Created a template management procedure covering registration requests, review, unique Template IDs, official storage, and recurring review. The workflow defines process-owner responsibilities and the Technical Writer’s role in tracking approved templates in Airtable, making reusable documents easier to locate and maintain consistently.',
+      tags: ['Template Management', 'Document Control', 'SOP Writing', 'Airtable', 'Document Management', 'ISO 9001'],
+      samples: [workSample('Document Template SOP.pdf', 'View Template Management Procedure')],
+      note: 'Historical internal documentation with portfolio markings and identifying details redacted where applicable.',
+    },
+  },
+  {
+    id: 'jira-documentation-request-board',
+    name: 'Jira Documentation Request Board',
+    kicker: 'Knowledge & Document Management',
+    summary: 'A Jira board showing documentation requests moving through drafting, reviews, final approval, and completion.',
+    caseStudy: {
+      body: 'Used a Jira board to keep documentation requests visible across pending, in-progress, initial-review, final-approval, and completed stages. The board provides an at-a-glance overview of documentation work and supports coordination between process owners, reviewers, and documentation staff.',
+      tags: ['Jira', 'Documentation Workflow', 'Request Tracking', 'Project Coordination', 'Document Control'],
+      samples: [workSample('Jira Project Management.png', 'View Jira Tracking Board')],
+      note: 'Historical tracking-board screenshot marked for portfolio distribution. The same screenshot is also featured under Operations & Virtual Assistance.',
+    },
+  }
 ]
 
 export const workCount =
