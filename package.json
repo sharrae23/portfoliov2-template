@@ -21,7 +21,8 @@
     "check:proof": "node scripts/check-proof.mjs",
     "check:about": "node scripts/check-about.mjs",
     "check:contact": "node scripts/check-contact.mjs",
-    "postbuild": "node scripts/write-version.mjs"
+    "postbuild": "node scripts/write-version.mjs",
+    "prebuild": "node scripts/build-resume-pdfs.mjs"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
