@@ -152,8 +152,8 @@ const chapterFilters: Record<string, CaseFilter[]> = {
   ],
   process: [
     { id: 'mapping', label: 'Knowledge Base Organization', itemIds: ['notion-knowledge-base-map'] },
-    { id: 'workflow', label: 'Workflow Support', itemIds: ['noc-kb-request-workflow', 'document-control-workflow-project'] },
-    { id: 'control', label: 'Document Control', itemIds: ['document-control-workflow-project'] },
+    { id: 'workflow', label: 'Workflow Support', itemIds: ['noc-kb-request-workflow', 'jira-documentation-request-board'] },
+    { id: 'control', label: 'Document Control', itemIds: ['document-management-procedure', 'document-template-management', 'jira-documentation-request-board'] },
   ],
 }
 
