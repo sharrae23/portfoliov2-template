@@ -7,16 +7,15 @@ import { scrollToSection } from '@/lib/motion/smooth-scroll'
 import { heroScene } from './hero-scene'
 import './hero.css'
 
-/**
- * Hero: a thin line over a bold one (Geist 100 / 700), centered and sized to the
- * content column, then a mono sub-head and one call to action. On scroll the two lines part and
- * sink back while the next section rises (hero-scene.ts on desktop, CSS scroll timeline on phones).
- * Each line sits in a `__layer` wrapper: the scroll motion moves the wrapper, the load entrance
- * animates the line, so the two never fight over one transform.
- */
 export function HeroSection() {
   const ref = useRef<HTMLElement>(null)
   useScrollScene(ref, heroScene)
+
+  const scrollTo = (event: React.MouseEvent<HTMLAnchorElement>, section: string) => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey) return
+    event.preventDefault()
+    scrollToSection(section)
+  }
 
   return (
     <section ref={ref} id="top" className="hero" aria-labelledby="hero-title">
@@ -37,31 +36,45 @@ export function HeroSection() {
 
         <div className="hero__actions">
           <Link
-            to={homeHero.workCta.to}
-            className="hero__cta btn-line hero__cta--secondary"
-            onClick={(event) => {
-              if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey) return
-              event.preventDefault()
-              scrollToSection('work')
-            }}
+            to={homeHero.servicesCta.to}
+            className="hero__cta btn-line"
+            onClick={(event) => scrollTo(event, 'services')}
           >
-            {homeHero.workCta.label}
+            {homeHero.servicesCta.label}
             <ArrowUpRight size={16} weight="bold" aria-hidden />
           </Link>
 
           <Link
-            to={homeHero.cta.to}
-            className="hero__cta btn-line"
-            onClick={(event) => {
-              // A new-tab click (Ctrl / Cmd / middle) keeps the link's own behaviour.
-              if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey) return
-              event.preventDefault()
-              scrollToSection('contact')
-            }}
+            to={homeHero.workCta.to}
+            className="hero__cta btn-line hero__cta--secondary"
+            onClick={(event) => scrollTo(event, 'work')}
           >
-            {homeHero.cta.label}
+            {homeHero.workCta.label}
             <ArrowUpRight size={16} weight="bold" aria-hidden />
           </Link>
+        </div>
+
+        <Link
+          to={homeHero.cta.to}
+          className="hero__contact-link"
+          onClick={(event) => scrollTo(event, 'contact')}
+        >
+          Have a project in mind? <span>{homeHero.cta.label} <ArrowUpRight size={13} weight="bold" aria-hidden /></span>
+        </Link>
+
+        <div className="hero__achievements" aria-label="Experience highlights">
+          {homeHero.highlights.map((highlight) => (
+            <div className="hero__achievement" key={highlight.value}>
+              {highlight.url ? (
+                <a href={highlight.url} target="_blank" rel="noopener noreferrer" className="hero__achievement-value hero__achievement-value--link">
+                  {highlight.value} <ArrowUpRight size={16} aria-hidden />
+                </a>
+              ) : (
+                <strong className="hero__achievement-value">{highlight.value}</strong>
+              )}
+              <span className="hero__achievement-label">{highlight.label}</span>
+            </div>
+          ))}
         </div>
       </div>
     </section>
