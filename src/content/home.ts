@@ -5,10 +5,16 @@ import { knowledgeBaseSamples, operationsSamples, sopSamples, workflowSamples, w
 export const homeHero = {
   headlineThin: 'Organize the work.',
   headlineBold: 'Document the process.',
-  subheadLead: 'Virtual assistance and documentation support',
-  subheadRest: 'for growing teams that need clearer workflows, reliable follow-through, and knowledge that does not live in one person’s head.',
+  subheadLead: 'Virtual assistance and operations support, backed by technical writing expertise.',
+  subheadRest: 'I help growing teams manage research, tasks, project trackers, documentation, and recurring workflows—so work stays organized and nothing important gets overlooked.',
   cta: { label: 'Get in touch', to: '/#contact' },
-  workCta: { label: 'View my work samples', to: '/#work' },
+  servicesCta: { label: 'Explore My Services', to: '/#services' },
+  workCta: { label: 'View My Work', to: '/#work' },
+  highlights: [
+    { value: '5+', label: 'Years in technical writing & documentation' },
+    { value: '400+', label: 'Knowledge-base articles managed' },
+    { value: 'Top Rated Plus', label: 'Upwork freelancer', url: 'https://www.upwork.com/freelancers/~018cf61028a8af7c20' },
+  ],
 }
 
 export type ManifestoPart = string | { key: string }
