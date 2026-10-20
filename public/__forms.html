@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Contact form definition</title></head>
+<body>
+  <!-- Build-time declaration: React-rendered forms are not visible to Netlify's deploy parser. -->
+  <form name="portfolio-contact" method="POST" action="/__forms.html"
+        data-netlify="true" data-netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="portfolio-contact">
+    <p><label>Leave this blank <input name="bot-field"></label></p>
+    <p><label>First name <input name="firstName"></label></p>
+    <p><label>Last name <input name="lastName"></label></p>
+    <p><label>Email <input name="email" type="email"></label></p>
+    <p><label>Message <textarea name="message"></textarea></label></p>
+  </form>
+</body>
+</html>
