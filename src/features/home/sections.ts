@@ -19,15 +19,13 @@ export type HomeSection = { id: string; Component: ComponentType }
 
 export const homeSectionList: HomeSection[] = [
   { id: 'hero', Component: HeroSection },
+  { id: 'services', Component: ServicesSection },
+  { id: 'work', Component: WorkSection },
   { id: 'testimonials', Component: TestimonialsSection },
   { id: 'manifesto', Component: ManifestoSection },
-  { id: 'work', Component: WorkSection },
-  { id: 'services', Component: ServicesSection },
   { id: 'service-workflow', Component: ServiceWorkflowSection },
   { id: 'about', Component: AboutSection },
-  // Experience and Contact also keep their own pages; here they run as Home sections.
   { id: 'proof', Component: ProofSection },
   { id: 'tools', Component: ToolsSection },
-  // Contact is the final Home section.
   { id: 'contact', Component: ContactSection },
 ]
