@@ -412,3 +412,20 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* Render the spam-trap field off screen without removing it from Netlify's form payload. */
+.ct-honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+.ct-send:disabled {
+  opacity: 0.65;
+  cursor: progress;
+}
